@@ -1,0 +1,13 @@
+$utility-name: 'u-w';
+
+.px\: {
+    &#{$utility-name} {
+        &-32 {
+            width: 32px !important;
+        }
+
+        &-40 {
+            width: 40px !important;
+        }
+    }
+}

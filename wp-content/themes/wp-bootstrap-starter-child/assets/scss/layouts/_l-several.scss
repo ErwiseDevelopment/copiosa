@@ -1,0 +1,37 @@
+$layout-name: 'l-several';
+
+.#{$layout-name} {
+    &__newsletter {
+        &__title {
+            font-size: 2.875rem;
+
+            @media screen and (min-width: 1600px) {
+                font-size: 3.75rem;
+            }
+
+            @media screen and (max-width: 991px) {
+                font-size: 2rem;
+            }
+        }
+    }
+
+    &__shop {
+        &__title {
+            font-size: 1.25rem;
+
+            @media screen and (min-width: 1600px) {
+                font-size: 1.625rem;
+            }
+        }
+    }
+    
+    &__line {
+        width: calc(100% - 32px);
+        height: 2px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        position: absolute;
+        background-color: #EDE9E5;
+    }
+}

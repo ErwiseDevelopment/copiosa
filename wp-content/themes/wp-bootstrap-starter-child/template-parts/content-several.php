@@ -1,0 +1,255 @@
+<section class="py-5">
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-12 mt-4">
+
+                <div class="row">
+
+                    <div class="col-md-8">
+
+                        <div class="row h-100">
+
+                            <div class="col-lg-6 mb-3 mb-lg-0">
+                                
+                                <a 
+                                class="h-100 d-block"
+                                href="#">
+                                    <img
+                                    class="img-fluid h-100 u-object-fit-cover"
+                                    src="<?php echo get_home_url( null, '/wp-content/uploads/2022/06/banner-irmazelia.png' ) ?>"
+                                    alt="">
+                                </a>
+                            </div>
+
+                            <div class="col-lg-6">
+                                
+                                <a 
+                                class="h-100 d-block"
+                                href="#">
+                                    <img
+                                    class="img-fluid h-100 u-object-fit-cover"
+                                    src="<?php echo get_home_url( null, '/wp-content/uploads/2022/06/banner-irmazelia.png' ) ?>"
+                                    alt="">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 mt-4 mt-md-0">
+
+                        <div class="row">
+
+                            <div class="col-12">
+
+                                <div class="border p-3">
+
+                                    <h6 class="l-several__shop__title u-font-weight-semibold u-color-folk-bold-electric-blue mb-0">
+                                        Mais vendidos <br>
+                                        em nossa loja
+                                    </h6>
+
+                                    <div class="row">
+
+                                        <!-- loop -->
+                                        <?php for( $i = 0; $i < 3; $i++ ) { ?>
+                                            <div class="col-12 my-1">
+
+                                                <div class="row">
+
+                                                    <div class="col-4">
+                                                        <img
+                                                        class="img-fluid"
+                                                        src="<?php echo get_home_url( null, '/wp-content/uploads/2022/06/Prancheta-1-copiar-2-600x600-1.png' ) ?>"
+                                                        alt="">
+                                                    </div>
+
+                                                    <div class="col-8 pl-0">
+                                                        
+                                                        <h6 class="u-font-size-18 xxl:u-font-size-20 u-font-weight-semibold u-color-folk-bold-electric-blue mb-2">
+                                                            Planejamento
+                                                            Espiritual 2022
+                                                        </h6>
+
+                                                        <p class="u-font-size-14 xxl:u-font-size-18 u-font-weight-semibold u-color-folk-golden">
+                                                            R$ 26,90
+                                                        </p>
+                                                    </div>
+
+                                                    <div class="col-12 mt-1">
+
+                                                        <div class="l-several__line"></div>
+
+                                                        <div class="row justify-content-center">
+
+                                                            <div class="col-7 offset-2">
+
+                                                                <a
+                                                                class="w-100 u-box-shadow-pattern d-block u-font-size-12 xxl:u-font-size-16 u-font-weight-bold u-font-family-nunito text-center text-decoration-none u-color-folk-bold-electric-blue hover:u-color-folk-golden u-bg-folk-golden hover:u-bg-folk-squid-ink py-2"
+                                                                href="#">
+                                                                    Comprar
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        <?php } ?>
+                                        <!--- end loop -->
+                                    </div>
+                                </div>
+
+                                <div class="row justify-content-center">
+
+                                    <div class="col-7 mt-3">
+
+                                        <a
+                                        class="w-100 u-box-shadow-pattern d-block u-font-size-15 u-font-weight-bold u-font-family-nunito text-center text-decoration-none u-color-folk-white u-bg-folk-medium-electric-blue hover:u-bg-folk-squid-ink py-2"
+                                        href="#">
+                                            Ver mais
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-8 mt-4">
+
+                        <div class="row h-100">
+
+                            <div class="col-12">
+
+                                <div class="h-100 d-flex flex-column justify-content-center u-bg-folk-squid-ink py-5 px-3 px-md-0">
+
+                                    <div class="row justify-content-center">
+
+                                        <div class="col-md-7">
+
+                                            <h4 class="l-several__newsletter__title u-line-height-100 u-font-weight-bold u-color-folk-white mb-4">
+                                                Inscreva-se em  <br>
+                                                nossa Newsletter!       
+                                            </h4>
+
+                                            <p class="u-font-size-14 xxl:u-font-size-18 u-font-weight-medium u-color-folk-white mb-4">
+                                                Acompanhe tudo o que está acontecendo na <br>
+                                                Copiosa Redenção e receba materiais exclusivos.
+                                            </p>
+
+                                            <form>
+
+                                                <div class="row">
+
+                                                    <div class="col-10 my-2">
+                                                        <input
+                                                        class="w-100 border-0 d-block u-font-size-12 u-font-weight-regular u-font-family-lato p-3"
+                                                        type="text"
+                                                        placeholder="Seu nome">
+                                                    </div>
+
+                                                    <div class="col-10 my-2">
+                                                        <input
+                                                        class="w-100 border-0 d-block u-font-size-12 u-font-weight-regular u-font-family-lato p-3"
+                                                        type="email"
+                                                        placeholder="Seu e-mail">
+                                                    </div>
+
+                                                    <div class="col-6 my-2">
+                                                        <input
+                                                        class="w-100 border-0 d-block u-font-size-20 u-font-weight-bold text-center u-color-folk-bold-electric-blue u-bg-folk-golden py-3"
+                                                        type="submit"
+                                                        value="Enviar">
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 mt-4">
+
+                        <div class="row">
+
+                            <div class="col-12">
+
+                                <div class="border py-4 px-3">
+
+                                    <h6 class="l-several__shop__title u-font-weight-semibold u-color-folk-bold-electric-blue">
+                                        Materiais <br>
+                                        exclusivos
+                                    </h6>
+
+                                    <div class="row">
+
+                                        <!-- loop -->
+                                        <?php for( $i = 0; $i < 3; $i++ ) { ?>
+                                            <div class="col-12 my-3">
+
+                                                <div class="row">
+
+                                                    <div class="col-4">
+                                                        <img
+                                                        class="img-fluid"
+                                                        src="<?php echo get_home_url( null, '/wp-content/uploads/2022/06/mockup.png' ) ?>"
+                                                        alt="">
+                                                    </div>
+
+                                                    <div class="col-8 pl-0">
+                                                        
+                                                        <p class="u-font-size-12 xxl:u-font-size-15 u-font-weight-semibold u-color-folk-golden mb-0">
+                                                            E-book
+                                                        </p>
+
+                                                        <h6 class="u-font-size-18 xxl:u-font-size-19 u-font-weight-semibold u-color-folk-bold-electric-blue mb-2">
+                                                            Oração pessoal
+                                                            Guia para iniciantes
+                                                        </h6>
+                                                    </div>
+
+                                                    <div class="col-12 mt-3">
+
+                                                        <div class="l-several__line"></div>
+
+                                                        <div class="row justify-content-center">
+
+                                                            <div class="col-7 offset-2">
+
+                                                                <a
+                                                                class="w-100 u-box-shadow-pattern d-block u-font-size-12 xxl:u-font-size-16 u-font-weight-bold u-font-family-nunito text-center text-decoration-none u-color-folk-bold-electric-blue hover:u-color-folk-golden u-bg-folk-golden hover:u-bg-folk-squid-ink py-2"
+                                                                href="#">
+                                                                    Comprar
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        <?php } ?>
+                                        <!--- end loop -->
+                                    </div>
+                                </div>
+
+                                <div class="row justify-content-center">
+
+                                    <div class="col-7 mt-3">
+
+                                        <a
+                                        class="w-100 u-box-shadow-pattern d-block u-font-size-15 u-font-weight-bold u-font-family-nunito text-center text-decoration-none u-color-folk-white u-bg-folk-medium-electric-blue hover:u-bg-folk-squid-ink py-2"
+                                        href="#">
+                                            Ver mais
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

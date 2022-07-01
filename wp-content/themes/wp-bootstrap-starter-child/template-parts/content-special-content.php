@@ -1,0 +1,86 @@
+<section class="py-5">
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-12 mb-5">
+
+                <h2 class="c-title-pattern u-font-weight-semibold text-center u-color-folk-squid-ink mb-0 pb-2">
+                    <span class="u-font-size-15 xxl:u-font-size-19 u-font-weight-regular u-font-family-lato u-color-folk-squid-ink">Aprofunde-se com nossos</span> <br>
+                    Conteúdos
+                </h2>
+            </div>
+
+            <div class="col-12">
+
+                <!-- swiper -->
+                <div class="swiper-container js-swiper-special-content">
+
+                    <div class="swiper-wrapper">
+
+                        <!-- slide -->
+                        <?php for( $i = 0; $i < 4; $i++ ) { ?>
+                            <div class="swiper-slide">
+
+                                <a 
+                                class="card border-0 text-decoration-none"
+                                href="#">
+
+                                    <div class="card-img">
+                                        <img
+                                        class="l-special-content__thumbnail img-fluid w-100 u-object-fit-cover"
+                                        src="<?php echo get_home_url( null, '/wp-content/uploads/2022/06/special-content-image.png' ) ?>"
+                                        alt="<?php the_title() ?>">
+                                    </div>
+
+                                    <div class="card-body">
+                                        
+                                        <p class="u-font-size-14 xxl:u-font-size-18 u-font-weight-regular u-font-family-myriad-pro text-center u-color-folk-squid-ink">
+                                            Evangelização
+                                        </p>
+
+                                        <h4 class="l-special-content__title u-font-weight-bold text-center u-color-folk-medium-electric-blue">
+                                            O que Deus quer neste novo ano?
+                                        </h4>
+
+                                        <div class="row justify-content-center">
+
+                                            <div class="col-8 mt-3">
+
+                                                <p
+                                                class="w-100 u-box-shadow-pattern u-font-size-18 u-font-weight-bold u-font-family-nunito text-center text-decoration-none u-color-folk-white u-bg-folk-squid-ink hover:u-bg-folk-golden py-3">
+                                                    Ler mais
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        <?php } ?>
+                        <!-- end slide -->
+                    </div>
+                </div>
+
+                <!-- pagination -->
+                <div class="swiper-pagination swiper-pagination-special-content w-100 js-swiper-pagination-special-content"></div>
+                <!-- end swiper -->
+            </div>
+
+            <div class="col-12">
+
+                <div class="row justify-content-center">
+
+                    <div class="col-8 col-md-3 mt-5">
+
+                        <a
+                        class="w-100 u-box-shadow-pattern d-flex justify-content-center align-items-center u-font-size-18 u-font-weight-bold u-font-family-nunito text-center text-decoration-none u-color-folk-squid-ink hover:u-color-folk-white u-bg-folk-golden hover:u-bg-folk-squid-ink py-3"
+                        href="#">
+                            <span class="u-font-size-22 pr-2">+</span>Conteúdos
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,111 @@
+$layout-name: 'l-navbar';
+
+.#{$layout-name} {
+    .nav-item {
+        margin: 0 .5rem;
+        background-color: $color-folk-light-gray;
+
+        &.dropdown.active {
+            position: unset;
+
+
+            // .dropdown-menu {
+            //     display: flex !important;
+            // }
+        }
+
+        &:hover,
+        &.active {
+            background-color: $color-folk-bold-electric-blue;
+
+            .nav-link {
+                position: relative;
+                color: $color-folk-white !important;
+
+                &::before {
+                    width: 100%;
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+        }
+
+        &.active:hover {
+            .dropdown-menu {
+                display: flex !important;
+            }
+        }
+    }
+
+    .nav-link {
+        padding: 1rem !important;
+        position: relative;
+        font-size: 1.125rem;
+        font-weight: 600;
+        color: $color-folk-bold-electric-blue !important;
+
+        &::before {
+            content: '';
+            width: 0;
+            height: 3px;
+            top: 0;
+            left: 0;
+            transition: all .6s;
+            opacity: 0;
+            visibility: hidden;
+            position: absolute;
+            background-color: $color-folk-golden;
+        }
+
+        &::after {
+            display: none;
+        }
+    }
+
+    .dropdown-menu {
+        width: calc(100% - 16px);
+        margin-top: 0;
+        padding: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        border: 0;
+        border-radius: 0;
+        display: none !important;
+        background-color: $color-folk-bold-electric-blue;
+
+        .nav-item {
+            width: 100%;
+            max-width: 100%;
+            flex-basis: 0;
+            flex-grow: 1;
+            margin: 0;
+            // background-color: $color-folk-bold-electric-blue;
+            background: none;
+
+            &:first-child {
+                .dropdown-item {
+                    position: relative;
+                    font-weight: 700;
+
+                    &::before {
+                        content: '';
+                        width: 46px;
+                        height: 2px;
+                        bottom: 1rem;
+                        left: 1rem;
+                        position: absolute;
+                        background-color: $color-folk-golden;
+                    }
+                }
+            }
+        }
+    }
+
+    .dropdown-item {
+        padding: 1.5rem 1rem;
+        font-size: .875rem;
+        font-weight: 400;
+        color: $color-folk-white !important;
+        background: none !important;
+    }
+}
