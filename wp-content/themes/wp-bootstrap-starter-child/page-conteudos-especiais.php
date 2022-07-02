@@ -47,54 +47,123 @@ get_header(); ?>
         <div class="row justify-content-center">
 
             <!-- loop -->
-            <?php for( $i = 0; $i < 4; $i++ ) { ?>
-                <a 
-                class="col-12 d-block text-decoration-none my-4"
-                href="#">
+            <?php 
+                $args = array(
+                    'posts_per_page' => -1,
+                    'post_type'      => 'post',
+                    'category_name'  => 'conteudos-especiais',
+                    'order'          => 'DESC'
+                );
 
-                    <div class="row">
+                $posts_special_content = new WP_Query( $args );
 
-                        <div class="col-md-5 pr-md-0">
-                            <img
-                            class="img-fluid w-100 h-100 u-object-fit-cover"
-                            src="<?php echo get_home_url( null, '/wp-content/uploads/2022/06/Image.png' ) ?>"
-                            alt="">
-                        </div>
+                if( $posts_special_content->have_posts() ) :
+                    while( $posts_special_content->have_posts() ) : $posts_special_content->the_post();
+            ?>
+                        <a 
+                        class="col-12 d-block text-decoration-none my-4"
+                        href="<?php the_permalink() ?>">
 
-                        <div class="col-md-7 pl-md-0">
-                            
-                            <div class="l-template-blog__box py-4 px-3 px-md-5">
+                            <div class="row">
 
-                                <p class="u-font-size-12 xxl:u-font-size-15 u-font-weight-bold text-uppercase u-color-folk-golden mb-0">
-                                    10 de dezembro de 2021
-                                </p>
+                                <div class="col-md-5 pr-md-0">
+                                    <!-- <img
+                                    class="img-fluid w-100 h-100 u-object-fit-cover"
+                                    src="<php echo get_home_url( null, '/wp-content/uploads/2022/06/Image.png' ) ?>"
+                                    alt=""> -->
 
-                                <p class="u-font-size-12 xxl:u-font-size-15 u-font-weight-bold text-uppercase u-color-folk-bold-electric-blue">
-                                    Evangelização
-                                </p>
+                                    <?php
+                                        $alt_title = get_the_title();
 
-                                <h4 class="l-template-blog__title u-font-weight-bold u-color-folk-dark-grayish-navy">
-                                    O que Deus quer neste
-                                    novo ano?
-                                </h4>
+                                        the_post_thumbnail( 'post-thumbnail',
+                                            array(
+                                                'class' => 'l-special-content__image img-fluid w-100 u-object-fit-cover',
+                                                'alt'   => $alt_title
+                                        ));
+                                    ?>
+                                </div>
 
-                                <p class="u-font-size-14 xxl:u-font-size-18 u-font-weight-regular u-color-folk-aluminium pb-3">
-                                    Aconteceu no dia 07 de dezembro na nossa chácara, 
-                                    no distrito de Uvaia, em Ponta Grossa, a celebração 
-                                    dos Votos Temporários das Irmãs Amanda, Irmã Bruna, 
-                                    Irmã Criciele, Irmã Gabriele, [...]
-                                </p>
+                                <div class="col-md-7 pl-md-0">
+                                    
+                                    <div class="l-template-blog__box py-4 px-3 px-md-5">
 
-                                <p
-                                class="l-template-blog__read-more u-font-weight-medium text-center text-decoration-none u-color-folk-white u-bg-folk-golden hover:u-bg-folk-squid-ink mb-0 py-3 px-5"
-                                href="#">
-                                    Ler mais
-                                </p>
+                                        <p class="u-font-size-12 xxl:u-font-size-15 u-font-weight-bold text-uppercase u-color-folk-golden mb-0">
+                                            <!-- 10 de dezembro de 2021 -->
+                                            <?php echo get_date_format( get_the_date( 'd/m/Y', get_the_ID() ) );?>
+                                        </p>
+
+                                        <p class="u-font-size-12 xxl:u-font-size-15 u-font-weight-bold text-uppercase u-color-folk-bold-electric-blue">
+                                            <!-- Evangelização -->
+                                            <?php
+                                                $cats = array();
+                                                $categories_current = array();
+                                                $count = 0;
+
+                                                foreach (get_the_category($post_id) as $c) {
+                                                    $cat = get_category($c);
+                                                    array_push($cats, $cat->name);
+                                                }
+                                                
+                                                foreach( $cats as $cat ) {
+                                                    foreach( get_categories_highlight() as $editorial ) {
+                                                        if( $cat == $editorial )
+                                                            $editorial_current = $cat;
+                                                    }
+                                                }
+
+                                                foreach( $cats as $cat ) {
+                                                    if( $editorial_current ) {
+                                                        if( $cat != $editorial_current ) {
+                                                            array_push($categories_current, $cat);
+                                                            $count++;
+
+                                                            if( $count == 1 )
+                                                                break;
+                                                        }
+                                                    } else {
+                                                        array_push($categories_current, $cat);
+                                                        $count++;
+
+                                                        if( $count == 3 )
+                                                            break;
+                                                    }
+                                                }
+
+                                                if (sizeOf($categories_current) > 0) {
+                                                    $post_categories = implode(', ', $categories_current);
+                                                } 
+
+                                                echo $editorial_current ? $editorial_current . ', ' . $post_categories : $post_categories;
+                                            ?>
+                                        </p>
+
+                                        <h4 class="l-template-blog__title u-font-weight-bold u-color-folk-dark-grayish-navy">
+                                            <!-- O que Deus quer neste
+                                            novo ano? -->
+                                            <?php the_title() ?>
+                                        </h4>
+
+                                        <span class="d-block u-font-size-14 xxl:u-font-size-18 u-font-weight-regular u-color-folk-aluminium pb-3">
+                                            <!-- Aconteceu no dia 07 de dezembro na nossa chácara, 
+                                            no distrito de Uvaia, em Ponta Grossa, a celebração 
+                                            dos Votos Temporários das Irmãs Amanda, Irmã Bruna, 
+                                            Irmã Criciele, Irmã Gabriele, [...] -->
+                                            <?php echo limit_words( the_content(), 25); ?>
+                                        </span>
+
+                                        <p class="l-template-blog__read-more u-font-weight-medium text-center text-decoration-none u-color-folk-white u-bg-folk-golden hover:u-bg-folk-squid-ink mb-0 py-3 px-5">
+                                            Ler mais
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                </a>
-            <?php } ?>
+                        </a>
+            <?php
+                    endwhile;
+                endif;
+                
+                wp_reset_query();
+            ?>
             <!-- end loop -->
         </div>
     </div>
@@ -185,11 +254,6 @@ get_header(); ?>
 
 </div><!-- #main -->
 </section><!-- #primary -->
-
-<img
-class="img-fluid"
-data-src="<?php echo get_template_directory_uri()?>/../wp-bootstrap-starter-child/assets/images/banner-illustration.png"
-alt="Single Temas">
 
 <?php
 

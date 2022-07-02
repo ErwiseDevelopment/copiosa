@@ -27,6 +27,19 @@ function get_date_format( $date ) {
     return $date_format;
 }
 
+function get_categories_highlight() {
+    $categories = array(
+        'Institucional',
+        'Evangelização',
+        'Recuperação',
+        'Vocacional',
+        'Juventude',
+        'Notícias'
+    );
+
+    return $categories;
+}
+
 function limit_words($string, $word_limit) {  
     $words = explode(' ', $string, ($word_limit + 1));  
 

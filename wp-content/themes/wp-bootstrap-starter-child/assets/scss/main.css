@@ -2026,8 +2026,6 @@ button.swiper-pagination-bullet {
 
 .l-special-content__thumbnail {
   height: 270px !important; }
-.l-special-content__image {
-  height: 380px !important; }
 .l-special-content__title {
   font-size: 1.125rem; }
   @media screen and (min-width: 1600px) {

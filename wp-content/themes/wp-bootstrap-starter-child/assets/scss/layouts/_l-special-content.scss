@@ -4,6 +4,10 @@ $layout-name: 'l-special-content';
     &__thumbnail {
         height: 270px !important;
     }
+
+    &__image {
+        height: 380px !important;
+    }
     
     &__title {
         font-size: 1.125rem;
