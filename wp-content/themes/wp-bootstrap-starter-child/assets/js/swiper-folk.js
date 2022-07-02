@@ -55,8 +55,16 @@ const swiperTestimonialsPhotos = new Swiper( '.js-swiper-testimonials-photos', {
 });
 
 const swiperPartners = new Swiper( '.js-swiper-partners', {
-    slidesPerView: 4,
-    spaceBetween: 30,
+    breakpoints: {
+        320: {
+            slidesPerView: 2,
+            spaceBetween: 30,
+        },
+
+        992: {
+            slidesPerView: 4,
+        }
+    },
 
     autoplay: {
         delay: 6000,

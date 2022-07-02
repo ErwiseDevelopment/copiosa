@@ -53,16 +53,22 @@ get_header(); ?>
                     <div class="swiper-wrapper">
 
                         <!-- slide -->
-                        <?php for( $i = 0; $i < 8; $i++ ) { ?>
-                        <a 
-                        class="swiper-slide"
-                        href="#">
-                            <img
-                            class="img-fluid w-100 h-100 u-object-fit-cover"
-                            src="<?php echo get_home_url( null, '/wp-content/uploads/2022/06/logotipo_oficial_vertical.png' ) ?>"
-                            alt="">
-                        </a>
-                        <?php } ?>
+                        <?php 
+                            if( have_rows( 'parceiros') ) :
+                                while( have_rows( 'parceiros') ) : the_row();
+                        ?>
+                                    <a 
+                                    class="swiper-slide"
+                                    href="<?php echo get_sub_field( null, 'link' ) ?>">
+                                        <img
+                                        class="img-fluid w-100 h-100 u-object-fit-cover"
+                                        src="<?php echo get_sub_field( 'logo' )  ;?>"
+                                        alt="<?php the_title() ?>">
+                                    </a>
+                        <?php 
+                                endwhile;
+                            endif;
+                        ?>
                         <!-- end slide -->
                     </div>
                 </div>
