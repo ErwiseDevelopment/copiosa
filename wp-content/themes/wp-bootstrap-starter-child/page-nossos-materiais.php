@@ -86,24 +86,25 @@ get_header(); ?>
                                     </h6>
 
                                     <ul class="pl-0">
-                                        <?php for( $i = 0; $i < 5; $i++ ) { ?>
-                                            <li class="l-page-news__categories u-list-style-none my-3">
-                                            
-                                                <a 
-                                                class="u-font-size-13 xxl:u-font-size-16 u-font-weight-regular text-decoration-none u-color-folk-aluminium"
-                                                href="#">
-                                                    Institucional
-                                                </a>
+                                        <?php foreach( get_categories_highlight() as $category ) : ?>
+                                                <li class="l-page-news__categories u-list-style-none my-3">
+                                                
+                                                    <a 
+                                                    class="u-font-size-13 xxl:u-font-size-16 u-font-weight-regular text-decoration-none u-color-folk-aluminium"
+                                                    href="<?php echo get_home_url( null, '/noticias/?cat=' . strtolower( $category ) ); ?>">
+                                                        <!-- Institucional -->
+                                                        <?php echo $category; ?>
+                                                    </a>
 
-                                                <span class="l-page-news__categories__circle"></span>
-                                            </li>
-                                        <?php } ?>
+                                                    <span class="l-page-news__categories__circle"></span>
+                                                </li>
+                                        <?php endforeach; ?>
 
                                         <li class="l-page-news__categories u-list-style-none my-3">
                                             
                                             <a 
                                             class="u-font-size-13 xxl:u-font-size-16 u-font-weight-semibold text-decoration-none u-color-folk-bold-electric-blue"
-                                            href="#">
+                                            href="<?php echo get_home_url( null, 'noticias' ); ?>">
                                                 Todas as Notícias
                                             </a>
 
