@@ -45,59 +45,101 @@ get_header(); ?>
 
         <div class="row">
 
-            <div class="col-12">
+            <?php 
+                if( isset( $_GET['cat'] ) ) {
+                    foreach( get_categories() as $category) {
+                        if( $_GET['cat'] == $category->slug )
+                            $category_current = $category->slug; 
+                    }
+                } else {
+                    $category_current = 'noticias';
+                }
+                
+                $args = array(
+                    'posts_per_page' => 1,
+                    'post_type'      => 'post',
+                    'category_name'  => $category_current,
+                    'order'          => 'DESC'
+                );
 
-                <div class="row">
+                $post_news = new WP_Query( $args );
 
-                    <div class="col-lg-8">
-                        <img
-                        class="img-fluid"
-                        src="<?php echo get_home_url( null, '/wp-content/uploads/2022/06/post-highlight-image.png' ) ?>"
-                        alt="Imagem destacada">
-                    </div>
-
-                    <div class="col-lg-4 mt-3 mt-lg-0">
-
-                        <div class="l-post-highlight__box u-box-shadow-pattern u-bg-folk-white p-3 p-lg-5">
-                            
-                            <h2 class="l-post-highlight__title u-font-weight-bold u-color-folk-squid-ink">
-                                Irmãs professam
-                                votos temporários e
-                                perpétuos em festa dos
-                                32 anos da Congregação
-                            </h2>
-
-                            <p class="u-font-size-12 xxl:u-font-size-15 u-font-weight-bold text-uppercase u-color-folk-golden">
-                                10 DE DEZEMBRO DE 2021
-                            </p>
-
-                            <p class="u-font-size-14 xxl:u-font-size-18 u-font-weight-regular u-color-folk-aluminium mt-4">
-                                Aconteceu no dia 07 de dezembro na nossa chácara, 
-                                no distrito de Uvaia, em Ponta Grossa, a celebração 
-                                dos Votos Temporários das Irmãs Amanda, Irmã Bruna, 
-                                Irmã Criciele, Irmã Gabriele, [...]
-                            </p>
+                if( $post_news->have_posts() ) :
+                    while( $post_news->have_posts() ) : $post_news->the_post();
+                        $post_highlight_id = get_the_ID();
+            ?>
+                        <div class="col-12">
 
                             <div class="row">
 
-                                <div class="col-7 mt-3 pt-3">
+                                <div class="col-lg-8">
+                                    <!-- <img
+                                    class="img-fluid"
+                                    src="<php echo get_home_url( null, '/wp-content/uploads/2022/06/post-highlight-image.png' ) ?>"
+                                    alt="Imagem destacada"> -->
 
-                                    <a
-                                    class="w-100 u-box-shadow-pattern d-block u-font-size-18 u-font-weight-bold u-font-family-nunito text-center text-decoration-none u-color-folk-white u-bg-folk-golden hover:u-bg-folk-squid-ink py-3"
-                                    href="#">
-                                        Ler mais
-                                    </a>
+                                    <?php 
+                                        $alt_title = get_the_title();
+
+                                        the_post_thumbnail( 'post-thumbnail',
+                                            array(
+                                                'class' => 'l-post-highlight__thumbnail img-fluid w-100 u-object-fit-cover',
+                                                'alt'   => $alt_title
+                                        ));
+                                    ?>
+                                </div>
+
+                                <div class="col-lg-4 mt-3 mt-lg-0">
+
+                                    <div class="l-post-highlight__box u-box-shadow-pattern u-bg-folk-white p-3 p-lg-5">
+                                        
+                                        <h2 class="l-post-highlight__title u-font-weight-bold u-color-folk-squid-ink">
+                                            <!-- Irmãs professam
+                                            votos temporários e
+                                            perpétuos em festa dos
+                                            32 anos da Congregação -->
+                                            <?php the_title() ?>
+                                        </h2>
+
+                                        <p class="u-font-size-12 xxl:u-font-size-15 u-font-weight-bold text-uppercase u-color-folk-golden">
+                                            <!-- 10 DE DEZEMBRO DE 2021 -->
+                                            <?php echo get_date_format( get_the_date( 'd/m/Y', get_the_ID() ) );?>
+                                        </p>
+
+                                        <span class="d-block u-font-size-14 xxl:u-font-size-18 u-font-weight-regular u-color-folk-aluminium mt-4">
+                                            <!-- Aconteceu no dia 07 de dezembro na nossa chácara, 
+                                            no distrito de Uvaia, em Ponta Grossa, a celebração 
+                                            dos Votos Temporários das Irmãs Amanda, Irmã Bruna, 
+                                            Irmã Criciele, Irmã Gabriele, [...] -->
+                                            <?php echo limit_words( get_the_content(), 40); ?>
+                                        </span>
+
+                                        <div class="row">
+
+                                            <div class="col-7 mt-3 pt-3">
+
+                                                <a
+                                                class="w-100 u-box-shadow-pattern d-block u-font-size-18 u-font-weight-bold u-font-family-nunito text-center text-decoration-none u-color-folk-white u-bg-folk-golden hover:u-bg-folk-squid-ink py-3"
+                                                href="<?php the_permalink() ?>">
+                                                    Ler mais
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
+            <?php
+                    endwhile;
+                endif;
+
+                wp_reset_query();
+            ?>
         </div>
     </div>
 </section>
 
-<section class="my-5 py-md-5">
+<section>
 
     <div class="container">
 
@@ -112,55 +154,127 @@ get_header(); ?>
                         <div class="row">
 
                             <!-- loop -->
-                            <?php for( $i = 0; $i < 6; $i++ ) { ?>
-                                <div class="col-lg-6 my-3">
-                                    <a 
-                                    class="card rounded-0 text-decoration-none"
-                                    href="#">
+                            <?php 
+                                $args = array(
+                                    'posts_per_page' => -1,
+                                    'post_type'      => 'post',
+                                    'category_name'  => $category_current,
+                                    'order'          => 'DESC',
+                                    'post__not_in'   => array( $post_highlight_id )
+                                );
 
-                                        <div class="card-img">
-                                            <img
-                                            class="l-posts__thumbnail img-fluid w-100 u-object-fit-cover"
-                                            src="<?php echo get_home_url( null, '/wp-content/uploads/2022/06/posts-image.png' ) ?>"
-                                            alt="Post image">
-                                        </div>
+                                $posts_news = new WP_Query( $args );
 
-                                        <div class="card-body px-4">
+                                if( $posts_news->have_posts() ) :
+                                    while( $posts_news->have_posts() ) : $posts_news->the_post();
+                            ?>
+                                        <div class="col-lg-6 my-3">
+                                            <a 
+                                            class="card rounded-0 text-decoration-none"
+                                            href="<?php the_permalink() ?>">
 
-                                            <p class="u-font-size-12 xxl:u-font-size-14 u-font-weight-bold u-color-folk-medium-electric-blue mb-0">
-                                                Institucional
-                                            </p>
+                                                <div class="card-img">
+                                                    <!-- <img
+                                                    class="l-posts__thumbnail img-fluid w-100 u-object-fit-cover"
+                                                    src="<php echo get_home_url( null, '/wp-content/uploads/2022/06/posts-image.png' ) ?>"
+                                                    alt="Post image"> -->
 
-                                            <p class="u-font-size-12 xxl:u-font-size-14 u-font-weight-semibold u-color-folk-medium-electric-blue">
-                                                10 de dezembro de 2021
-                                            </p>
+                                                    <?php
+                                                        $alt_title = get_the_title();
 
-                                            <h4 class="u-font-size-16 xxl:u-font-size-20 u-font-weight-bold u-color-folk-bold-electric-blue mb-4">
-                                                Workshop reúne religiosos
-                                                sobre os benefícios e os 
-                                                males da vida online
-                                            </h4>
-
-                                            <p class="u-font-size-14 xxl:u-font-size-16 u-font-weight-regular u-color-folk-aluminium">
-                                                O Centro Âncora promoveu no dia 14 de
-                                                outubro, um workshop, intitulado “Teu 
-                                                Olhar” voltado para os religiosos (as) [...]
-                                            </p>
-
-                                            <div class="row">
-
-                                                <div class="col-5 mt-3">
-
-                                                    <p
-                                                    class="w-100 u-box-shadow-pattern position-absolute u-font-size-12 u-font-weight-bold u-font-family-nunito text-center u-color-folk-white u-bg-folk-golden hover:u-bg-folk-squid-ink py-2">
-                                                        Ler mais
-                                                    </p>
+                                                        the_post_thumbnail( 'post-thumbnail',
+                                                            array(
+                                                                'class' => 'l-posts__thumbnail img-fluid w-100 u-object-fit-cover',
+                                                                'alt'   => $alt_title
+                                                            ));
+                                                    ?>
                                                 </div>
-                                            </div>
+
+                                                <div class="card-body px-4">
+
+                                                    <p class="u-font-size-12 xxl:u-font-size-14 u-font-weight-semibold u-color-folk-medium-electric-blue mb-0">
+                                                        <!-- 10 de dezembro de 2021 -->
+                                                        <?php echo get_date_format( get_the_date( 'd/m/Y', get_the_ID() ) ) ?>
+                                                    </p>
+
+                                                    <p class="u-font-size-12 xxl:u-font-size-14 u-font-weight-bold u-color-folk-medium-electric-blue">
+                                                        <!-- Institucional -->
+                                                        <?php
+                                                            $cats = array();
+                                                            $categories_current = array();
+                                                            $count = 0;
+
+                                                            foreach (get_the_category($post_id) as $c) {
+                                                                $cat = get_category($c);
+                                                                array_push($cats, $cat->name);
+                                                            }
+                                                            
+                                                            foreach( $cats as $cat ) {
+                                                                foreach( get_categories_highlight() as $editorial ) {
+                                                                    if( $cat == $editorial )
+                                                                        $editorial_current = $cat;
+                                                                }
+                                                            }
+
+                                                            foreach( $cats as $cat ) {
+                                                                if( $editorial_current ) {
+                                                                    if( $cat != $editorial_current ) {
+                                                                        array_push($categories_current, $cat);
+                                                                        $count++;
+            
+                                                                        if( $count == 1 )
+                                                                            break;
+                                                                    }
+                                                                } else {
+                                                                    array_push($categories_current, $cat);
+                                                                    $count++;
+            
+                                                                    if( $count == 3 )
+                                                                        break;
+                                                                }
+                                                            }
+
+                                                            if (sizeOf($categories_current) > 0) {
+                                                                $post_categories = implode(', ', $categories_current);
+                                                            } 
+
+                                                            echo $editorial_current ? $editorial_current . ', ' . $post_categories : $post_categories;
+                                                        ?>
+                                                    </p>
+
+                                                    <h4 class="u-font-size-16 xxl:u-font-size-20 u-font-weight-bold u-color-folk-bold-electric-blue mb-4">
+                                                        <!-- Workshop reúne religiosos
+                                                        sobre os benefícios e os 
+                                                        males da vida online -->
+                                                        <?php the_title() ?>
+                                                    </h4>
+
+                                                    <span class="d-block u-font-size-14 xxl:u-font-size-16 u-font-weight-regular u-color-folk-aluminium">
+                                                        <!-- O Centro Âncora promoveu no dia 14 de
+                                                        outubro, um workshop, intitulado “Teu 
+                                                        Olhar” voltado para os religiosos (as) [...] -->
+                                                        <?php echo(limit_words( get_the_content(), 25)); ?>
+                                                    </span>
+
+                                                    <div class="row">
+
+                                                        <div class="col-5 mt-3">
+
+                                                            <p
+                                                            class="w-100 u-box-shadow-pattern position-absolute u-font-size-12 u-font-weight-bold u-font-family-nunito text-center u-color-folk-white u-bg-folk-golden hover:u-bg-folk-squid-ink py-2">
+                                                                Ler mais
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </a>
                                         </div>
-                                    </a>
-                                </div>
-                            <?php } ?>
+                            <?php
+                                    endwhile;
+                                endif;
+
+                                wp_reset_query();
+                            ?>
                             <!-- end loop -->
                         </div>
                     </div>
@@ -195,24 +309,25 @@ get_header(); ?>
                                     </h6>
 
                                     <ul class="pl-0">
-                                        <?php for( $i = 0; $i < 5; $i++ ) { ?>
-                                            <li class="l-page-news__categories u-list-style-none my-3">
-                                            
-                                                <a 
-                                                class="u-font-size-13 xxl:u-font-size-16 u-font-weight-regular text-decoration-none u-color-folk-aluminium"
-                                                href="#">
-                                                    Institucional
-                                                </a>
+                                        <?php foreach( get_categories_highlight() as $category ) : ?>
+                                                <li class="l-page-news__categories u-list-style-none my-3">
+                                                
+                                                    <a 
+                                                    class="u-font-size-13 xxl:u-font-size-16 u-font-weight-regular text-decoration-none u-color-folk-aluminium"
+                                                    href="<?php echo get_home_url( null, '/noticias/?cat=' . strtolower( $category ) ); ?>">
+                                                        <!-- Institucional -->
+                                                        <?php echo $category; ?>
+                                                    </a>
 
-                                                <span class="l-page-news__categories__circle"></span>
-                                            </li>
-                                        <?php } ?>
+                                                    <span class="l-page-news__categories__circle"></span>
+                                                </li>
+                                        <?php endforeach; ?>
 
                                         <li class="l-page-news__categories u-list-style-none my-3">
                                             
                                             <a 
                                             class="u-font-size-13 xxl:u-font-size-16 u-font-weight-semibold text-decoration-none u-color-folk-bold-electric-blue"
-                                            href="#">
+                                            href="<?php echo get_home_url( null, 'noticias' ); ?>">
                                                 Todas as Notícias
                                             </a>
 
