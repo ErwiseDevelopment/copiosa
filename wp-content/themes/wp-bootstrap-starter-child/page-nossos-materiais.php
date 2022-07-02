@@ -129,45 +129,74 @@ get_header(); ?>
             <div class="col-11">
 
                 <div class="row">
+                        
+                    <!-- loop -->
+                    <?php 
+                        $args = array(
+                            'posts_per_page' => 4,
+                            'post_type'      => 'ebooks',
+                            'order'          => 'DESC'
+                        );
 
-                    <?php for( $i = 0; $i < 12; $i++ ) { ?>
-                        <div class="col-md-6 col-lg-4 my-3">
+                        $ebooks = new WP_Query( $args );
 
-                            <a 
-                            class="card border-0 text-decoration-none"
-                            href="#">
+                        if( $ebooks->have_posts() ) :
+                            while( $ebooks->have_posts() ) : $ebooks->the_post();
+                    ?>
+                                <div class="col-md-6 col-lg-4 my-3">
 
-                                <div class="l-our-materials__card-img card-img d-flex justify-content-center align-items-center p-3">
-                                    <img
-                                    class="img-fluid"
-                                    src="<?php echo get_home_url( null, '/wp-content/uploads/2022/06/mockup-1.png' ) ?>"
-                                    alt="">
-                                </div>
+                                    <a 
+                                    class="card border-0 text-decoration-none"
+                                    href="<?php echo get_field( 'link' ) ?>">
 
-                                <div class="card-body">
+                                        <div class="l-our-materials__card-img card-img d-flex justify-content-center align-items-center p-3">
+                                            <!-- <img
+                                            class="img-fluid"
+                                            src="<php echo get_home_url( null, '/wp-content/uploads/2022/06/mockup-1.png' ) ?>"
+                                            alt=""> -->
 
-                                    <p class="l-our-materials__category u-font-weight-semibold text-center u-color-folk-medium-electric-blue">
-                                        Ebook
-                                    </p>
+                                            <?php 
+                                                $alt_title = get_the_title();
 
-                                    <h4 class="l-our-materials__title u-font-weight-bold text-center u-color-folk-dark-grayish-navy">
-                                        Oração Pessoal - Guia
-                                        para Iniciantes
-                                    </h4>
-
-                                    <div class="row justify-content-center">
-
-                                        <div class="col-8 mt-3">
-
-                                            <p class="w-100 u-box-shadow-pattern u-font-size-18 u-font-weight-bold u-font-family-nunito text-center text-decoration-none u-color-folk-white u-bg-folk-golden hover:u-bg-folk-squid-ink py-2">
-                                                Baixar
-                                            </p>
+                                                the_post_thumbnail( 'post-thumbnail',
+                                                    array(
+                                                        'class' => 'img-fluid',
+                                                        'alt'   => $alt_title
+                                                ));
+                                            ?>
                                         </div>
-                                    </div>
+
+                                        <div class="card-body">
+
+                                            <p class="l-our-materials__category u-font-weight-semibold text-center u-color-folk-medium-electric-blue">
+                                                Ebook
+                                            </p>
+
+                                            <h4 class="l-our-materials__title u-font-weight-bold text-center u-color-folk-dark-grayish-navy">
+                                                <!-- Oração Pessoal - Guia
+                                                para Iniciantes -->
+                                                <?php the_title() ?>
+                                            </h4>
+
+                                            <div class="row justify-content-center">
+
+                                                <div class="col-8 mt-3">
+
+                                                    <p class="w-100 u-box-shadow-pattern u-font-size-18 u-font-weight-bold u-font-family-nunito text-center text-decoration-none u-color-folk-white u-bg-folk-golden hover:u-bg-folk-squid-ink py-2">
+                                                        Baixar
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
                                 </div>
-                            </a>
-                        </div>
-                    <?php } ?>
+                        <?php 
+                                endwhile;
+                            endif;
+                            
+                            wp_reset_query();
+                        ?>
+                    <!-- end loop -->
                 </div>
             </div>
         </div>
