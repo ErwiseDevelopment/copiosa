@@ -1,6 +1,51 @@
 $layout-name: 'l-several';
 
 .#{$layout-name} {
+    &__col {
+        &:hover {
+            .#{$layout-name} {
+                &__social-media {
+                    opacity: 1;
+                    visibility: visible;
+
+                    &__item {
+                        transform: translateY(0);
+                        opacity: 1;
+                        visibility: visible;
+                    }
+                }
+            }
+        }
+    }
+
+    &__social-media {
+        width: calc(100% - 30px);
+        height: 100%;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        transition: all .4s;
+        opacity: 0;
+        visibility: hidden;
+        position: absolute;
+        background-color: rgba(0, 0, 0, .2);
+
+        &__item {
+            transform: translateY(150px);
+            transition: all .6s;
+            opacity: 0;
+            visibility: hidden;
+
+            &:nth-of-type(1) {
+                transition-delay: .2s;
+            }
+
+            &:nth-of-type(2) {
+                transition-delay: .4s;
+            }
+        }
+    }
+
     &__newsletter {
         &__title {
             font-size: 2.875rem;

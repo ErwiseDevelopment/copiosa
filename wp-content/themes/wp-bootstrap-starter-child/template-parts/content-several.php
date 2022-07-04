@@ -12,19 +12,55 @@
 
                         <div class="row h-100">
 
-                            <div class="col-lg-6 mb-3 mb-lg-0">
-                                
-                                <a 
-                                class="h-100 d-block"
-                                href="#">
-                                    <img
-                                    class="img-fluid h-100 u-object-fit-cover"
-                                    src="<?php echo get_home_url( null, '/wp-content/uploads/2022/06/banner-irmazelia.png' ) ?>"
-                                    alt="">
-                                </a>
-                            </div>
+                            <!-- loop -->
+                            <?php  
+                                if( have_rows( 'banners_finais', 'option' ) ) :
+                                    while( have_rows( 'banners_finais', 'option' ) ) : the_row();
+                            ?>
+                                        <div class="l-several__col col-lg-6 mb-3 mb-lg-0">
+                                            
+                                            <a 
+                                            class="h-100 d-block"
+                                            href="<?php echo get_sub_field( 'link' ) ?>">
+                                                <img
+                                                class="img-fluid h-100 u-object-fit-cover"
+                                                src="<?php echo get_sub_field( 'banner' ) ?>"
+                                                alt="<?php the_title() ?>">
+                                            </a>
 
-                            <div class="col-lg-6">
+                                            <ul class="l-several__social-media d-flex justify-content-center align-items-center mb-0 pl-0">
+                                                
+                                                <?php if( get_sub_field( 'instagram' ) ) : ?>
+                                                    <li class="l-several__social-media__item u-list-style-none mx-3">
+                                                        <a
+                                                        class="u-icon__brands u-icon__instagram u-font-size-0 before::u-font-size-44 u-font-weight-light text-center text-decoration-none u-color-folk-white"
+                                                        href="<?php echo get_sub_field( 'instagram' ) ?>"
+                                                        target="_blank"
+                                                        rel="noreferrer noopener">
+                                                            Link do Instagram
+                                                        </a>
+                                                    </li>
+                                                <?php endif; ?>
+
+                                                <?php if( get_sub_field( 'facebook' ) ) : ?>
+                                                    <li class="l-several__social-media__item u-list-style-none mx-3">
+                                                        <a
+                                                        class="u-icon__brands u-icon__facebook u-font-size-0 before::u-font-size-44 u-font-weight-light text-center text-decoration-none u-color-folk-white"
+                                                        href="<?php echo get_sub_field( 'facebook' ) ?>"
+                                                        target="_blank"
+                                                        rel="noreferrer noopener">
+                                                            Link do Facebook
+                                                        </a>
+                                                    </li>
+                                                <?php endif; ?>
+                                            </ul>
+                                        </div>
+                            <?php
+                                    endwhile;
+                                endif;
+                            ?>
+
+                            <!-- <div class="col-lg-6">
                                 
                                 <a 
                                 class="h-100 d-block"
@@ -34,7 +70,7 @@
                                     src="<?php echo get_home_url( null, '/wp-content/uploads/2022/06/banner-irmazelia.png' ) ?>"
                                     alt="">
                                 </a>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
 
@@ -187,50 +223,77 @@
                                     <div class="row">
 
                                         <!-- loop -->
-                                        <?php for( $i = 0; $i < 3; $i++ ) { ?>
-                                            <div class="col-12 my-3">
+                                        <?php 
+                                            $args = array(
+                                                'posts_per_page' => 4,
+                                                'post_type'      => 'ebooks',
+                                                'order'          => 'DESC'
+                                            );
 
-                                                <div class="row">
+                                            $ebooks = new WP_Query( $args );
 
-                                                    <div class="col-4">
-                                                        <img
-                                                        class="img-fluid"
-                                                        src="<?php echo get_home_url( null, '/wp-content/uploads/2022/06/mockup.png' ) ?>"
-                                                        alt="">
-                                                    </div>
+                                            if( $ebooks->have_posts() ) :
+                                                while( $ebooks->have_posts() ) : $ebooks->the_post();
+                                        ?>
+                                                    <div class="col-12 my-3">
 
-                                                    <div class="col-8 pl-0">
-                                                        
-                                                        <p class="u-font-size-12 xxl:u-font-size-15 u-font-weight-semibold u-color-folk-golden mb-0">
-                                                            E-book
-                                                        </p>
+                                                        <div class="row">
 
-                                                        <h6 class="u-font-size-18 xxl:u-font-size-19 u-font-weight-semibold u-color-folk-bold-electric-blue mb-2">
-                                                            Oração pessoal
-                                                            Guia para iniciantes
-                                                        </h6>
-                                                    </div>
+                                                            <div class="col-4">
+                                                                <!-- <img
+                                                                class="img-fluid"
+                                                                src="<php echo get_home_url( null, '/wp-content/uploads/2022/06/mockup.png' ) ?>"
+                                                                alt=""> -->
 
-                                                    <div class="col-12 mt-3">
+                                                                <?php 
+                                                                    $alt_title = get_the_title();
 
-                                                        <div class="l-several__line"></div>
+                                                                    the_post_thumbnail( 'post-thumbnail',
+                                                                        array(
+                                                                            'class' => 'img-fluid',
+                                                                            'alt'   => $alt_title
+                                                                    ));
+                                                                ?>
+                                                            </div>
 
-                                                        <div class="row justify-content-center">
+                                                            <div class="col-8 pl-0">
+                                                                
+                                                                <p class="u-font-size-12 xxl:u-font-size-15 u-font-weight-semibold u-color-folk-golden mb-0">
+                                                                    E-book
+                                                                </p>
 
-                                                            <div class="col-7 offset-2">
+                                                                <h6 class="u-font-size-18 xxl:u-font-size-19 u-font-weight-semibold u-color-folk-bold-electric-blue mb-2">
+                                                                    <!-- Oração pessoal
+                                                                    Guia para iniciantes -->
+                                                                    <?php the_title() ?>
+                                                                </h6>
+                                                            </div>
 
-                                                                <a
-                                                                class="w-100 u-box-shadow-pattern d-block u-font-size-12 xxl:u-font-size-16 u-font-weight-bold u-font-family-nunito text-center text-decoration-none u-color-folk-bold-electric-blue hover:u-color-folk-golden u-bg-folk-golden hover:u-bg-folk-squid-ink py-2"
-                                                                href="#">
-                                                                    Comprar
-                                                                </a>
+                                                            <div class="col-12 mt-3">
+
+                                                                <div class="l-several__line"></div>
+
+                                                                <div class="row justify-content-center">
+
+                                                                    <div class="col-7 offset-2">
+
+                                                                        <a
+                                                                        class="w-100 u-box-shadow-pattern d-block u-font-size-12 xxl:u-font-size-16 u-font-weight-bold u-font-family-nunito text-center text-decoration-none u-color-folk-bold-electric-blue hover:u-color-folk-golden u-bg-folk-golden hover:u-bg-folk-squid-ink py-2"
+                                                                        href="<?php echo get_field( 'link' ) ?>">
+                                                                            Comprar
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            </div>
-                                        <?php } ?>
-                                        <!--- end loop -->
+                                        <?php 
+                                                endwhile;
+                                            endif;
+                                            
+                                            wp_reset_query();
+                                        ?>
+                                        <!-- end loop -->
                                     </div>
                                 </div>
 
@@ -240,7 +303,7 @@
 
                                         <a
                                         class="w-100 u-box-shadow-pattern d-block u-font-size-15 u-font-weight-bold u-font-family-nunito text-center text-decoration-none u-color-folk-white u-bg-folk-medium-electric-blue hover:u-bg-folk-squid-ink py-2"
-                                        href="#">
+                                        href="<?php echo get_home_url( null, 'e-books' ) ?>">
                                             Ver mais
                                         </a>
                                     </div>
