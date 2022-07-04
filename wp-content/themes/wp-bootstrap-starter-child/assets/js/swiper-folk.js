@@ -88,3 +88,4 @@ const swiperPartners = new Swiper( '.js-swiper-partners', {
 //         el: '.swiper-pagination-testemonials',
 //     },
 // });
+//
