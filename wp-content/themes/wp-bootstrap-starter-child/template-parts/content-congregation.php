@@ -48,7 +48,11 @@
                         $args = array(
                             'post_type'   => 'page',
                             'post_parent' => 110,
-                            'sort_column' => 'post_date',
+                            'post__in' => array(
+                                '112',
+                                '114',
+                                '118',
+                                '339'),
                             'order'  => 'ASC',
                         );
 
