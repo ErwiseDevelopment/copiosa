@@ -3,6 +3,9 @@
         const items = document.getElementsByClassName( 'js-item-congregation' )
         const sections = document.getElementsByClassName( 'js-section-congregation' )
 
+        items[0].classList.add( 'is-active' )
+        sections[0].classList.add( 'is-active' )
+        
         for( const i of items) {
             i.addEventListener( 'click', function() {
                 for( const j of items )
