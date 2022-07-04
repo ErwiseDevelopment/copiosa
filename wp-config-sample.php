@@ -16,6 +16,7 @@
  * @link https://wordpress.org/support/article/editing-wp-config-php/
  *
  * @package WordPress
+ *teste
  */
 
 // ** Database settings - You can get this info from your web host ** //
