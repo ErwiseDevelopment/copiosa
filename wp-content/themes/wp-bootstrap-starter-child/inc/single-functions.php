@@ -40,6 +40,26 @@ function get_categories_highlight() {
     return $categories;
 }
 
+function get_category_editorials( $categories ) {
+    $editorials = array(
+        'Institucional',
+        'Evangelização',
+        'Recuperação',
+        'Vocacional',
+        'Juventude'
+    );
+
+    foreach( $editorials as $editorial ) {
+        foreach( $categories as $category ) {
+            if( $editorial == $category->name ) {
+                $category_editorial_current = $category->name;
+            }
+        }
+    }
+
+    return $category_editorial_current;
+}
+
 function limit_words($string, $word_limit) {  
     $words = explode(' ', $string, ($word_limit + 1));  
 

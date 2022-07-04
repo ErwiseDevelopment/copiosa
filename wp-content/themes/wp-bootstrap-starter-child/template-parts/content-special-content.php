@@ -20,44 +20,77 @@
                     <div class="swiper-wrapper">
 
                         <!-- slide -->
-                        <?php for( $i = 0; $i < 4; $i++ ) { ?>
-                            <div class="swiper-slide">
+                        <?php
+                            $args = array(
+                                'posts_per_page' => -1,
+                                'post_type'      => 'post',
+                                'category_name'  => 'conteudos-especiais',
+                                'order'          => 'DESC'
+                            );
 
-                                <a 
-                                class="card border-0 text-decoration-none"
-                                href="#">
+                            $posts_special_content = new WP_Query( $args );
 
-                                    <div class="card-img">
-                                        <img
-                                        class="l-special-content__thumbnail img-fluid w-100 u-object-fit-cover"
-                                        src="<?php echo get_home_url( null, '/wp-content/uploads/2022/06/special-content-image.png' ) ?>"
-                                        alt="<?php the_title() ?>">
-                                    </div>
+                            if( $posts_special_content->have_posts() ) :
+                                while( $posts_special_content->have_posts() ) : $posts_special_content->the_post();
+                        ?>
+                                    <div class="swiper-slide">
 
-                                    <div class="card-body">
-                                        
-                                        <p class="u-font-size-14 xxl:u-font-size-18 u-font-weight-regular u-font-family-myriad-pro text-center u-color-folk-squid-ink">
-                                            Evangelização
-                                        </p>
+                                        <a 
+                                        class="card border-0 text-decoration-none"
+                                        href="<?php the_permalink() ?>">
 
-                                        <h4 class="l-special-content__title u-font-weight-bold text-center u-color-folk-medium-electric-blue">
-                                            O que Deus quer neste novo ano?
-                                        </h4>
+                                            <div class="card-img">
+                                                <!-- <img
+                                                class="l-special-content__thumbnail img-fluid w-100 u-object-fit-cover"
+                                                src="<php echo get_home_url( null, '/wp-content/uploads/2022/06/special-content-image.png' ) ?>"
+                                                alt="<php the_title() ?>"> -->
 
-                                        <div class="row justify-content-center">
+                                                <?php
+                                                    $alt_title = get_the_title();
 
-                                            <div class="col-8 mt-3">
-
-                                                <p
-                                                class="w-100 u-box-shadow-pattern u-font-size-18 u-font-weight-bold u-font-family-nunito text-center text-decoration-none u-color-folk-white u-bg-folk-squid-ink hover:u-bg-folk-golden py-3">
-                                                    Ler mais
-                                                </p>
+                                                    the_post_thumbnail( 'post-thubmnail',
+                                                        array(
+                                                            'class' => 'l-special-content__thumbnail img-fluid w-100 u-object-fit-cover',
+                                                            'alt'   => $alt_title
+                                                        ));
+                                                ?>
                                             </div>
-                                        </div>
+
+                                            <div class="card-body">
+                                                
+                                                <p class="u-font-size-14 xxl:u-font-size-18 u-font-weight-regular u-font-family-myriad-pro text-center u-color-folk-squid-ink">
+                                                    <?php
+                                                        $categories = get_the_category( get_the_ID() );
+
+                                                        echo get_category_editorials( $categories );
+                                                    ?>
+                                                    <!-- Evangelização -->
+                                                </p>
+
+                                                <h4 class="l-special-content__title u-font-weight-bold text-center u-color-folk-medium-electric-blue">
+                                                    <!-- O que Deus quer neste novo ano? -->
+                                                    <?php the_title() ?>
+                                                </h4>
+
+                                                <div class="row justify-content-center">
+
+                                                    <div class="col-8 mt-3">
+
+                                                        <p
+                                                        class="w-100 u-box-shadow-pattern u-font-size-18 u-font-weight-bold u-font-family-nunito text-center text-decoration-none u-color-folk-white u-bg-folk-squid-ink hover:u-bg-folk-golden py-3">
+                                                            Ler mais
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
                                     </div>
-                                </a>
-                            </div>
-                        <?php } ?>
+                        <?php 
+                                endwhile;
+                            endif;
+                            
+                            wp_reset_query();
+                        ?>
                         <!-- end slide -->
                     </div>
                 </div>
@@ -75,7 +108,7 @@
 
                         <a
                         class="w-100 u-box-shadow-pattern d-flex justify-content-center align-items-center u-font-size-18 u-font-weight-bold u-font-family-nunito text-center text-decoration-none u-color-folk-squid-ink hover:u-color-folk-white u-bg-folk-golden hover:u-bg-folk-squid-ink py-3"
-                        href="#">
+                        href="<?php echo get_home_url( null, 'conteudos-especiais' ) ?>">
                             <span class="u-font-size-22 pr-2">+</span>Conteúdos
                         </a>
                     </div>
