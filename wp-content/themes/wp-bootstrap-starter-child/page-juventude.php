@@ -39,6 +39,10 @@ get_header(); ?>
 <?php echo get_template_part( 'template-parts/content', 'gallery' ) ?>
 <!-- end gallery -->
 
+<!-- video -->
+<?php echo get_template_part( 'template-parts/content', 'video' ) ?>
+<!-- end video -->
+
 <!-- vocation campaign -->
 <?php echo get_template_part( 'template-parts/content', 'vocation-campaign' ) ?>
 <!-- end vocation campaign -->

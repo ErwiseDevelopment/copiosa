@@ -86,25 +86,24 @@ get_header(); ?>
                                     </h6>
 
                                     <ul class="pl-0">
-                                        <?php foreach( get_categories_highlight() as $category ) : ?>
-                                                <li class="l-page-news__categories u-list-style-none my-3">
-                                                
-                                                    <a 
-                                                    class="u-font-size-13 xxl:u-font-size-16 u-font-weight-regular text-decoration-none u-color-folk-aluminium"
-                                                    href="<?php echo get_home_url( null, '/noticias/?cat=' . strtolower( $category ) ); ?>">
-                                                        <!-- Institucional -->
-                                                        <?php echo $category; ?>
-                                                    </a>
+                                        <?php for( $i = 0; $i < 5; $i++ ) { ?>
+                                            <li class="l-page-news__categories u-list-style-none my-3">
+                                            
+                                                <a 
+                                                class="u-font-size-13 xxl:u-font-size-16 u-font-weight-regular text-decoration-none u-color-folk-aluminium"
+                                                href="#">
+                                                    Institucional
+                                                </a>
 
-                                                    <span class="l-page-news__categories__circle"></span>
-                                                </li>
-                                        <?php endforeach; ?>
+                                                <span class="l-page-news__categories__circle"></span>
+                                            </li>
+                                        <?php } ?>
 
                                         <li class="l-page-news__categories u-list-style-none my-3">
                                             
                                             <a 
                                             class="u-font-size-13 xxl:u-font-size-16 u-font-weight-semibold text-decoration-none u-color-folk-bold-electric-blue"
-                                            href="<?php echo get_home_url( null, 'noticias' ); ?>">
+                                            href="#">
                                                 Todas as Notícias
                                             </a>
 
@@ -130,74 +129,45 @@ get_header(); ?>
             <div class="col-11">
 
                 <div class="row">
-                        
-                    <!-- loop -->
-                    <?php 
-                        $args = array(
-                            'posts_per_page' => 4,
-                            'post_type'      => 'ebooks',
-                            'order'          => 'DESC'
-                        );
 
-                        $ebooks = new WP_Query( $args );
+                    <?php for( $i = 0; $i < 12; $i++ ) { ?>
+                        <div class="col-md-6 col-lg-4 my-3">
 
-                        if( $ebooks->have_posts() ) :
-                            while( $ebooks->have_posts() ) : $ebooks->the_post();
-                    ?>
-                                <div class="col-md-6 col-lg-4 my-3">
+                            <a 
+                            class="card border-0 text-decoration-none"
+                            href="#">
 
-                                    <a 
-                                    class="card border-0 text-decoration-none"
-                                    href="<?php echo get_field( 'link' ) ?>">
-
-                                        <div class="l-our-materials__card-img card-img d-flex justify-content-center align-items-center p-3">
-                                            <!-- <img
-                                            class="img-fluid"
-                                            src="<php echo get_home_url( null, '/wp-content/uploads/2022/06/mockup-1.png' ) ?>"
-                                            alt=""> -->
-
-                                            <?php 
-                                                $alt_title = get_the_title();
-
-                                                the_post_thumbnail( 'post-thumbnail',
-                                                    array(
-                                                        'class' => 'img-fluid',
-                                                        'alt'   => $alt_title
-                                                ));
-                                            ?>
-                                        </div>
-
-                                        <div class="card-body">
-
-                                            <p class="l-our-materials__category u-font-weight-semibold text-center u-color-folk-medium-electric-blue">
-                                                Ebook
-                                            </p>
-
-                                            <h4 class="l-our-materials__title u-font-weight-bold text-center u-color-folk-dark-grayish-navy">
-                                                <!-- Oração Pessoal - Guia
-                                                para Iniciantes -->
-                                                <?php the_title() ?>
-                                            </h4>
-
-                                            <div class="row justify-content-center">
-
-                                                <div class="col-8 mt-3">
-
-                                                    <p class="w-100 u-box-shadow-pattern u-font-size-18 u-font-weight-bold u-font-family-nunito text-center text-decoration-none u-color-folk-white u-bg-folk-golden hover:u-bg-folk-squid-ink py-2">
-                                                        Baixar
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
+                                <div class="l-our-materials__card-img card-img d-flex justify-content-center align-items-center p-3">
+                                    <img
+                                    class="img-fluid"
+                                    src="<?php echo get_home_url( null, '/wp-content/uploads/2022/06/mockup-1.png' ) ?>"
+                                    alt="">
                                 </div>
-                        <?php 
-                                endwhile;
-                            endif;
-                            
-                            wp_reset_query();
-                        ?>
-                    <!-- end loop -->
+
+                                <div class="card-body">
+
+                                    <p class="l-our-materials__category u-font-weight-semibold text-center u-color-folk-medium-electric-blue">
+                                        Ebook
+                                    </p>
+
+                                    <h4 class="l-our-materials__title u-font-weight-bold text-center u-color-folk-dark-grayish-navy">
+                                        Oração Pessoal - Guia
+                                        para Iniciantes
+                                    </h4>
+
+                                    <div class="row justify-content-center">
+
+                                        <div class="col-8 mt-3">
+
+                                            <p class="w-100 u-box-shadow-pattern u-font-size-18 u-font-weight-bold u-font-family-nunito text-center text-decoration-none u-color-folk-white u-bg-folk-golden hover:u-bg-folk-squid-ink py-2">
+                                                Baixar
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    <?php } ?>
                 </div>
             </div>
         </div>

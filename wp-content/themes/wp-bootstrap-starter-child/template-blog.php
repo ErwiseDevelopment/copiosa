@@ -1,23 +1,22 @@
 <?php
+
 /**
- * The template for displaying all pages
  *
- * This is the template that displays all pages by default.
- * Please note that this is the WordPress construct of pages
- * and that other 'pages' on your WordPress site may use a
- * different template.
+ * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @link https://codex.wordpress.org/Template_Hierarchy
+ * @package Evolutap
  *
- * @package WP_Bootstrap_Starter
+ * Template Name: Template Blog
+ * Template Post Type: page
  */
 
-get_header(); ?>
+get_header();
+?>
 
-<section id="primary" class="content-area">
-<div id="main" class="site-main" role="main">
+<div id="primary">
+<main id="main">
 
-<?php while ( have_posts() ) : the_post(); ?>
+<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
 <!-- banner -->
 <section class="u-bg-folk-extrabold-electric-blue py-5">
@@ -29,7 +28,7 @@ get_header(); ?>
             <div class="col-12 my-5">
 
                 <h1 class="l-banner-full__title u-font-weight-bold text-center u-color-folk-white mb-4">
-                    Últimas Notícias
+                    Blog
                 </h1>
 
                 <div class="rounded u-bg-folk-golden mx-auto" style="width:320px;height:9px"></div>
@@ -39,328 +38,211 @@ get_header(); ?>
 </section>
 <!-- end banner -->
 
+<!-- posts -->
+<section class="py-5">
+
+    <div class="container">
+    
+        <div class="row justify-content-center">
+
+            <!-- loop -->
+            <?php 
+                $args = array(
+                    'posts_per_page' => 4,
+                    'post_type'      => 'post',
+                    'category_name'  => 'blog',
+                    'order'          => 'DESC'
+                );
+                
+                $posts_blog = new WP_Query( $args );
+
+                if( $posts_blog->have_posts() ) :
+                    while( $posts_blog->have_posts() ) : $posts_blog->the_post();
+            ?>
+                        <a 
+                        class="col-12 d-block text-decoration-none my-4"
+                        href="<?php the_permalink() ?>">
+
+                            <div class="row">
+
+                                <div class="col-md-5 pr-md-0">
+                                    <!-- <img
+                                    class="img-fluid w-100 h-100 u-object-fit-cover"
+                                    src="<php echo get_home_url( null, '/wp-content/uploads/2022/06/Image.png' ) ?>"
+                                    alt=""> -->
+
+                                    <?php
+                                        $alt_title = get_the_title();
+
+                                        the_post_thumbnail( 'post-thumbail',
+                                            array(
+                                                'class' => 'img-fluid w-100 h-100 u-object-fit-cover',
+                                                'alt'   => $alt_title
+                                            ));
+                                    ?>
+                                </div>
+
+                                <div class="col-md-7 pl-md-0">
+                                    
+                                    <div class="l-template-blog__box py-4 px-3 px-md-5">
+
+                                        <p class="u-font-size-12 xxl:u-font-size-15 u-font-weight-bold text-uppercase u-color-folk-golden mb-0">
+                                            <!-- 10 de dezembro de 2021 -->
+                                            <?php echo get_date_format( get_the_date( 'd/m/Y', get_the_ID() ) );?>
+                                        </p>
+
+                                        <p class="u-font-size-12 xxl:u-font-size-15 u-font-weight-bold text-uppercase u-color-folk-bold-electric-blue">
+                                            <!-- Evangelização -->
+                                            <?php
+                                                $category_current = get_the_category( get_the_ID() ); 
+                                                echo $category_current[0]->name;
+                                            ?>
+                                        </p>
+
+                                        <h4 class="l-template-blog__title u-font-weight-bold u-color-folk-dark-grayish-navy">
+                                            <!-- O que Deus quer neste
+                                            novo ano? -->
+                                            <?php limit_words( get_the_title(), 10); ?>
+                                        </h4>
+
+                                        <span class="d-block u-font-size-14 xxl:u-font-size-18 u-font-weight-regular u-color-folk-aluminium pb-3">
+                                            <!-- Aconteceu no dia 07 de dezembro na nossa chácara, 
+                                            no distrito de Uvaia, em Ponta Grossa, a celebração 
+                                            dos Votos Temporários das Irmãs Amanda, Irmã Bruna, 
+                                            Irmã Criciele, Irmã Gabriele. -->
+                                            <?php echo limit_words( get_the_content(), 25); ?>
+                                        </span>
+
+                                        <p class="l-template-blog__read-more u-font-weight-medium text-center text-decoration-none u-color-folk-white u-bg-folk-golden hover:u-bg-folk-squid-ink mb-0 py-3 px-5">
+                                            Ler mais
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+            <?php 
+                    endwhile;
+                endif;
+
+                wp_reset_query();
+            ?>
+            <!-- end loop -->
+        </div>
+    </div>
+</section>
+<!-- end posts -->
+
+<!-- books -->
 <section class="py-5">
 
     <div class="container">
 
         <div class="row">
 
-            <?php 
-                if( isset( $_GET['cat'] ) ) {
-                    foreach( get_categories() as $category) {
-                        if( $_GET['cat'] == $category->slug )
-                            $category_current = $category->slug; 
-                    }
-                } else {
-                    $category_current = 'noticias';
-                }
-                
-                $args = array(
-                    'posts_per_page' => 1,
-                    'post_type'      => 'post',
-                    'category_name'  => $category_current,
-                    'order'          => 'DESC'
-                );
+            <div class="col-12">
 
-                $post_news = new WP_Query( $args );
+                <div class="py-4 px-3">
 
-                if( $post_news->have_posts() ) :
-                    while( $post_news->have_posts() ) : $post_news->the_post();
-                        $post_highlight_id = get_the_ID();
-            ?>
-                        <div class="col-12">
+                    <h6 class="l-several__shop__title u-font-weight-semibold text-center u-color-folk-bold-electric-blue mb-4">
+                        Materiais exclusivos
+                    </h6>
 
-                            <div class="row">
+                    <div class="row">
 
-                                <div class="col-lg-8">
-                                    <!-- <img
-                                    class="img-fluid"
-                                    src="<php echo get_home_url( null, '/wp-content/uploads/2022/06/post-highlight-image.png' ) ?>"
-                                    alt="Imagem destacada"> -->
+                        <!-- loop -->
+                        <?php 
+                            $args = array(
+                                'posts_per_page' => 3,
+                                'post_type'      => 'ebooks',
+                                'order'          => 'DESC'
+                            );
 
-                                    <?php 
-                                        $alt_title = get_the_title();
+                            $ebooks = new WP_Query( $args );
 
-                                        the_post_thumbnail( 'post-thumbnail',
-                                            array(
-                                                'class' => 'l-post-highlight__thumbnail img-fluid w-100 u-object-fit-cover',
-                                                'alt'   => $alt_title
-                                        ));
-                                    ?>
-                                </div>
-
-                                <div class="col-lg-4 mt-3 mt-lg-0">
-
-                                    <div class="l-post-highlight__box u-box-shadow-pattern u-bg-folk-white p-3 p-lg-5">
-                                        
-                                        <h2 class="l-post-highlight__title u-font-weight-bold u-color-folk-squid-ink">
-                                            <!-- Irmãs professam
-                                            votos temporários e
-                                            perpétuos em festa dos
-                                            32 anos da Congregação -->
-                                            <?php the_title() ?>
-                                        </h2>
-
-                                        <p class="u-font-size-12 xxl:u-font-size-15 u-font-weight-bold text-uppercase u-color-folk-golden">
-                                            <!-- 10 DE DEZEMBRO DE 2021 -->
-                                            <?php echo get_date_format( get_the_date( 'd/m/Y', get_the_ID() ) );?>
-                                        </p>
-
-                                        <span class="d-block u-font-size-14 xxl:u-font-size-18 u-font-weight-regular u-color-folk-aluminium mt-4">
-                                            <!-- Aconteceu no dia 07 de dezembro na nossa chácara, 
-                                            no distrito de Uvaia, em Ponta Grossa, a celebração 
-                                            dos Votos Temporários das Irmãs Amanda, Irmã Bruna, 
-                                            Irmã Criciele, Irmã Gabriele, [...] -->
-                                            <?php echo limit_words( get_the_content(), 40); ?>
-                                        </span>
+                            if( $ebooks->have_posts() ) :
+                                while( $ebooks->have_posts() ) : $ebooks->the_post();
+                        ?>
+                                    <div class="col-md-4 my-3">
 
                                         <div class="row">
 
-                                            <div class="col-7 mt-3 pt-3">
+                                            <div class="col-4">
+                                                <!-- <img
+                                                class="img-fluid"
+                                                src="<php echo get_home_url( null, '/wp-content/uploads/2022/06/mockup.png' ) ?>"
+                                                alt=""> -->
 
-                                                <a
-                                                class="w-100 u-box-shadow-pattern d-block u-font-size-18 u-font-weight-bold u-font-family-nunito text-center text-decoration-none u-color-folk-white u-bg-folk-golden hover:u-bg-folk-squid-ink py-3"
-                                                href="<?php the_permalink() ?>">
-                                                    Ler mais
-                                                </a>
+                                                <?php 
+                                                    $alt_title = get_the_title();
+
+                                                    the_post_thumbnail( 'post-thumbnail',
+                                                        array(
+                                                            'class' => 'img-fluid',
+                                                            'alt'   => $alt_title
+                                                    ));
+                                                ?>
+                                            </div>
+
+                                            <div class="col-8 pl-0">
+                                                
+                                                <p class="u-font-size-12 xxl:u-font-size-15 u-font-weight-semibold u-color-folk-golden mb-0">
+                                                    E-book
+                                                </p>
+
+                                                <h6 class="u-font-size-18 xxl:u-font-size-19 u-font-weight-semibold u-color-folk-bold-electric-blue mb-2">
+                                                    <!-- Oração pessoal
+                                                    Guia para iniciantes -->
+                                                    <?php the_title() ?>
+                                                </h6>
+                                            </div>
+
+                                            <div class="col-12 mt-3">
+
+                                                <div class="row justify-content-center">
+
+                                                    <div class="col-7 offset-2">
+
+                                                        <a
+                                                        class="w-100 u-box-shadow-pattern d-block u-font-size-12 xxl:u-font-size-16 u-font-weight-bold u-font-family-nunito text-center text-decoration-none u-color-folk-bold-electric-blue hover:u-color-folk-golden u-bg-folk-golden hover:u-bg-folk-squid-ink py-2"
+                                                        href="<?php echo get_field( 'link' ) ?>">
+                                                            Baixar
+                                                        </a>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-            <?php
-                    endwhile;
-                endif;
-
-                wp_reset_query();
-            ?>
-        </div>
-    </div>
-</section>
-
-<section>
-
-    <div class="container">
-
-        <div class="row">
-
-            <div class="col-12 mt-md-5 pt-md-5">
-
-                <div class="row">
-
-                    <div class="col-md-8 order-2 order-md-1">
-
-                        <div class="row">
-
-                            <!-- loop -->
-                            <?php 
-                                $args = array(
-                                    'posts_per_page' => -1,
-                                    'post_type'      => 'post',
-                                    'category_name'  => $category_current,
-                                    'order'          => 'DESC',
-                                    'post__not_in'   => array( $post_highlight_id )
-                                );
-
-                                $posts_news = new WP_Query( $args );
-
-                                if( $posts_news->have_posts() ) :
-                                    while( $posts_news->have_posts() ) : $posts_news->the_post();
-                            ?>
-                                        <div class="col-lg-6 my-3">
-                                            <a 
-                                            class="card rounded-0 text-decoration-none"
-                                            href="<?php the_permalink() ?>">
-
-                                                <div class="card-img">
-                                                    <!-- <img
-                                                    class="l-posts__thumbnail img-fluid w-100 u-object-fit-cover"
-                                                    src="<php echo get_home_url( null, '/wp-content/uploads/2022/06/posts-image.png' ) ?>"
-                                                    alt="Post image"> -->
-
-                                                    <?php
-                                                        $alt_title = get_the_title();
-
-                                                        the_post_thumbnail( 'post-thumbnail',
-                                                            array(
-                                                                'class' => 'l-posts__thumbnail img-fluid w-100 u-object-fit-cover',
-                                                                'alt'   => $alt_title
-                                                            ));
-                                                    ?>
-                                                </div>
-
-                                                <div class="card-body px-4">
-
-                                                    <p class="u-font-size-12 xxl:u-font-size-14 u-font-weight-semibold u-color-folk-medium-electric-blue mb-0">
-                                                        <!-- 10 de dezembro de 2021 -->
-                                                        <?php echo get_date_format( get_the_date( 'd/m/Y', get_the_ID() ) ) ?>
-                                                    </p>
-
-                                                    <p class="u-font-size-12 xxl:u-font-size-14 u-font-weight-bold u-color-folk-medium-electric-blue">
-                                                        <!-- Institucional -->
-                                                        <?php
-                                                            $cats = array();
-                                                            $categories_current = array();
-                                                            $count = 0;
-
-                                                            foreach (get_the_category($post_id) as $c) {
-                                                                $cat = get_category($c);
-                                                                array_push($cats, $cat->name);
-                                                            }
-                                                            
-                                                            foreach( $cats as $cat ) {
-                                                                foreach( get_categories_highlight() as $editorial ) {
-                                                                    if( $cat == $editorial )
-                                                                        $editorial_current = $cat;
-                                                                }
-                                                            }
-
-                                                            foreach( $cats as $cat ) {
-                                                                if( $editorial_current ) {
-                                                                    if( $cat != $editorial_current ) {
-                                                                        array_push($categories_current, $cat);
-                                                                        $count++;
-            
-                                                                        if( $count == 1 )
-                                                                            break;
-                                                                    }
-                                                                } else {
-                                                                    array_push($categories_current, $cat);
-                                                                    $count++;
-            
-                                                                    if( $count == 3 )
-                                                                        break;
-                                                                }
-                                                            }
-
-                                                            if (sizeOf($categories_current) > 0) {
-                                                                $post_categories = implode(', ', $categories_current);
-                                                            } 
-
-                                                            echo $editorial_current ? $editorial_current . ', ' . $post_categories : $post_categories;
-                                                        ?>
-                                                    </p>
-
-                                                    <h4 class="u-font-size-16 xxl:u-font-size-20 u-font-weight-bold u-color-folk-bold-electric-blue mb-4">
-                                                        <!-- Workshop reúne religiosos
-                                                        sobre os benefícios e os 
-                                                        males da vida online -->
-                                                        <?php the_title() ?>
-                                                    </h4>
-
-                                                    <span class="d-block u-font-size-14 xxl:u-font-size-16 u-font-weight-regular u-color-folk-aluminium">
-                                                        <!-- O Centro Âncora promoveu no dia 14 de
-                                                        outubro, um workshop, intitulado “Teu 
-                                                        Olhar” voltado para os religiosos (as) [...] -->
-                                                        <?php echo(limit_words( get_the_content(), 25)); ?>
-                                                    </span>
-
-                                                    <div class="row">
-
-                                                        <div class="col-5 mt-3">
-
-                                                            <p
-                                                            class="w-100 u-box-shadow-pattern position-absolute u-font-size-12 u-font-weight-bold u-font-family-nunito text-center u-color-folk-white u-bg-folk-golden hover:u-bg-folk-squid-ink py-2">
-                                                                Ler mais
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-                            <?php
-                                    endwhile;
-                                endif;
-
-                                wp_reset_query();
-                            ?>
-                            <!-- end loop -->
-                        </div>
+                        <?php 
+                                endwhile;
+                            endif;
+                            
+                            wp_reset_query();
+                        ?>
+                        <!--- end loop -->
                     </div>
+                </div>
 
-                    <div class="col-md-4 col-lg-3 order-1 order-md-2 mt-3">
+                <div class="row justify-content-center">
 
-                        <div>
-                            <form class="js-search-form" method="GET" action="/">
+                    <div class="col-8 col-md-2 mt-3">
 
-                                <div class="row">
-
-                                    <div class="col-12">
-                                        <input
-                                        class="w-100 border-0 d-block u-font-size-14 u-font-weight-semibold u-color-folk-bold-eletric-blue u-bg-folk-light-gray py-4 pl-3 pr-5"
-                                        type="search"
-                                        name="s"
-                                        placeholder="Procurar">
-                                        <span class="l-page-news__icon js-search-submit"></span>
-                                    </div>
-                                </div>
-                            </form>                            
-                        </div>
-
-                        <div class="row">
-
-                            <div class="col-12">
-
-                                <div class="border mt-4 p-4">
-
-                                    <h6 class="xxl:u-font-size-20 u-font-weight-bold u-color-folk-medium-electric-blue">
-                                        Categorias
-                                    </h6>
-
-                                    <ul class="pl-0">
-                                        <?php foreach( get_categories_highlight() as $category ) : ?>
-                                                <li class="l-page-news__categories u-list-style-none my-3">
-                                                
-                                                    <a 
-                                                    class="u-font-size-13 xxl:u-font-size-16 u-font-weight-regular text-decoration-none u-color-folk-aluminium"
-                                                    href="<?php echo get_home_url( null, '/noticias/?cat=' . strtolower( $category ) ); ?>">
-                                                        <!-- Institucional -->
-                                                        <?php echo $category; ?>
-                                                    </a>
-
-                                                    <span class="l-page-news__categories__circle"></span>
-                                                </li>
-                                        <?php endforeach; ?>
-
-                                        <li class="l-page-news__categories u-list-style-none my-3">
-                                            
-                                            <a 
-                                            class="u-font-size-13 xxl:u-font-size-16 u-font-weight-semibold text-decoration-none u-color-folk-bold-electric-blue"
-                                            href="<?php echo get_home_url( null, 'noticias' ); ?>">
-                                                Todas as Notícias
-                                            </a>
-
-                                            <span class="l-page-news__categories__circle"></span>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-
-                            <div class="col-12 mt-5">
-                                <a href="#">
-                                    <img
-                                    class="img-fluid"
-                                    src="<?php echo get_home_url( null, 'wp-content/uploads/2022/06/banner-capela.png' ) ?>"
-                                    alt="">
-                                </a>
-                            </div>
-                        </div>
+                        <a
+                        class="w-100 u-box-shadow-pattern d-block u-font-size-15 u-font-weight-bold u-font-family-nunito text-center text-decoration-none u-color-folk-white u-bg-folk-medium-electric-blue hover:u-bg-folk-squid-ink py-2"
+                        href="<?php echo get_home_url( null, 'e-books' ) ?>">
+                            Ver mais
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+<!-- end books -->
 
-<?php endwhile; ?>
-
-</div><!-- #main -->
-</section><!-- #primary -->
+<?php endwhile; endif; ?>
+</main><!-- #main -->
+</div><!-- #primary -->
 
 <?php
-
 get_footer();
+?>

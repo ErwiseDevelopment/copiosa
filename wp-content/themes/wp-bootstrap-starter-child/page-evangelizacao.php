@@ -35,14 +35,6 @@ get_header(); ?>
 <?php echo get_template_part( 'template-parts/content', 'institutional-special-content' ) ?>
 <!-- end institutional special content -->
 
-<!-- institutional mvv -->
-<?php echo get_template_part( 'template-parts/content', 'institutional-mvv' ) ?>
-<!-- end institutional mvv -->
-
-<!-- help -->
-<?php echo get_template_part( 'template-parts/content', 'help' ) ?>
-<!-- end help -->
-
 <!-- gallery -->
 <?php echo get_template_part( 'template-parts/content', 'gallery' ) ?>
 <!-- end gallery -->
@@ -50,6 +42,10 @@ get_header(); ?>
 <!-- video -->
 <?php echo get_template_part( 'template-parts/content', 'video' ) ?>
 <!-- end video -->
+
+<!-- several -->
+<?php echo get_template_part( 'template-parts/content', 'banners-final' ) ?>
+<!-- end several -->
 
 <!-- institutional newsletter -->
 <?php echo get_template_part( 'template-parts/content', 'institutional-newsletter' ) ?>

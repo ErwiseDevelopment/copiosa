@@ -14,7 +14,6 @@
 
 get_header(); ?>
 
-<!-- teste teste teste teste 1gi --> 
 <section id="primary">
 <main id="main" class="site-main" role="main">
 
