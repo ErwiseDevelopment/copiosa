@@ -1,8 +1,16 @@
 $utility-name: 'u-border-color';
 
 .#{$utility-name} {
+    &-aluminium {
+        border-color: $color-folk-aluminium !important;
+    }
+
     &-black {
         border-color: $color-folk-black !important;
+    }
+
+    &-light-aluminium {
+        border-color: $color-folk-light-aluminium !important;
     }
 
     &-medium-electric-blue {

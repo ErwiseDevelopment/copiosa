@@ -400,3 +400,13 @@ $utility-name: 'u-border';
         }
     }
 }
+
+.last-child\: {
+    &#{$utility-name} {
+        &-b-1 {
+            &:last-child {
+                border: 0;
+            }
+        }
+    }
+}

@@ -6,3 +6,33 @@
         background-color: $color-folk-medium-electric-blue;
     }
 }
+
+.swiper-button-prev-partners,
+.swiper-button-next-partners  {
+    width: 45px;
+    height: 45px;
+    border: 2px solid #FBD485;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+
+    &::after {
+        display: none;
+    }
+
+    &:hover {
+        background-color: #FBD485;
+
+        img {
+            filter: sepia(1);
+        }
+    }
+}
+
+.swiper-button-prev-partners {
+    left: -4rem;
+}
+
+.swiper-button-next-partners {
+    right: -4rem;
+}

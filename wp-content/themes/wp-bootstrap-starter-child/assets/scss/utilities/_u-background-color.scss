@@ -121,6 +121,12 @@ $utility-name: 'u-bg-folk';
             }
         }
 
+        &-medium-electric-blue {
+            &:hover {
+                background-color: $color-folk-medium-electric-blue !important; 
+            }
+        }
+
         &-golden {
             &:hover {
                 background-color: $color-folk-golden !important;

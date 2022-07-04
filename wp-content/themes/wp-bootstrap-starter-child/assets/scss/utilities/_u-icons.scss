@@ -73,6 +73,12 @@ $utility-name: 'u-icon';
         }
     }
 
+    &__pinterest {
+        &::before {
+            content: '\f231';
+        }
+    }
+
     &__search {
         &::before {
             content: '\f002';

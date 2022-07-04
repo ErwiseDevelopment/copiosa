@@ -23,3 +23,24 @@ $layout-name: 'l-testimonials';
         z-index: 0;
     }
 }
+
+.swiper-button-prev-testimonials {
+    width: 45px;
+    height: 45px;
+    border: 2px solid #FBD485;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+
+    &::after {
+        display: none;
+    }
+    
+    &:hover {
+        background-color: #FBD485;
+        
+        img {
+            filter: sepia(1);
+        }
+    }
+}

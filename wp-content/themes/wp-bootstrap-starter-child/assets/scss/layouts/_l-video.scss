@@ -2,10 +2,13 @@ $layout-name: 'l-video';
 
 .#{$layout-name} {
     &__iframe {
-        height: 600px;
+        iframe {
+            width: 100%;
+            height: 600px;
 
-        @media screen and (max-width: 991px) {
-            height: 240px;
+            @media screen and (max-width: 991px) {
+                height: 240px;
+            }
         }
     }
 }

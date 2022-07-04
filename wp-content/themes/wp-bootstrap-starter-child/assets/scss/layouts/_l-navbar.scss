@@ -5,13 +5,8 @@ $layout-name: 'l-navbar';
         margin: 0 .5rem;
         background-color: $color-folk-light-gray;
 
-        &.dropdown.active {
+        &.dropdown {
             position: unset;
-
-
-            // .dropdown-menu {
-            //     display: flex !important;
-            // }
         }
 
         &:hover,
@@ -19,7 +14,7 @@ $layout-name: 'l-navbar';
             background-color: $color-folk-bold-electric-blue;
 
             .nav-link {
-                position: relative;
+                // position: relative;
                 color: $color-folk-white !important;
 
                 &::before {
@@ -30,7 +25,7 @@ $layout-name: 'l-navbar';
             }
         }
 
-        &.active:hover {
+        &:hover {
             .dropdown-menu {
                 display: flex !important;
             }
@@ -82,19 +77,42 @@ $layout-name: 'l-navbar';
             // background-color: $color-folk-bold-electric-blue;
             background: none;
 
+            .dropdown-item {
+                position: relative;
+                text-align: center;
+
+                &::before {
+                    content: '';
+                    width: 0;
+                    height: 2px;
+                    bottom: 1rem;
+                    left: 1rem;
+                    transition: all .2s;
+                    opacity: 0;
+                    visibility: hidden;
+                    position: absolute;
+                    background-color: $color-folk-golden;
+                }
+            }
+
+            &:hover {
+                .dropdown-item {
+                    &::before {
+                        width: 46px;
+                        opacity: 1;
+                        visibility: visible;
+                    }
+                }
+            }
+
             &:first-child {
                 .dropdown-item {
-                    position: relative;
-                    font-weight: 700;
-
+                    font-weight: 700;  
+                    
                     &::before {
-                        content: '';
                         width: 46px;
-                        height: 2px;
-                        bottom: 1rem;
-                        left: 1rem;
-                        position: absolute;
-                        background-color: $color-folk-golden;
+                        opacity: 1;
+                        visibility: visible;
                     }
                 }
             }

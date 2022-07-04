@@ -124,6 +124,12 @@ $utility-name: 'u-font-size';
                 font-size: .9375rem !important;
             }
         }
+
+        &-16 {
+            &::before {
+                font-size: 1rem !important;
+            }
+        }
     
         &-17 {
             &::before {
@@ -140,6 +146,12 @@ $utility-name: 'u-font-size';
         &-22 {
             &::before {
                 font-size: 1.375rem !important;
+            }
+        }
+
+        &-44 {
+            &::before {
+                font-size: 2.75rem !important;
             }
         }
     }    
