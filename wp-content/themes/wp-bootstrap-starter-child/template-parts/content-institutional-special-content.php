@@ -17,44 +17,76 @@
                 <div class="row">
 
                     <!-- loop -->
-                    <?php for( $i = 0; $i < 4; $i++ ) { ?>
-                        <div class="col-md-6 my-3 my-md-0">
+                    <?php 
+                        $args = array(
+                            'posts_per_page' => 4,
+                            'post_type'      => 'post',
+                            'category_name'  => 'conteudos-especiais',
+                            'order'          => 'DESC'
+                        );
 
-                            <a 
-                            class="card border-0 text-decoration-none"
-                            href="#">
+                        $posts_special_content = new WP_Query( $args );
 
-                                <div class="card-img">
-                                    <img
-                                    class="l-special-content__thumbnail img-fluid w-100 u-object-fit-cover"
-                                    src="<?php echo get_home_url( null, '/wp-content/uploads/2022/06/special-content-image.png' ) ?>"
-                                    alt="<?php the_title() ?>">
-                                </div>
+                        if( $posts_special_content->have_posts() ) :
+                            while( $posts_special_content->have_posts() ) : $posts_special_content->the_post();
+                    ?>
+                                <div class="col-md-6 my-3 my-md-0">
 
-                                <div class="card-body">
-                                    
-                                    <p class="u-font-size-14 xxl:u-font-size-18 u-font-weight-regular u-font-family-myriad-pro text-center u-color-folk-squid-ink mb-2">
-                                        Evangelização
-                                    </p>
+                                    <a 
+                                    class="card border-0 text-decoration-none"
+                                    href="<?php the_permalink() ?>">
 
-                                    <h4 class="l-special-content__title u-font-weight-bold text-center u-color-folk-medium-electric-blue">
-                                        O que Deus quer neste novo ano?
-                                    </h4>
+                                        <div class="card-img">
+                                            <!-- <img
+                                            class="l-special-content__thumbnail img-fluid w-100 u-object-fit-cover"
+                                            src="<php echo get_home_url( null, '/wp-content/uploads/2022/06/special-content-image.png' ) ?>"
+                                            alt="<php the_title() ?>"> -->
 
-                                    <div class="row justify-content-center">
+                                            <?php
+                                                $alt_title = get_the_title();
 
-                                        <div class="col-8 mt-3">
-
-                                            <p
-                                            class="w-100 u-box-shadow-pattern u-font-size-18 u-font-weight-bold u-font-family-nunito text-center text-decoration-none u-color-folk-white u-bg-folk-squid-ink hover:u-bg-folk-golden py-2">
-                                                Ler mais
-                                            </p>
+                                                the_post_thumbnail( 'post-thumbnail',
+                                                    array(
+                                                        'class' => 'l-special-content__thumbnail img-fluid w-100 u-object-fit-cover',
+                                                        'alt'   => $alt_title
+                                                ));
+                                            ?>
                                         </div>
-                                    </div>
+
+                                        <div class="card-body">
+                                            
+                                            <p class="u-font-size-14 xxl:u-font-size-18 u-font-weight-regular u-font-family-myriad-pro text-center u-color-folk-squid-ink mb-2">
+                                                <!-- Evangelização -->
+                                                <?php
+                                                    $categories = get_the_category( get_the_ID() );
+                                                    echo get_category_editorials( $categories );
+                                                ?>
+                                            </p>
+
+                                            <h4 class="l-special-content__title u-font-weight-bold text-center u-color-folk-medium-electric-blue">
+                                                <!-- O que Deus quer neste novo ano? -->
+                                                <?php the_title() ?>
+                                            </h4>
+
+                                            <div class="row justify-content-center">
+
+                                                <div class="col-8 mt-3">
+
+                                                    <p
+                                                    class="w-100 u-box-shadow-pattern u-font-size-18 u-font-weight-bold u-font-family-nunito text-center text-decoration-none u-color-folk-white u-bg-folk-squid-ink hover:u-bg-folk-golden py-2">
+                                                        Ler mais
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
                                 </div>
-                            </a>
-                        </div>
-                    <?php } ?>
+                    <?php 
+                            endwhile;
+                        endif;
+                        
+                        wp_reset_query();
+                    ?>
                     <!-- end loop -->
                 </div>
 
@@ -79,16 +111,37 @@
                             <div class="row">
 
                                 <!-- loop -->
-                                <?php for( $i = 0; $i < 3; $i++ ) { ?>
+                                <?php 
+                                    $args = array(
+                                        'posts_per_page' => 4,
+                                        'post_type'      => 'ebooks',
+                                        'order'          => 'DESC'
+                                    );
+
+                                    $ebooks = new WP_Query( $args );
+
+                                    if( $ebooks->have_posts() ) :
+                                        while( $ebooks->have_posts() ) : $ebooks->the_post();
+                                ?>
                                     <div class="col-12 my-3">
 
                                         <div class="row">
 
                                             <div class="col-4">
-                                                <img
+                                                <!-- <img
                                                 class="img-fluid"
-                                                src="<?php echo get_home_url( null, '/wp-content/uploads/2022/06/mockup.png' ) ?>"
-                                                alt="">
+                                                src="<php echo get_home_url( null, '/wp-content/uploads/2022/06/mockup.png' ) ?>"
+                                                alt=""> -->
+
+                                                <?php 
+                                                    $alt_title = get_the_title();
+
+                                                    the_post_thumbnail( 'post-thumbnail',
+                                                        array(
+                                                            'class' => 'img-fluid',
+                                                            'alt'   => $alt_title
+                                                    ));
+                                                ?>
                                             </div>
 
                                             <div class="col-8 pl-0">
@@ -98,8 +151,9 @@
                                                 </p>
 
                                                 <h6 class="u-font-size-18 xxl:u-font-size-22 u-font-weight-semibold u-color-folk-bold-electric-blue mb-2">
-                                                    Oração pessoal
-                                                    Guia para iniciantes
+                                                    <!-- Oração pessoal
+                                                    Guia para iniciantes -->
+                                                    <?php the_title() ?>
                                                 </h6>
                                             </div>
 
@@ -113,7 +167,7 @@
 
                                                         <a
                                                         class="w-100 u-box-shadow-pattern d-block u-font-size-12 xxl:u-font-size-16 u-font-weight-bold u-font-family-nunito text-center text-decoration-none u-color-folk-bold-electric-blue hover:u-color-folk-golden u-bg-folk-golden hover:u-bg-folk-squid-ink py-2"
-                                                        href="#">
+                                                        href="<?php echo get_field( 'link' ) ?>">
                                                             Comprar
                                                         </a>
                                                     </div>
@@ -121,8 +175,13 @@
                                             </div>
                                         </div>
                                     </div>
-                                <?php } ?>
-                                <!--- end loop -->
+                                <?php 
+                                        endwhile;
+                                    endif;
+                                    
+                                    wp_reset_query();
+                                ?>
+                                <!-- end loop -->
                             </div>
                         </div>
 
@@ -132,7 +191,7 @@
 
                                 <a
                                 class="w-100 u-box-shadow-pattern d-block u-font-size-15 u-font-weight-bold u-font-family-nunito text-center text-decoration-none u-color-folk-white u-bg-folk-medium-electric-blue hover:u-bg-folk-squid-ink py-2"
-                                href="#">
+                                href="<?php echo get_home_url( null, 'e-books' ) ?>">
                                     Ver mais
                                 </a>
                             </div>
@@ -149,7 +208,7 @@
 
                         <a
                         class="w-100 u-box-shadow-pattern d-flex justify-content-center align-items-center u-font-size-18 u-font-weight-bold u-font-family-nunito text-center text-decoration-none u-color-folk-squid-ink hover:u-color-folk-white u-bg-folk-golden hover:u-bg-folk-squid-ink py-3"
-                        href="#">
+                        href="<?php echo get_home_url( null, 'conteudos-especiais' ) ?>">
                             <span class="u-font-size-22 pr-2">+</span>Conteúdos
                         </a>
                     </div>

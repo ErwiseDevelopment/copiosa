@@ -14,8 +14,8 @@
 
                             <!-- loop -->
                             <?php  
-                                if( have_rows( 'banners_final' ) ) :
-                                    while( have_rows( 'banners_final' ) ) : the_row();
+                                if( have_rows( 'banners_finais', 'option' ) ) :
+                                    while( have_rows( 'banners_finais', 'option' ) ) : the_row();
                             ?>
                                         <div class="l-several__col col-lg-6 mb-3 mb-lg-0">
                                             

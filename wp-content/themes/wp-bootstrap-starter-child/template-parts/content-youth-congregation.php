@@ -44,19 +44,36 @@
                 <div class="row">
 
                     <!-- loop -->
-                    <div class="co-sm-6 col-md-3">
-                        
-                        <div 
-                        class="l-congregation__item d-flex justify-content-center align-items-center py-3 js-item-congregation is-active"
-                        data-value="O projeto">
-                            <p class="u-font-weight-bold mb-0">
-                                O projeto
-                            </p>
-                        </div>
-                    </div>
+                    <?php
+                        $args = array(
+                            'post_type'   => 'page',
+                            'post_parent' => 86,
+                            'sort_column' => 'post_date',
+                            'order'  => 'ASC',
+                        );
+
+                        $child_pages = new WP_Query( $args );
+
+                        if( $child_pages->have_posts() ) :
+                            while( $child_pages->have_posts() ) : $child_pages->the_post();
+                    ?>
+                                <div class="col-sm-6 col-md-3">
+                                    
+                                    <div 
+                                    class="l-congregation__item d-flex justify-content-center align-items-center py-3 js-item-congregation is-active"
+                                    data-value="<?php the_title() ?>">
+                                        <p class="u-font-weight-bold mb-0">
+                                            <?php the_title() ?>
+                                        </p>
+                                    </div>
+                                </div>
+                    <?php
+                            endwhile;
+                        endif;
+                    ?>
                     <!-- end loop -->
 
-                    <div class="co-sm-6 col-md-3">
+                    <!-- <div class="co-sm-6 col-md-3">
                         
                         <div 
                         class="l-congregation__item d-flex justify-content-center align-items-center py-3 js-item-congregation"
@@ -87,7 +104,7 @@
                                 Agenda
                             </p>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -99,21 +116,20 @@
     <div class="container">
         
         <div class="row">
-
+            <?php while( $child_pages->have_posts() ) : $child_pages->the_post(); ?>
             <div 
             class="l-congregation__col col-12 mt-4 pt-4 js-section-congregation is-active"
-            data-value="O projeto">
+            data-value="<?php the_title() ?>">
                 
                 <div class="row">
 
                     <div class="col-md-7 order-2 order-md-1">
 
                         <h3 class="l-congregation__title u-font-weight-extrabold u-color-folk-bold-electric-blue mb-4">
-                            Conheça o <br>
-                            Nosso Projeto
+                            <?php echo get_field( 'subtitulo' ) ?>
                         </h3>
 
-                        <p class="l-congregation__content u-font-weight-bold u-color-folk-bold-electric-blue mb-4">
+                        <!-- <p class="l-congregation__content u-font-weight-bold u-color-folk-bold-electric-blue mb-4">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
                             Mauris iaculis lacus ac nulla luctus congue eu eget 
                             purus. Phasellus eget ex quis diam rhoncus euismod 
@@ -129,7 +145,11 @@
                             lacus, malesuada a tortor vel, convallis blandit tellus. Proin 
                             rutrum diam augue, ac bibendum nibh tincidunt a. Nam 
                             quis placerat arcu, ac tincidunt nibh.
-                        </p>
+                        </p> -->
+
+                        <span class="l-congregation__content d-block u-font-weight-bold u-color-folk-bold-electric-blue mb-4">
+                            <?php echo get_field( 'resumo' ) ?>
+                        </span>
 
                         <div class="row justify-content-center">
 
@@ -137,7 +157,7 @@
 
                                     <a
                                     class="w-100 u-box-shadow-pattern d-block u-font-size-14 xxl:u-font-size-18 u-font-weight-bold u-font-family-nunito text-center text-decoration-none u-color-folk-white u-bg-folk-squid-ink hover:u-bg-folk-golden py-3"
-                                    href="#">
+                                    href="<?php the_permalink() ?>">
                                         Ler mais
                                     </a>
                                 </div>
@@ -145,15 +165,26 @@
                     </div>
 
                     <div class="col-md-5 order-1 order-md-2 mb-3 mb-md-0">
-                        <img
+                        <!-- <img
                         class="l-congregation__image img-fluid w-100 u-object-fit-cover"
-                        src="<?php echo get_home_url( null, '/wp-content/uploads/2022/06/congregation-image.png' ) ?>"
-                        alt="">
+                        src="<php echo get_home_url( null, '/wp-content/uploads/2022/06/congregation-image.png' ) ?>"
+                        alt=""> -->
+
+                        <?php
+                            $alt_title = get_the_title();
+
+                            the_post_thumbnail( 'post-thumbail',
+                                array(
+                                    'class' => 'l-congregation__image img-fluid w-100 u-object-fit-cover',
+                                    'alt'   => $alt_title
+                            ));
+                        ?>
                     </div>
                 </div>
             </div>
+            <?php endwhile; ?>
 
-            <div 
+            <!-- <div 
             class="l-congregation__col col-12 mt-4 pt-4 js-section-congregation"
             data-value="Como funciona">
                 
@@ -304,7 +335,7 @@
                         alt="">
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </section>

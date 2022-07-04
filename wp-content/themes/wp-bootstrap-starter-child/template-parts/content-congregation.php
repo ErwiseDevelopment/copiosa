@@ -57,7 +57,7 @@
                         if( $child_pages->have_posts() ) :
                             while( $child_pages->have_posts() ) : $child_pages->the_post();
                     ?>
-                                <div class="co-sm-6 col-md-3 my-3">
+                                <div class="co-sm-6 col-md-3">
                                     
                                     <div 
                                     class="l-congregation__item d-flex justify-content-center align-items-center py-3 js-item-congregation"
@@ -184,11 +184,7 @@
                     </div>
                 </div>
             </div>
-            <?php 
-                endwhile; 
-                
-                wp_reset_query();
-            ?>
+            <?php endwhile; ?>
             <!-- end loop -->
 
             <!-- <div 

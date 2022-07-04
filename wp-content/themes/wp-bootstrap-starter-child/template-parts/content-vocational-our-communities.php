@@ -16,14 +16,48 @@
                             <div class="swiper-wrapper">
 
                                 <!-- slide -->
-                                <?php for( $i = 0; $i < 4; $i++ ) { ?>
-                                    <div class="swiper-slide">
-                                        <img
-                                        class="img-fluid"
-                                        src="<?php echo get_home_url( null, '/wp-content/uploads/2022/06/WhatsApp-Image-2017-04-28-at-13.31.23.png' ) ?>"
-                                        alt="">
-                                    </div>
-                                <?php } ?>
+                                <?php 
+                                    $editorial_slug_current = 'vocacional';
+                                    $editorial_id_current = 33;
+
+                                    $args = array(
+                                        'posts_per_page' => -1,
+                                        'post_type'      => 'comunidades',
+                                        'order'          => 'DESC',
+                                        'tax_query'      => array(
+                                            array(
+                                                'taxonomy' => 'comunidades_categoria',
+                                                'field'    => 'slug',
+                                                'terms'    => array( $editorial_slug_current )
+                                            )
+                                        )
+                                    );
+
+                                    $communities = new WP_Query( $args );
+
+                                    if( $communities->have_posts() ) :
+                                        while( $communities->have_posts() ) : $communities->the_post();
+                                ?>
+                                            <div class="swiper-slide">
+                                                <!-- <img
+                                                class="img-fluid"
+                                                src="<php echo get_home_url( null, '/wp-content/uploads/2022/06/WhatsApp-Image-2017-04-28-at-13.31.23.png' ) ?>"
+                                                alt=""> -->
+
+                                                <?php
+                                                    $alt_title = get_the_title();
+
+                                                    the_post_thumbnail( 'post-thumbnail',
+                                                        array(
+                                                            'class' => 'img-fluid',
+                                                            'alt'   => $alt_title
+                                                    ));
+                                                ?>
+                                            </div>
+                                <?php 
+                                        endwhile;
+                                    endif;
+                                ?>
                                 <!-- end slide -->
                             </div>
                         </div>
@@ -57,18 +91,33 @@
                                 <div class="swiper-wrapper">
 
                                     <!-- slide -->
-                                    <?php for( $i = 0; $i < 4; $i++ ) { ?>
+                                    <?php 
+                                        if( $communities->have_posts() ) :
+                                            while( $communities->have_posts() ) : $communities->the_post();
+                                    ?>
                                         <div class="swiper-slide">
 
                                             <div>
 
                                                 <p class="d-inline-block u-font-size-10 u-font-weight-semibold text-center text-uppercase u-color-folk-bold-electric-blue u-bg-folk-golden py-1 px-5">
-                                                    aspirantado
+                                                    <!-- aspirantado -->
+                                                    <?php
+                                                        $terms = get_terms(
+                                                            array(
+                                                                'taxonomy'   => 'comunidades_categoria',
+                                                                'hide_empty' => true,
+                                                                'parent'     => $editorial_id_current
+                                                            )
+                                                        );
+
+                                                        echo $terms[0]->name;
+                                                    ?>
                                                 </p>
 
                                                 <h3 class="l-our-communities__title u-font-weight-bold u-color-folk-bold-electric-blue mb-4">
-                                                    Comunidade
-                                                    Irmã Maria Motta
+                                                    <!-- Comunidade
+                                                    Irmã Maria Motta -->
+                                                    <?php the_title() ?>
                                                 </h3>
 
                                                 <div class="d-flex align-items-center">
@@ -78,17 +127,24 @@
 
                                                     <p class="u-line-height-100 ml-2 mb-0">
                                                         <span class="u-font-size-12 u-font-weight-regular u-font-family-lato u-color-folk-aluminium">Telefone</span> <br>
-                                                        <span class="u-font-size-14 u-font-weight-semibold u-font-family-lato u-color-folk-medium-electric-blue">042 3226 9737</span>
+                                                        <!-- <span class="u-font-size-14 u-font-weight-semibold u-font-family-lato u-color-folk-medium-electric-blue">042 3226 9737</span> -->
+                                                        <span class="u-font-size-14 u-font-weight-semibold u-font-family-lato u-color-folk-medium-electric-blue"><?php echo get_field( 'telefone' ) ?></span>
                                                     </p>
                                                 </div>
 
-                                                <p class="u-font-size-14 xxl:u-font-size-17 u-font-weight-regular u-color-folk-aluminium mt-4">
-                                                    R. Emilio de Menezes, 1515 – Vl. Estrela <br>
-                                                    Cep – 84040-030 – Ponta Grossa/PR
-                                                </p>
+                                                <span class="d-block u-font-size-14 xxl:u-font-size-17 u-font-weight-regular u-color-folk-aluminium mt-4">
+                                                    <!-- R. Emilio de Menezes, 1515 – Vl. Estrela <br>
+                                                    Cep – 84040-030 – Ponta Grossa/PR -->
+                                                    <?php echo get_field( 'endereco' ) ?>
+                                                </span>
                                             </div>
                                         </div>
-                                    <?php } ?>
+                                    <?php 
+                                            endwhile;
+                                        endif;
+                                        
+                                        wp_reset_query();
+                                    ?>
                                     <!-- end slide -->
                                 </div>
                             </div>
