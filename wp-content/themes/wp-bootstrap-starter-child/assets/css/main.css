@@ -634,17 +634,23 @@ button.swiper-pagination-bullet {
 .after\:\:u-bg-folk-white::after {
   background-color: #FFF !important; }
 
-.hover\:u-bg-folk-black:hover {
+.hover\:u-bg-folk-black:hover,
+.hover-u-bg-folk-black:hover {
   background-color: #000 !important; }
-.hover\:u-bg-folk-medium-electric-blue:hover {
+.hover\:u-bg-folk-medium-electric-blue:hover,
+.hover-u-bg-folk-medium-electric-blue:hover {
   background-color: #255777 !important; }
-.hover\:u-bg-folk-golden:hover {
+.hover\:u-bg-folk-golden:hover,
+.hover-u-bg-folk-golden:hover {
   background-color: #E9B53D !important; }
-.hover\:u-bg-folk-squid-ink:hover {
+.hover\:u-bg-folk-squid-ink:hover,
+.hover-u-bg-folk-squid-ink:hover {
   background-color: #0B2139 !important; }
-.hover\:u-bg-folk-none:hover {
+.hover\:u-bg-folk-none:hover,
+.hover-u-bg-folk-none:hover {
   background: none !important; }
-.hover\:u-bg-folk-white:hover {
+.hover\:u-bg-folk-white:hover,
+.hover-u-bg-folk-white:hover {
   background-color: #FFF !important; }
 
 @media screen and (min-width: 576px) {
