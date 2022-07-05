@@ -68,7 +68,7 @@
                                             no distrito de Uvaia, em Ponta Grossa, a celebração 
                                             dos Votos Temporários das Irmãs Amanda, Irmã Bruna, 
                                             Irmã Criciele, Irmã Gabriele, [...] -->
-                                            <?php echo(limit_words(the_content(), 25)); ?>
+                                            <?php echo(limit_words(get_the_content(), 25)); ?>
                                         </span>
 
                                         <div class="row">
