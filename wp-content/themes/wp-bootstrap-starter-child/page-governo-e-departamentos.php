@@ -52,9 +52,18 @@ get_header(); ?>
 
                     <!-- loop -->
                     <?php 
+                        $editorial_slug_current = 'governo-masculino';
+                        $editorial_id_current = 27;
                         $args = array(
                             'posts_per_page' => -1,
                             'post_type'      => 'governo',
+                            'tax_query'      => array(
+                                array(
+                                    'taxonomy' => 'governo-categoria',
+                                    'field'    => 'slug',
+                                    'terms'    => array( $editorial_slug_current )
+                                )
+                                ),
                             'order'          => 'DESC'
                         );
 
