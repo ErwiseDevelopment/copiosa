@@ -49,29 +49,53 @@ get_header(); ?>
 
                 <ul class="d-flex justify-content-center pl-0">
 
-                    <li class="px:u-w-40 px:u-h-40 u-list-style-none mx-2">
-                        <a class="u-icon__brands u-icon__twitter w-100 h-100 d-flex justify-content-center align-items-center u-font-size-0 before::u-font-size-15 text-decoration-none u-color-folk-white u-bg-folk-twitter" href="#" target="_blank" rel="noreferrer noopener">
-                            Link do Twitter
-                        </a>
-                    </li>
+                    <?php if( get_field( 'Twitter', 'option' ) ) : ?>
+                        <li class="px:u-w-40 px:u-h-40 u-list-style-none mx-2">
+                            <a 
+                            class="u-icon__brands u-icon__twitter w-100 h-100 d-flex justify-content-center align-items-center u-font-size-0 before::u-font-size-15 text-decoration-none u-color-folk-white u-bg-folk-twitter" 
+                            href="<?php echo get_field( 'Twitter', 'option' ) ?>" 
+                            target="_blank" 
+                            rel="noreferrer noopener">
+                                Link do Twitter
+                            </a>
+                        </li>
+                    <?php endif; ?>
 
-                    <li class="px:u-w-40 px:u-h-40 u-list-style-none mx-2">
-                        <a class="u-icon__brands u-icon__facebook w-100 h-100 d-flex justify-content-center align-items-center u-font-size-0 before::u-font-size-15 text-decoration-none u-color-folk-white u-bg-folk-facebook" href="#" target="_blank" rel="noreferrer noopener">
-                            Link do Facebook
-                        </a>
-                    </li>
+                    <?php if( get_field( 'facebook', 'option' ) ) : ?>
+                        <li class="px:u-w-40 px:u-h-40 u-list-style-none mx-2">
+                            <a 
+                            class="u-icon__brands u-icon__facebook w-100 h-100 d-flex justify-content-center align-items-center u-font-size-0 before::u-font-size-15 text-decoration-none u-color-folk-white u-bg-folk-facebook" 
+                            href="<?php echo get_field( 'facebook', 'option' ) ?>" 
+                            target="_blank" 
+                            rel="noreferrer noopener">
+                                Link do Facebook
+                            </a>
+                        </li>
+                    <?php endif; ?>
 
-                    <li class="px:u-w-40 px:u-h-40 u-list-style-none mx-2">
-                        <a class="u-icon__brands u-icon__youtube w-100 h-100 d-flex justify-content-center align-items-center u-font-size-0 before::u-font-size-15 text-decoration-none u-color-folk-white u-bg-folk-youtube" href="#" target="_blank" rel="noreferrer noopener">
-                            Link do Youtube
-                        </a>
-                    </li>
+                    <?php if( get_field( 'youtube', 'option' ) ) : ?>
+                        <li class="px:u-w-40 px:u-h-40 u-list-style-none mx-2">
+                            <a 
+                            class="u-icon__brands u-icon__youtube w-100 h-100 d-flex justify-content-center align-items-center u-font-size-0 before::u-font-size-15 text-decoration-none u-color-folk-white u-bg-folk-youtube" 
+                            href="<?php echo get_field( 'youtube', 'option' ) ?>" 
+                            target="_blank" 
+                            rel="noreferrer noopener">
+                                Link do Youtube
+                            </a>
+                        </li>
+                    <?php endif; ?>
 
-                    <li class="px:u-w-40 px:u-h-40 u-list-style-none mx-2">
-                        <a class="u-icon__brands u-icon__instagram w-100 h-100 d-flex justify-content-center align-items-center u-font-size-0 before::u-font-size-15 text-decoration-none u-color-folk-white u-bg-folk-instagram" href="#" target="_blank" rel="noreferrer noopener">
-                            Link do Instagram
-                        </a>
-                    </li>
+                    <?php if( get_field( 'instagram', 'option' ) ) : ?>
+                        <li class="px:u-w-40 px:u-h-40 u-list-style-none mx-2">
+                            <a 
+                            class="u-icon__brands u-icon__instagram w-100 h-100 d-flex justify-content-center align-items-center u-font-size-0 before::u-font-size-15 text-decoration-none u-color-folk-white u-bg-folk-instagram" 
+                            href="<?php echo get_field( 'instagram', 'option' ) ?>" 
+                            target="_blank" 
+                            rel="noreferrer noopener">
+                                Link do Instagram
+                            </a>
+                        </li>
+                    <?php endif; ?>
                 </ul>
             </div>
 
@@ -85,17 +109,21 @@ get_header(); ?>
                             Fale conosco
                         </h4>
 
-                        <p class="u-font-size-14 u-font-weight-regular u-color-folk-aluminium">
+                        <!-- <p class="u-font-size-14 u-font-weight-regular u-color-folk-aluminium">
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. 
                             Placeat consectetur eos est nemo eligendi, commodi quibusdam 
                             iusto odio quia in corrupti culpa inventore, nam sequi earum, 
                             non nesciunt obcaecati saepe!
-                        </p>
+                        </p> -->
+
+                        <span class="d-block u-font-size-14 u-font-weight-regular u-color-folk-aluminium">
+                            <?php the_content() ?>
+                        </span>
                     </div>
 
                     <div class="col-md-6">
 
-                        <form>
+                        <!-- <form>
 
                             <div class="row justify-content-end">
 
@@ -123,7 +151,9 @@ get_header(); ?>
                                     <input class="w-100 border-0 rounded d-block u-font-size-15 u-font-weight-bold text-center u-color-folk-white u-bg-folk-golden hover:u-bg-folk-squid-ink py-3" type="submit" value="Enviar"> 
                                 </div>
                             </div>
-                        </form>
+                        </form> -->
+
+                        <?php echo do_shortcode( '[contact-form-7 id="12" title="Fale conosco"]' ); ?>
                     </div>
                 </div>
             </div>

@@ -53,16 +53,36 @@ get_header(); ?>
                     <div class="swiper-wrapper">
 
                         <!-- slide -->
-                        <?php for( $i = 0; $i < 8; $i++ ) { ?>
-                        <a 
-                        class="swiper-slide"
-                        href="#">
-                            <img
-                            class="img-fluid w-100 h-100 u-object-fit-cover"
-                            src="<?php echo get_home_url( null, '/wp-content/uploads/2022/06/logotipo_oficial_vertical.png' ) ?>"
-                            alt="">
-                        </a>
-                        <?php } ?>
+                        <?php 
+                            $args = array(
+                                'post_type'   => 'page',
+                                'page_id'     => 48,
+                                'order'       => 'ASC',
+                            );
+    
+                            $child_pages = new WP_Query( $args );
+
+                            if( $child_pages->have_posts() ) :
+                                while( $child_pages->have_posts() ) : $child_pages->the_post();
+                                    if( have_rows( 'parceiros' ) ) : 
+                                        while( have_rows( 'parceiros' ) ) : the_row();
+                        ?>
+                                            <a 
+                                            class="swiper-slide"
+                                            href="<?php echo get_sub_field( 'link' ) ?>">
+                                                <img
+                                                class="img-fluid w-100 h-100 u-object-fit-cover"
+                                                src="<?php echo get_sub_field( 'logo' ) ?>"
+                                                alt="<?php the_title() ?>">
+                                            </a>
+                        <?php
+                                        endwhile;
+                                    endif;
+                                endwhile;
+                            endif;
+
+                            wp_reset_query();
+                        ?>
                         <!-- end slide -->
                     </div>
                 </div>

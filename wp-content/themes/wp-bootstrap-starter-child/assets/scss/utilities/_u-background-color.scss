@@ -113,7 +113,8 @@ $utility-name: 'u-bg-folk';
 }
 
 //hover
-.hover\: {
+.hover\:,
+.hover- {
     &#{$utility-name} {
         &-black {
             &:hover {
