@@ -23,17 +23,12 @@
                         </h2>
 
                         <p class="l-congregation__description u-font-weight-semibold u-color-folk-white">
-                            Lorem ipsum dolor sit amet, consectetur 
-                            adipiscing elit. Mauris iaculis lacus ac nulla 
-                            luctus congue eu eget purus. Phasellus eget ex 
-                            quis diam rhoncus euismod vel eu metus. In hac
-                            habitasse platea dictumst. Sed sem mi, egestas 
-                            eu consequat in, cursus ut enim. 
-
+                        O jovem dentro da Copiosa Redenção tem um papel muito importante dentro do nosso carisma: ser evangelizadores.
+Logo no início, no capítulo I, nosso fundador Padre Wilton diz: “O mandato de Jesus Cristo, IDE, deve ser traduzido como a maneira que devemos caminhar nas estradas do mundo com sinais que concretizam a Copiosa Redenção”. E o que isso, de fato, nos diz? Que aonde formos, precisamos levar a Redenção do nosso Senhor. E ir de encontro com a juventude é trazer essa transformação, é mostrar um novo estilo de vida que contempla a liberdade, ao lado do amor de Deus.
                             <br><br>
 
-                            Suspendisse vel justo quis dui lacinia ultricies sit 
-                            amet at lectus. 
+                            E você, jovem? Bora mergulhar neste carisma da Copiosa Redenção e viver intensamente este amor que provém do Senhor?
+ 
                         </p>
                     </div>
                 </div>
