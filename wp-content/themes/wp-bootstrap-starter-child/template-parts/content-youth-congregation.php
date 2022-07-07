@@ -11,7 +11,7 @@
                     <div class="col-8 col-lg-4">
                         <img
                         class="img-fluid"
-                        src="<?php echo get_home_url( null, '/wp-content/uploads/2022/06/evangelizar-jovens-catolicos.png' ) ?>"
+                        src="<?php echo get_home_url( null, '/wp-content/uploads/2022/07/Prancheta_3.jpg' ) ?>"
                         alt="">
                     </div>
 
