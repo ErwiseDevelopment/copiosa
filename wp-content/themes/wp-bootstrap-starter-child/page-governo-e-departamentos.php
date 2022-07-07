@@ -59,7 +59,7 @@ get_header(); ?>
                             'post_type'      => 'governo',
                             'tax_query'      => array(
                                 array(
-                                    'taxonomy' => 'governo-categoria',
+                                    'taxonomy' => 'ggit remote add origin git@github.com:ErwiseDevelopment/centroancora.gitoverno-categoria',
                                     'field'    => 'slug',
                                     'terms'    => array( $editorial_slug_current )
                                 )
