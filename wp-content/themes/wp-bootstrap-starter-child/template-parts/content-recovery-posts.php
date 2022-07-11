@@ -21,7 +21,7 @@
                         $args = array(
                             'posts_per_page' => 4,
                             'post_type'      => 'post',
-                            'category_name'  => 'vocacional',
+                            'category_name'  => 'recuperacao',
                             'order'          => 'DESC'
                         );
 
