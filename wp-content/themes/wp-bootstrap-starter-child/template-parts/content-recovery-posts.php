@@ -17,56 +17,130 @@
                 <div class="row">
 
                     <!-- loop -->
-                    <?php for( $i = 0; $i < 4; $i++ ) { ?>
-                        <div class="col-md-6 col-lg-3 my-3 px-2">
+                    <?php
+                        $args = array(
+                            'posts_per_page' => 4,
+                            'post_type'      => 'post',
+                            'category_name'  => 'vocacional',
+                            'order'          => 'DESC'
+                        );
 
-                            <a 
-                            class="card rounded-0 text-decoration-none"
-                            href="#">
+                        $posts_current = array();
 
-                                <div class="card-img">
-                                    <img
-                                    class="l-posts__thumbnail img-fluid w-100 u-object-fit-cover"
-                                    src="<?php echo get_home_url( null, '/wp-content/uploads/2022/06/posts-image.png' ) ?>"
-                                    alt="Post image">
-                                </div>
+                        $editorials = new WP_Query( $args );
 
-                                <div class="card-body px-4">
+                        if( $editorials->have_posts() ) :
+                            while( $editorials->have_posts() ) : $editorials->the_post();
+                                array_push($posts_current, get_the_ID());
+                    ?>
+                                <div class="col-md-6 col-lg-3 my-3 px-2">
 
-                                    <p class="u-font-size-12 xxl:u-font-size-14 u-font-weight-bold u-color-folk-medium-electric-blue mb-0">
-                                        Institucional
-                                    </p>
+                                    <a 
+                                    class="card rounded-0 text-decoration-none"
+                                    href="<?php the_permalink() ?>">
 
-                                    <p class="u-font-size-12 xxl:u-font-size-14 u-font-weight-semibold u-color-folk-medium-electric-blue">
-                                        10 de dezembro de 2021
-                                    </p>
+                                        <div class="card-img">
+                                            <!-- <img
+                                            class="l-posts__thumbnail img-fluid w-100 u-object-fit-cover"
+                                            src="<php echo get_home_url( null, '/wp-content/uploads/2022/06/posts-image.png' ) ?>"
+                                            alt="Post image"> -->
 
-                                    <h4 class="u-font-size-16 xxl:u-font-size-20 u-font-weight-bold u-color-folk-bold-electric-blue mb-4">
-                                        Workshop reúne religiosos
-                                        sobre os benefícios e os 
-                                        males da vida online
-                                    </h4>
+                                            <?php
+                                                $alt_title = get_the_title();
 
-                                    <p class="u-font-size-14 xxl:u-font-size-16 u-font-weight-regular u-color-folk-aluminium">
-                                        O Centro Âncora promoveu no dia 14 de
-                                        outubro, um workshop, intitulado “Teu 
-                                        Olhar” voltado para os religiosos (as) [...]
-                                    </p>
-
-                                    <div class="row">
-
-                                        <div class="col-6 mt-3">
-
-                                            <p
-                                            class="w-100 u-box-shadow-pattern u-font-size-12 u-font-weight-bold u-font-family-nunito text-center u-color-folk-white u-bg-folk-golden hover:u-bg-folk-squid-ink py-2">
-                                                Ler mais
-                                            </p>
+                                                the_post_thumbnail( 'post-thumbnail',
+                                                    array(
+                                                        'class' => 'l-posts__thumbnail img-fluid w-100 u-object-fit-cover',
+                                                        'alt'   => $alt_title
+                                                    ));
+                                            ?>
                                         </div>
-                                    </div>
+
+                                        <div class="card-body px-4">
+
+                                            <p class="u-font-size-12 xxl:u-font-size-14 u-font-weight-bold u-color-folk-medium-electric-blue mb-0">
+                                                <!-- Institucional -->
+                                                <?php
+                                                    $cats = array();
+                                                    $categories_current = array();
+                                                    $count = 0;
+
+                                                    foreach (get_the_category($post_id) as $c) {
+                                                        $cat = get_category($c);
+                                                        array_push($cats, $cat->name);
+                                                    }
+                                                    
+                                                    foreach( $cats as $cat ) {
+                                                        foreach( get_categories_highlight() as $editorial ) {
+                                                            if( $cat == $editorial )
+                                                                $editorial_current = $cat;
+                                                        }
+                                                    }
+
+                                                    foreach( $cats as $cat ) {
+                                                        if( $editorial_current ) {
+                                                            if( $cat != $editorial_current ) {
+                                                                array_push($categories_current, $cat);
+                                                                $count++;
+    
+                                                                if( $count == 1 )
+                                                                    break;
+                                                            }
+                                                        } else {
+                                                            array_push($categories_current, $cat);
+                                                            $count++;
+    
+                                                            if( $count == 3 )
+                                                                break;
+                                                        }
+                                                    }
+
+                                                    if (sizeOf($categories_current) > 0) {
+                                                        $post_categories = implode(', ', $categories_current);
+                                                    } 
+
+                                                    echo $editorial_current ? $editorial_current . ', ' . $post_categories : $post_categories;
+                                                ?>
+                                            </p>
+
+                                            <p class="u-font-size-12 xxl:u-font-size-14 u-font-weight-semibold u-color-folk-medium-electric-blue">
+                                                <!-- 10 de dezembro de 2021 -->
+                                                <?php echo get_date_format( get_the_date( 'd/m/Y', $editorials->ID ) ) ?>
+                                            </p>
+
+                                            <h4 class="u-font-size-16 xxl:u-font-size-20 u-font-weight-bold u-color-folk-bold-electric-blue mb-4">
+                                                <!-- Workshop reúne religiosos
+                                                sobre os benefícios e os 
+                                                males da vida online -->
+                                                <?php the_title() ?>
+                                            </h4>
+
+                                            <span class="d-block u-font-size-14 xxl:u-font-size-16 u-font-weight-regular u-color-folk-aluminium">
+                                                <!-- O Centro Âncora promoveu no dia 14 de
+                                                outubro, um workshop, intitulado “Teu 
+                                                Olhar” voltado para os religiosos (as) [...] -->
+                                                <?php echo limit_words( get_the_content(), 20); ?>
+                                            </span>
+
+                                            <div class="row">
+
+                                                <div class="col-6 mt-3">
+
+                                                    <p
+                                                    class="w-100 u-box-shadow-pattern u-font-size-12 u-font-weight-bold u-font-family-nunito text-center u-color-folk-white u-bg-folk-golden hover:u-bg-folk-squid-ink py-2">
+                                                        Ler mais
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
                                 </div>
-                            </a>
-                        </div>
-                    <?php } ?>
+                    <?php
+                            endwhile;
+                        endif;
+
+                        wp_reset_query();
+                    ?>
                     <!-- end loop -->
 
                     <div class="col-12">

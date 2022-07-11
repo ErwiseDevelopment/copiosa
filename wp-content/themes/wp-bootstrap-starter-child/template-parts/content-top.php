@@ -15,7 +15,7 @@
                             <li class="u-list-style-none mx-3">
                                 <a
                                 class="u-icon__brands u-icon__facebook-square u-font-size-0 before::u-font-size-22 text-decoration-none u-color-folk-medium-electric-blue"
-                                href="#"
+                                href="https://www.facebook.com/CopiosaRedencaoOficial/"
                                 target="_blank"
                                 rel="noreferrer noopener">
                                     Link do Facebook
@@ -25,7 +25,7 @@
                             <li class="u-list-style-none mx-3">
                                 <a
                                 class="u-icon__brands u-icon__instagram u-font-size-0 before::u-font-size-22 text-decoration-none u-color-folk-medium-electric-blue"
-                                href="#"
+                                href="https://www.instagram.com/copiosaredencao/"
                                 target="_blank"
                                 rel="noreferrer noopener">
                                     Link do Instagram
@@ -35,7 +35,7 @@
                             <li class="u-list-style-none mx-3">
                                 <a
                                 class="u-icon__brands u-icon__youtube u-font-size-0 before::u-font-size-22 text-decoration-none u-color-folk-medium-electric-blue"
-                                href="#"
+                                href="https://www.youtube.com/channel/UCPq-dZEvb_4GvbfhWtkoF3A"
                                 target="_blank"
                                 rel="noreferrer noopener">
                                     Link do Youtube
@@ -45,7 +45,7 @@
                             <li class="u-list-style-none mx-3">
                                 <a
                                 class="u-icon__brands u-icon__twitter u-font-size-0 before::u-font-size-22 text-decoration-none u-color-folk-medium-electric-blue"
-                                href="#"
+                                href="https://twitter.com/copiosaredencao"
                                 target="_blank"
                                 rel="noreferrer noopener">
                                     Link do Twitter
