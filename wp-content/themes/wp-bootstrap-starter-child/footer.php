@@ -108,7 +108,7 @@
                                 <li class="u-list-style-none">
                                     <a
                                     class="u-font-size-12 u-font-weight-regular before::u-font-weight-semibold u-font-family-nunito u-color-folk-light-aluminium"
-                                    href="#">
+                                    href="https://copiosa.erwisedev-hml.com.br/institucional">
                                         Institucional
                                     </a>
                                 </li>
@@ -116,7 +116,7 @@
                                 <li class="u-list-style-none">
                                     <a
                                     class="u-font-size-12 u-font-weight-regular before::u-font-weight-semibold u-font-family-nunito u-color-folk-light-aluminium"
-                                    href="#">
+                                    href="https://copiosa.erwisedev-hml.com.br/evangelizacao">
                                         Evangelização
                                     </a>
                                 </li>
@@ -124,7 +124,7 @@
                                 <li class="u-list-style-none">
                                     <a
                                     class="u-font-size-12 u-font-weight-regular before::u-font-weight-semibold u-font-family-nunito u-color-folk-light-aluminium"
-                                    href="#">
+                                    href="https://copiosa.erwisedev-hml.com.br/recuperacao">
                                         Recuperação
                                     </a>
                                 </li>
@@ -132,7 +132,7 @@
                                 <li class="u-list-style-none">
                                     <a
                                     class="u-font-size-12 u-font-weight-regular before::u-font-weight-semibold u-font-family-nunito u-color-folk-light-aluminium"
-                                    href="#">
+                                    href="https://copiosa.erwisedev-hml.com.br/vocacional">
                                         Vocacional
                                     </a>
                                 </li>
@@ -140,7 +140,7 @@
                                 <li class="u-list-style-none">
                                     <a
                                     class="u-font-size-12 u-font-weight-regular before::u-font-weight-semibold u-font-family-nunito u-color-folk-light-aluminium"
-                                    href="#">
+                                    href="https://copiosa.erwisedev-hml.com.br/juventude">
                                         Juventude
                                     </a>
                                 </li>
@@ -185,46 +185,50 @@
                 <div class="col-12 pt-3">
 
                     <ul class="d-flex justify-content-center justify-content-lg-end pl-0">
-
+                    <?php if( get_field( 'Twitter', 'option' ) ) : ?>
                         <li class="px:u-w-40 px:u-h-40 u-list-style-none mx-2">
                             <a 
-                            class="u-icon__brands u-icon__twitter w-100 h-100 d-flex justify-content-center align-items-center u-font-size-0 before::u-font-size-15 text-decoration-none u-color-folk-white u-bg-folk-twitter"
-                            href="#"
-                            target="_blank"
+                            class="u-icon__brands u-icon__twitter w-100 h-100 d-flex justify-content-center align-items-center u-font-size-0 before::u-font-size-15 text-decoration-none u-color-folk-white u-bg-folk-twitter" 
+                            href="<?php echo get_field( 'Twitter', 'option' ) ?>" 
+                            target="_blank" 
                             rel="noreferrer noopener">
                                 Link do Twitter
                             </a>
                         </li>
-
+                    <?php endif; ?>
+                    <?php if( get_field( 'facebook', 'option' ) ) : ?>
                         <li class="px:u-w-40 px:u-h-40 u-list-style-none mx-2">
                             <a 
-                            class="u-icon__brands u-icon__facebook w-100 h-100 d-flex justify-content-center align-items-center u-font-size-0 before::u-font-size-15 text-decoration-none u-color-folk-white u-bg-folk-facebook"
-                            href="#"
-                            target="_blank"
+                            class="u-icon__brands u-icon__facebook w-100 h-100 d-flex justify-content-center align-items-center u-font-size-0 before::u-font-size-15 text-decoration-none u-color-folk-white u-bg-folk-facebook" 
+                            href="<?php echo get_field( 'facebook', 'option' ) ?>" 
+                            target="_blank" 
                             rel="noreferrer noopener">
                                 Link do Facebook
                             </a>
                         </li>
-
+                    <?php endif; ?>
+                    <?php if( get_field( 'youtube', 'option' ) ) : ?>
                         <li class="px:u-w-40 px:u-h-40 u-list-style-none mx-2">
                             <a 
-                            class="u-icon__brands u-icon__youtube w-100 h-100 d-flex justify-content-center align-items-center u-font-size-0 before::u-font-size-15 text-decoration-none u-color-folk-white u-bg-folk-youtube"
-                            href="#"
-                            target="_blank"
+                            class="u-icon__brands u-icon__youtube w-100 h-100 d-flex justify-content-center align-items-center u-font-size-0 before::u-font-size-15 text-decoration-none u-color-folk-white u-bg-folk-youtube" 
+                            href="<?php echo get_field( 'youtube', 'option' ) ?>" 
+                            target="_blank" 
                             rel="noreferrer noopener">
                                 Link do Youtube
                             </a>
                         </li>
-
+                    <?php endif; ?>
+                    <?php if( get_field( 'instagram', 'option' ) ) : ?>
                         <li class="px:u-w-40 px:u-h-40 u-list-style-none mx-2">
                             <a 
-                            class="u-icon__brands u-icon__instagram w-100 h-100 d-flex justify-content-center align-items-center u-font-size-0 before::u-font-size-15 text-decoration-none u-color-folk-white u-bg-folk-instagram"
-                            href="#"
-                            target="_blank"
+                            class="u-icon__brands u-icon__instagram w-100 h-100 d-flex justify-content-center align-items-center u-font-size-0 before::u-font-size-15 text-decoration-none u-color-folk-white u-bg-folk-instagram" 
+                            href="<?php echo get_field( 'instagram', 'option' ) ?>" 
+                            target="_blank" 
                             rel="noreferrer noopener">
                                 Link do Instagram
                             </a>
                         </li>
+                    <?php endif; ?>>
                     </ul>
                 </div>
             </div>
