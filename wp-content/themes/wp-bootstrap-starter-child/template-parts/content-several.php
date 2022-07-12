@@ -13,10 +13,7 @@
                         <div class="row h-100">
 
                             <!-- loop -->
-                            <?php  
-                                if( have_rows( 'banners_finais', 'option' ) ) :
-                                    while( have_rows( 'banners_finais', 'option' ) ) : the_row();
-                            ?>
+                            
                                         <div class="l-several__col col-lg-6 mb-3 mb-lg-0">
                                             
                                             <a 
@@ -24,7 +21,7 @@
                                             href="<?php echo get_sub_field( 'link' ) ?>">
                                                 <img
                                                 class="img-fluid h-100 u-object-fit-cover"
-                                                src="<?php echo get_sub_field( 'banner' ) ?>"
+                                                src="<?php echo get_sub_field( 'imagem_destaque_esquerdo', 'option' ) ?>"
                                                 alt="<?php the_title() ?>">
                                             </a>
 
@@ -55,10 +52,7 @@
                                                 <?php endif; ?>
                                             </ul>
                                         </div>
-                            <?php
-                                    endwhile;
-                                endif;
-                            ?>
+                            
 
                             <!-- <div class="col-lg-6">
                                 
@@ -226,7 +220,7 @@
                                         <?php 
                                             $args = array(
                                                 'posts_per_page' => 4,
-                                                'post_type'      => 'ebooks',
+                                                'post_type'      => 'ebook',
                                                 'order'          => 'DESC'
                                             );
 
