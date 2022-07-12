@@ -51,7 +51,7 @@ function erwise_create_post_type() {
 		'labels' 		=> array( 'name' => 'Depoimentos', 'singular_name' => 'Depoimento', 'all_items' => 'Categorias' ),
 		'public' 		=> true,
 		'has_archive'	=> true,
-		'menu_icon'		=> 'dashicons-images-alt2',
+		'menu_icon'		=> 'dashicons-format-quote',
 		'supports' 		=> array( 'title', 'editor', 'thumbnail' ) 
 	) );
 }
