@@ -47,11 +47,14 @@ get_header();
 
             <!-- loop -->
             <?php 
+                $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+
                 $args = array(
-                    'posts_per_page' => 4,
+                    'posts_per_page' => 6,
                     'post_type'      => 'post',
                     'category_name'  => 'blog',
-                    'order'          => 'DESC'
+                    'order'          => 'DESC',
+                    'paged' =>  $paged,
                 );
                 
                 $posts_blog = new WP_Query( $args );
@@ -115,6 +118,32 @@ get_header();
                 wp_reset_query();
             ?>
             <!-- end loop -->
+        </div>
+
+        <div class="row">
+
+            <div class="col-12 l-pagination d-flex justify-content-center mt-5">
+
+                <div class="d-flex">
+                    <?php
+                        echo paginate_links( array(
+                            'base'         => str_replace( 999999999, '%#%', esc_url( get_pagenum_link( 999999999 ) ) ),
+                            'total'        => $posts_blog->max_num_pages,
+                            'current'      => max( 1, get_query_var( 'paged' ) ),
+                            'format'       => '?paged=%#%',
+                            'show_all'     => false,
+                            'type'         => 'plain',
+                            'end_size'     => 2,
+                            'mid_size'     => 1,
+                            'prev_next'    => true,
+                            'prev_text'    => sprintf( '<i class="fas fa-angle-left"></i> %1$s', __( '', 'text-domain' ) ),
+                            'next_text'    => sprintf( '%1$s <i class="fas fa-angle-right"></i>', __( '', 'text-domain' ) ),
+                            'add_args'     => false,
+                            'add_fragment' => '',
+                        ) );
+                    ?>
+                </div>
+            </div>
         </div>
     </div>
 </section>

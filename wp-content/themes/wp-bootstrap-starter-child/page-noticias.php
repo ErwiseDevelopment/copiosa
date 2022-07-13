@@ -156,7 +156,7 @@ get_header(); ?>
                             <!-- loop -->
                             <?php 
                                 $args = array(
-                                    'posts_per_page' => -1,
+                                    'posts_per_page' => 6,
                                     'post_type'      => 'post',
                                     'category_name'  => $category_current,
                                     'order'          => 'DESC',
@@ -169,9 +169,8 @@ get_header(); ?>
                                     while( $posts_news->have_posts() ) : $posts_news->the_post();
                             ?>
                                         <div class="col-lg-6 my-3">
-                                            <a 
-                                            class="card rounded-0 text-decoration-none"
-                                            href="<?php the_permalink() ?>">
+
+                                            <div class="card rounded-0">
 
                                                 <div class="card-img">
                                                     <!-- <img
@@ -260,14 +259,15 @@ get_header(); ?>
 
                                                         <div class="col-5 mt-3">
 
-                                                            <p
-                                                            class="w-100 u-box-shadow-pattern position-absolute u-font-size-12 u-font-weight-bold u-font-family-nunito text-center u-color-folk-white u-bg-folk-golden hover:u-bg-folk-squid-ink py-2">
+                                                            <a
+                                                            class="w-100 u-box-shadow-pattern position-absolute u-font-size-12 u-font-weight-bold u-font-family-nunito text-center u-color-folk-white u-bg-folk-golden hover:u-bg-folk-squid-ink py-2"
+                                                            href="<?php the_permalink() ?>">
                                                                 Ler mais
-                                                            </p>
+                                                            </a>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </a>
+                                            </div>
                                         </div>
                             <?php
                                     endwhile;
@@ -348,6 +348,32 @@ get_header(); ?>
                                     alt="">
                                 </a>
                             </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+
+                    <div class="col-12 l-pagination d-flex justify-content-center my-5">
+
+                        <div class="d-flex">
+                            <?php
+                                echo paginate_links( array(
+                                    'base'         => str_replace( 999999999, '%#%', esc_url( get_pagenum_link( 999999999 ) ) ),
+                                    'total'        => $post_news->max_num_pages,
+                                    'current'      => max( 1, get_query_var( 'paged' ) ),
+                                    'format'       => '?paged=%#%',
+                                    'show_all'     => false,
+                                    'type'         => 'plain',
+                                    'end_size'     => 2,
+                                    'mid_size'     => 1,
+                                    'prev_next'    => true,
+                                    'prev_text'    => sprintf( '<i class="fas fa-angle-left"></i> %1$s', __( '', 'text-domain' ) ),
+                                    'next_text'    => sprintf( '%1$s <i class="fas fa-angle-right"></i>', __( '', 'text-domain' ) ),
+                                    'add_args'     => false,
+                                    'add_fragment' => '',
+                                ) );
+                            ?>
                         </div>
                     </div>
                 </div>

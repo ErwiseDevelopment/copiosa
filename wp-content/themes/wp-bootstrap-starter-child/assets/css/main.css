@@ -2593,6 +2593,13 @@ button.swiper-pagination-bullet {
   .l-single-post__excerpt * {
     margin-bottom: 0; }
 
+.l-pagination .page-numbers {
+  margin: 0 .4rem;
+  font-size: 1.25rem;
+  color: #0B2139; }
+  .l-pagination .page-numbers.current {
+    font-weight: 700; }
+
 body::-webkit-scrollbar {
   width: 12px; }
 
