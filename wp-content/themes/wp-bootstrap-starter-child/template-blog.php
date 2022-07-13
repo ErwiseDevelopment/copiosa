@@ -59,18 +59,12 @@ get_header();
                 if( $posts_blog->have_posts() ) :
                     while( $posts_blog->have_posts() ) : $posts_blog->the_post();
             ?>
-                        <a 
-                        class="col-12 d-block text-decoration-none my-4"
-                        href="<?php the_permalink() ?>">
+                        <div class="col-12 d-block my-4">
 
                             <div class="row">
 
                                 <div class="col-md-5 pr-md-0">
-                                    <!-- <img
-                                    class="img-fluid w-100 h-100 u-object-fit-cover"
-                                    src="<php echo get_home_url( null, '/wp-content/uploads/2022/06/Image.png' ) ?>"
-                                    alt=""> -->
-
+                                  
                                     <?php
                                         $alt_title = get_the_title();
 
@@ -87,12 +81,10 @@ get_header();
                                     <div class="l-template-blog__box py-4 px-3 px-md-5">
 
                                         <p class="u-font-size-12 xxl:u-font-size-15 u-font-weight-bold text-uppercase u-color-folk-golden mb-0">
-                                            <!-- 10 de dezembro de 2021 -->
                                             <?php echo get_date_format( get_the_date( 'd/m/Y', get_the_ID() ) );?>
                                         </p>
 
                                         <p class="u-font-size-12 xxl:u-font-size-15 u-font-weight-bold text-uppercase u-color-folk-bold-electric-blue">
-                                            <!-- Evangelização -->
                                             <?php
                                                 $category_current = get_the_category( get_the_ID() ); 
                                                 echo $category_current[0]->name;
@@ -100,26 +92,22 @@ get_header();
                                         </p>
 
                                         <h4 class="l-template-blog__title u-font-weight-bold u-color-folk-dark-grayish-navy">
-                                            <!-- O que Deus quer neste
-                                            novo ano? -->
                                             <?php limit_words( get_the_title(), 10); ?>
                                         </h4>
 
                                         <span class="d-block u-font-size-14 xxl:u-font-size-18 u-font-weight-regular u-color-folk-aluminium pb-3">
-                                            <!-- Aconteceu no dia 07 de dezembro na nossa chácara, 
-                                            no distrito de Uvaia, em Ponta Grossa, a celebração 
-                                            dos Votos Temporários das Irmãs Amanda, Irmã Bruna, 
-                                            Irmã Criciele, Irmã Gabriele. -->
                                             <?php echo limit_words( get_the_content(), 25); ?>
                                         </span>
 
-                                        <p class="l-template-blog__read-more u-font-weight-medium text-center text-decoration-none u-color-folk-white u-bg-folk-golden hover:u-bg-folk-squid-ink mb-0 py-3 px-5">
+                                        <a 
+                                        class="l-template-blog__read-more u-font-weight-medium text-center text-decoration-none u-color-folk-white u-bg-folk-golden hover:u-bg-folk-squid-ink mb-0 py-3 px-5"
+                                        href="<?php the_permalink() ?>">
                                             Ler mais
-                                        </p>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
-                        </a>
+                        </div>
             <?php 
                     endwhile;
                 endif;
