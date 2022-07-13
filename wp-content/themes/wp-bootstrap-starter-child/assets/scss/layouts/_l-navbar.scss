@@ -25,7 +25,7 @@ $layout-name: 'l-navbar';
             }
         }
 
-        &:hover {
+        &.active {
             .dropdown-menu {
                 display: flex !important;
             }
