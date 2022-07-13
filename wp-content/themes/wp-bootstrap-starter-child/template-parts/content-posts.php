@@ -173,10 +173,10 @@
                                         ?>
                                                     <a 
                                                     class="l-posts__other-post__col-child col-12 d-block text-decoration-none my-3"
-                                                    href="#">
+                                                    href="<?php the_permalink() ?>">
                                                         
                                                         <p class="u-font-size-12 xxl:u-font-size-14 u-font-weight-semibold u-color-folk-medium-electric-blue">
-                                                            10 de dezembro de 2022
+                                                        <?php echo get_date_format( get_the_date( 'd/m/Y', $other_editorials->ID ) ) ?>
                                                         </p>
 
                                                         <h5 class="l-posts__other-post__title u-font-size-15 xxl:u-font-size-18 u-font-weight-bold u-color-folk-medium-electric-blue mb-0 pb-3">
