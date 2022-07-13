@@ -11,7 +11,8 @@ const swiperSpecialContent = new Swiper( '.js-swiper-special-content', {
         },
 
         992: {
-            slidesPerView: 3
+            slidesPerView: 3,
+            spaceBetween: 30,
         }
     },
 
