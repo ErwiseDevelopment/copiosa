@@ -147,7 +147,7 @@
 
                                         <a
                                         class="w-100 u-box-shadow-pattern d-block u-font-size-15 u-font-weight-bold u-font-family-nunito text-center text-decoration-none u-color-folk-white u-bg-folk-medium-electric-blue hover:u-bg-folk-squid-ink py-2"
-                                        href="#">
+                                        href="https://loja.copiosaredencao.org.br">
                                             Ver mais
                                         </a>
                                     </div>

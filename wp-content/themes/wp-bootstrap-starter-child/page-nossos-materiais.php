@@ -133,8 +133,8 @@ get_header(); ?>
 
                     <?php 
                         $args = array(
-                            'posts_per_page' => 4,
-                            'post_type'      => 'ebooks',
+                            'posts_per_page' => 24,
+                            'post_type'      => 'ebook',
                             'order'          => 'DESC'
                         );
 
