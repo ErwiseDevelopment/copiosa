@@ -35,7 +35,7 @@
                     <a href="#">
                         <img
                         class="img-fluid w-100"
-                        src="http://copiosa.test/wp-content/uploads/2022/06/logotipo_oficial_horizontal-1.png"
+                        src="../wp-content/uploads/2022/06/logotipo_oficial_horizontal-1.png"
                         alt="">
                     </a>
                 </div>
@@ -49,18 +49,8 @@
                             <h3 class="u-font-size-15 u-font-weight-bold u-color-folk-white">
                                 Irmãs da Copiosa Redenção
                             </h3>
-
                             <p class="u-icon__free u-icon__map::right position-relative u-font-size-12 u-font-weight-regular before::u-font-weight-semibold u-font-family-nunito u-color-folk-light-aluminium mb-2 before::u-pr-2">
-                                Rua Doralício Correia, 357.
-                            </p>
-
-                            <p class="u-font-size-12 u-font-weight-regular before::u-font-weight-semibold u-font-family-nunito u-color-folk-light-aluminium mb-2">
-                                Uvaranas – Ponta Grossa/PR
-                            </p>
-
-                            <p class="u-font-size-12 u-font-weight-regular before::u-font-weight-semibold u-font-family-nunito u-color-folk-light-aluminium mb-2">
-                                Cep 84031 190
-                            </p>
+                            <?php echo get_field( 'endereco', 'option' ) ?></p>
 
                             <p class="u-icon__free u-icon__phone-alt::right position-relative u-font-size-12 u-font-weight-regular before::u-font-weight-semibold u-font-family-nunito u-color-folk-light-aluminium mb-2 before::u-pr-2">
                                 +55 042 3226 1144
@@ -71,7 +61,7 @@
                             </p>
 
                             <p class="u-icon__free u-icon__envelope::right position-relative u-font-size-12 u-font-weight-regular before::u-font-weight-semibold u-font-family-nunito u-color-folk-light-aluminium mb-2 before::u-pr-2">
-                                atendimento@copiosaredencao.org.br
+                            <?php echo get_field( 'e-mail_1', 'option' ) ?>
                             </p>
                         </div>
 
@@ -82,19 +72,13 @@
                             </h3>
 
                             <p class="u-icon__free u-icon__map::right position-relative u-font-size-12 u-font-weight-regular before::u-font-weight-semibold u-font-family-nunito u-color-folk-light-aluminium mb-2 before::u-pr-2">
-                                BR 373,  Km 186,2. Distrito
-                            </p>
-
-                            <p class="u-font-size-12 u-font-weight-regular before::u-font-weight-semibold u-font-family-nunito u-color-folk-light-aluminium mb-2">
-                                de Uvaia - Ponta Grossa/PR
-                            </p>
-
-                            <p class="u-font-size-12 u-font-weight-regular before::u-font-weight-semibold u-font-family-nunito u-color-folk-light-aluminium mb-2">
-                                CEP 84062 981
-                            </p>
+                            <?php echo get_field( 'endereco_2', 'option' ) ?></p>
 
                             <p class="u-icon__free u-icon__phone-alt::right position-relative u-font-size-12 u-font-weight-regular before::u-font-weight-semibold u-font-family-nunito u-color-folk-light-aluminium mb-2 before::u-pr-2">
                                 +55 042 9 9158 5366
+                            </p>
+                            <p class="u-icon__free u-icon__envelope::right position-relative u-font-size-12 u-font-weight-regular before::u-font-weight-semibold u-font-family-nunito u-color-folk-light-aluminium mb-2 before::u-pr-2">
+                            <?php echo get_field( 'e-mail_2', 'option' ) ?>
                             </p>
                         </div>
 
@@ -108,7 +92,7 @@
                                 <li class="u-list-style-none">
                                     <a
                                     class="u-font-size-12 u-font-weight-regular before::u-font-weight-semibold u-font-family-nunito u-color-folk-light-aluminium"
-                                    href="#">
+                                    href="https://copiosa.erwisedev-hml.com.br/institucional">
                                         Institucional
                                     </a>
                                 </li>
@@ -116,7 +100,7 @@
                                 <li class="u-list-style-none">
                                     <a
                                     class="u-font-size-12 u-font-weight-regular before::u-font-weight-semibold u-font-family-nunito u-color-folk-light-aluminium"
-                                    href="#">
+                                    href="https://copiosa.erwisedev-hml.com.br/evangelizacao">
                                         Evangelização
                                     </a>
                                 </li>
@@ -124,7 +108,7 @@
                                 <li class="u-list-style-none">
                                     <a
                                     class="u-font-size-12 u-font-weight-regular before::u-font-weight-semibold u-font-family-nunito u-color-folk-light-aluminium"
-                                    href="#">
+                                    href="https://copiosa.erwisedev-hml.com.br/recuperacao">
                                         Recuperação
                                     </a>
                                 </li>
@@ -132,7 +116,7 @@
                                 <li class="u-list-style-none">
                                     <a
                                     class="u-font-size-12 u-font-weight-regular before::u-font-weight-semibold u-font-family-nunito u-color-folk-light-aluminium"
-                                    href="#">
+                                    href="https://copiosa.erwisedev-hml.com.br/vocacional">
                                         Vocacional
                                     </a>
                                 </li>
@@ -140,7 +124,7 @@
                                 <li class="u-list-style-none">
                                     <a
                                     class="u-font-size-12 u-font-weight-regular before::u-font-weight-semibold u-font-family-nunito u-color-folk-light-aluminium"
-                                    href="#">
+                                    href="https://copiosa.erwisedev-hml.com.br/juventude">
                                         Juventude
                                     </a>
                                 </li>
@@ -185,46 +169,50 @@
                 <div class="col-12 pt-3">
 
                     <ul class="d-flex justify-content-center justify-content-lg-end pl-0">
-
+                    <?php if( get_field( 'Twitter', 'option' ) ) : ?>
                         <li class="px:u-w-40 px:u-h-40 u-list-style-none mx-2">
                             <a 
-                            class="u-icon__brands u-icon__twitter w-100 h-100 d-flex justify-content-center align-items-center u-font-size-0 before::u-font-size-15 text-decoration-none u-color-folk-white u-bg-folk-twitter"
-                            href="#"
-                            target="_blank"
+                            class="u-icon__brands u-icon__twitter w-100 h-100 d-flex justify-content-center align-items-center u-font-size-0 before::u-font-size-15 text-decoration-none u-color-folk-white u-bg-folk-twitter" 
+                            href="<?php echo get_field( 'Twitter', 'option' ) ?>" 
+                            target="_blank" 
                             rel="noreferrer noopener">
                                 Link do Twitter
                             </a>
                         </li>
-
+                    <?php endif; ?>
+                    <?php if( get_field( 'facebook', 'option' ) ) : ?>
                         <li class="px:u-w-40 px:u-h-40 u-list-style-none mx-2">
                             <a 
-                            class="u-icon__brands u-icon__facebook w-100 h-100 d-flex justify-content-center align-items-center u-font-size-0 before::u-font-size-15 text-decoration-none u-color-folk-white u-bg-folk-facebook"
-                            href="#"
-                            target="_blank"
+                            class="u-icon__brands u-icon__facebook w-100 h-100 d-flex justify-content-center align-items-center u-font-size-0 before::u-font-size-15 text-decoration-none u-color-folk-white u-bg-folk-facebook" 
+                            href="<?php echo get_field( 'facebook', 'option' ) ?>" 
+                            target="_blank" 
                             rel="noreferrer noopener">
                                 Link do Facebook
                             </a>
                         </li>
-
+                    <?php endif; ?>
+                    <?php if( get_field( 'youtube', 'option' ) ) : ?>
                         <li class="px:u-w-40 px:u-h-40 u-list-style-none mx-2">
                             <a 
-                            class="u-icon__brands u-icon__youtube w-100 h-100 d-flex justify-content-center align-items-center u-font-size-0 before::u-font-size-15 text-decoration-none u-color-folk-white u-bg-folk-youtube"
-                            href="#"
-                            target="_blank"
+                            class="u-icon__brands u-icon__youtube w-100 h-100 d-flex justify-content-center align-items-center u-font-size-0 before::u-font-size-15 text-decoration-none u-color-folk-white u-bg-folk-youtube" 
+                            href="<?php echo get_field( 'youtube', 'option' ) ?>" 
+                            target="_blank" 
                             rel="noreferrer noopener">
                                 Link do Youtube
                             </a>
                         </li>
-
+                    <?php endif; ?>
+                    <?php if( get_field( 'instagram', 'option' ) ) : ?>
                         <li class="px:u-w-40 px:u-h-40 u-list-style-none mx-2">
                             <a 
-                            class="u-icon__brands u-icon__instagram w-100 h-100 d-flex justify-content-center align-items-center u-font-size-0 before::u-font-size-15 text-decoration-none u-color-folk-white u-bg-folk-instagram"
-                            href="#"
-                            target="_blank"
+                            class="u-icon__brands u-icon__instagram w-100 h-100 d-flex justify-content-center align-items-center u-font-size-0 before::u-font-size-15 text-decoration-none u-color-folk-white u-bg-folk-instagram" 
+                            href="<?php echo get_field( 'instagram', 'option' ) ?>" 
+                            target="_blank" 
                             rel="noreferrer noopener">
                                 Link do Instagram
                             </a>
                         </li>
+                    <?php endif; ?>>
                     </ul>
                 </div>
             </div>

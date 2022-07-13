@@ -17,7 +17,7 @@
 
                                 <!-- slide -->
                                 <?php
-                                    $editorial_slug_current = 'evangelizacao';
+                                    $editorial_slug_current = 'casas-de-formacao';
                                     $editorial_id_current = 28;
         
                                     $args = array(

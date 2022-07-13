@@ -13,52 +13,56 @@
                         <div class="row h-100">
 
                             <!-- loop -->
-                            <?php  
-                                if( have_rows( 'banners_finais', 'option' ) ) :
-                                    while( have_rows( 'banners_finais', 'option' ) ) : the_row();
-                            ?>
+                            
                                         <div class="l-several__col col-lg-6 mb-3 mb-lg-0">
                                             
                                             <a 
                                             class="h-100 d-block"
-                                            href="<?php echo get_sub_field( 'link' ) ?>">
+                                            href="#">
                                                 <img
                                                 class="img-fluid h-100 u-object-fit-cover"
-                                                src="<?php echo get_sub_field( 'banner' ) ?>"
+                                                src="<?php echo get_field( 'imagem_destaque_esquerdo', 'option' ) ?>"
                                                 alt="<?php the_title() ?>">
                                             </a>
 
                                             <ul class="l-several__social-media d-flex justify-content-center align-items-center mb-0 pl-0">
                                                 
-                                                <?php if( get_sub_field( 'instagram' ) ) : ?>
+                                                
                                                     <li class="l-several__social-media__item u-list-style-none mx-3">
                                                         <a
                                                         class="u-icon__brands u-icon__instagram u-font-size-0 before::u-font-size-44 u-font-weight-light text-center text-decoration-none u-color-folk-white"
-                                                        href="<?php echo get_sub_field( 'instagram' ) ?>"
+                                                        href="<?php echo get_field( 'instagram', 'option' ) ?>"
                                                         target="_blank"
                                                         rel="noreferrer noopener">
                                                             Link do Instagram
                                                         </a>
                                                     </li>
-                                                <?php endif; ?>
+                                          
 
-                                                <?php if( get_sub_field( 'facebook' ) ) : ?>
+                                             
                                                     <li class="l-several__social-media__item u-list-style-none mx-3">
                                                         <a
                                                         class="u-icon__brands u-icon__facebook u-font-size-0 before::u-font-size-44 u-font-weight-light text-center text-decoration-none u-color-folk-white"
-                                                        href="<?php echo get_sub_field( 'facebook' ) ?>"
+                                                        href="<?php echo get_field( 'facebook_facebook','option' ) ?>"
                                                         target="_blank"
                                                         rel="noreferrer noopener">
                                                             Link do Facebook
                                                         </a>
                                                     </li>
-                                                <?php endif; ?>
+                                             
                                             </ul>
                                         </div>
-                            <?php
-                                    endwhile;
-                                endif;
-                            ?>
+                                        <div class="l-several__col col-lg-6 mb-3 mb-lg-0">
+                                            
+                                            <a 
+                                            class="h-100 d-block"
+                                            href="#">
+                                                <img
+                                                class="img-fluid h-100 u-object-fit-cover"
+                                                src="<?php echo get_field( 'imagem_destaque_direito', 'option' ) ?>"
+                                                alt="<?php the_title() ?>">
+                                            </a>
+                                        </div>
 
                             <!-- <div class="col-lg-6">
                                 
@@ -143,7 +147,7 @@
 
                                         <a
                                         class="w-100 u-box-shadow-pattern d-block u-font-size-15 u-font-weight-bold u-font-family-nunito text-center text-decoration-none u-color-folk-white u-bg-folk-medium-electric-blue hover:u-bg-folk-squid-ink py-2"
-                                        href="#">
+                                        href="https://loja.copiosaredencao.org.br">
                                             Ver mais
                                         </a>
                                     </div>
@@ -226,7 +230,7 @@
                                         <?php 
                                             $args = array(
                                                 'posts_per_page' => 4,
-                                                'post_type'      => 'ebooks',
+                                                'post_type'      => 'ebook',
                                                 'order'          => 'DESC'
                                             );
 
@@ -279,8 +283,8 @@
 
                                                                         <a
                                                                         class="w-100 u-box-shadow-pattern d-block u-font-size-12 xxl:u-font-size-16 u-font-weight-bold u-font-family-nunito text-center text-decoration-none u-color-folk-bold-electric-blue hover:u-color-folk-golden u-bg-folk-golden hover:u-bg-folk-squid-ink py-2"
-                                                                        href="<?php echo get_field( 'link' ) ?>">
-                                                                            Comprar
+                                                                        href="<?php echo get_field( 'link' ) ?>" target="_blank">
+                                                                            Baixar
                                                                         </a>
                                                                     </div>
                                                                 </div>

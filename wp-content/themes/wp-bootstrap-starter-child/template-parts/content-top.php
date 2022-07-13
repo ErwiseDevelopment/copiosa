@@ -11,21 +11,21 @@
                     <div class="col-lg-4 order-3 order-lg-1 d-flex justify-content-center align-items-center">
 
                         <ul class="d-flex mb-0">
-
+                       
                             <li class="u-list-style-none mx-3">
                                 <a
                                 class="u-icon__brands u-icon__facebook-square u-font-size-0 before::u-font-size-22 text-decoration-none u-color-folk-medium-electric-blue"
-                                href="#"
+                                href="<?php echo get_field('facebook', 'option')?>"
                                 target="_blank"
                                 rel="noreferrer noopener">
                                     Link do Facebook
                                 </a>
                             </li>
-
+                           
                             <li class="u-list-style-none mx-3">
                                 <a
                                 class="u-icon__brands u-icon__instagram u-font-size-0 before::u-font-size-22 text-decoration-none u-color-folk-medium-electric-blue"
-                                href="#"
+                                href="<?php echo get_field( 'instagram', 'option' ) ?>"
                                 target="_blank"
                                 rel="noreferrer noopener">
                                     Link do Instagram
@@ -35,7 +35,7 @@
                             <li class="u-list-style-none mx-3">
                                 <a
                                 class="u-icon__brands u-icon__youtube u-font-size-0 before::u-font-size-22 text-decoration-none u-color-folk-medium-electric-blue"
-                                href="#"
+                                href="<?php echo get_field( 'youtube', 'option' ) ?>"
                                 target="_blank"
                                 rel="noreferrer noopener">
                                     Link do Youtube
@@ -45,7 +45,7 @@
                             <li class="u-list-style-none mx-3">
                                 <a
                                 class="u-icon__brands u-icon__twitter u-font-size-0 before::u-font-size-22 text-decoration-none u-color-folk-medium-electric-blue"
-                                href="#"
+                                href="<?php echo get_field( 'Twitter', 'option' ) ?>"
                                 target="_blank"
                                 rel="noreferrer noopener">
                                     Link do Twitter

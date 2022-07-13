@@ -133,8 +133,8 @@ get_header(); ?>
 
                     <?php 
                         $args = array(
-                            'posts_per_page' => 4,
-                            'post_type'      => 'ebooks',
+                            'posts_per_page' => 24,
+                            'post_type'      => 'ebook',
                             'order'          => 'DESC'
                         );
 
@@ -147,7 +147,7 @@ get_header(); ?>
 
                                     <a 
                                     class="card border-0 text-decoration-none"
-                                    href="<?php echo get_field( 'link' ) ?>">
+                                    href="<?php echo get_field( 'link' ) ?>" target="_blank">
 
                                         <div class="l-our-materials__card-img card-img d-flex justify-content-center align-items-center p-3">
                                             <!-- <img

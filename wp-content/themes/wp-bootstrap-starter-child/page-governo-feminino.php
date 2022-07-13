@@ -52,14 +52,14 @@ get_header(); ?>
 
                     <!-- loop -->
                     <?php 
-                        $editorial_slug_current = 'governo-masculino';
+                        $editorial_slug_current = 'governo-feminino';
                         $editorial_id_current = 27;
                         $args = array(
                             'posts_per_page' => -1,
                             'post_type'      => 'governo',
                             'tax_query'      => array(
                                 array(
-                                    'taxonomy' => 'ggit remote add origin git@github.com:ErwiseDevelopment/centroancora.gitoverno-categoria',
+                                    'taxonomy' => 'governo-categoria',
                                     'field'    => 'slug',
                                     'terms'    => array( $editorial_slug_current )
                                 )
