@@ -36,10 +36,10 @@ $layout-name: 'l-template-menu';
 
             &::after {
                 content: attr(data-value);
-                width: calc(100 + 60px);
+                width: 100%;
                 top: 50%;
                 left: 50%;
-                transform: translateY(-50%);
+                transform: translate(-50%, -50%);
                 opacity: 0;
                 visibility: hidden;
                 transition: all .2s;
@@ -56,7 +56,7 @@ $layout-name: 'l-template-menu';
                 color: $color-folk-bold-electric-blue !important;
 
                 &::before {
-                    width: calc(100% + 60px);
+                    width: calc(100% + 15px);
 
                     @media screen and (max-width: 767px) {
                         width: 100%;
