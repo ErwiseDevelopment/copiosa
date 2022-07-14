@@ -100,15 +100,22 @@ get_header(); ?>
                                         <?php the_title() ?>
                                     </h3>
 
-                                    <p class="u-font-size-14 u-font-weight-regular u-color-folk-aluminium">
-                                        <!-- Founder -->
+                                   <!--<p class="u-font-size-14 u-font-weight-regular u-color-folk-aluminium">
+                                        
                                         <?php
                                             $category_current = get_the_terms( get_the_ID(), 'governo-categoria' );
                                             echo $category_current[0]->name;
                                         ?>
                                     </p>
-
+                                    -->
+                                    <p class="u-font-size-14 u-font-weight-regular u-color-folk-aluminium">
+                                        <!-- Founder -->
+                                        <?php
+                                            echo get_field('funcao')
+                                        ?>
+                                    </p>
                                     <ul class="d-flex pl-0">
+                                        
 
                                         <?php if( get_field( 'facebook' ) ) : ?>
                                             <li class="px:u-w-40 px:u-h-40 u-list-style-none mx-2">

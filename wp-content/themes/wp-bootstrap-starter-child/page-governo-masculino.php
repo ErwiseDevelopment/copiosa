@@ -100,11 +100,18 @@ get_header(); ?>
                                         <?php the_title() ?>
                                     </h3>
 
+                                     <!--<p class="u-font-size-14 u-font-weight-regular u-color-folk-aluminium">
+                                        
+                                     <?php
+                                            $category_current = get_the_terms( get_the_ID(), 'governo-categoria' );
+                                            echo $category_current[0]->name;
+                                        ?>
+                                    </p>
+                                    -->
                                     <p class="u-font-size-14 u-font-weight-regular u-color-folk-aluminium">
                                         <!-- Founder -->
                                         <?php
-                                            $category_current = get_the_terms( get_the_ID(), 'governo-categoria' );
-                                            echo $category_current[0]->name;
+                                            echo get_field('funcao')
                                         ?>
                                     </p>
 
