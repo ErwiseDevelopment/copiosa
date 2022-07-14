@@ -1,6 +1,10 @@
 $utility-name: 'u-bg-folk';
 
 .#{$utility-name} {
+    &-aluminium {
+        background-color: $color-folk-aluminium !important;
+    }
+
     &-black {
         background-color: $color-folk-black !important;
     }
@@ -27,6 +31,10 @@ $utility-name: 'u-bg-folk';
 
     &-instagram {
         background-color: $color-folk-instagram !important;
+    }
+
+    &-light-aluminium {
+        background-color: $color-folk-light-aluminium !important;
     }
 
     &-light-gray {
