@@ -1927,7 +1927,7 @@ button.swiper-pagination-bullet {
     flex-basis: 0;
     flex-grow: 1;
     margin: 0;
-    background: none; }
+    background-color: #0B2139; }
     .l-navbar .dropdown-menu .nav-item .dropdown-item {
       position: relative;
       text-align: center; }
