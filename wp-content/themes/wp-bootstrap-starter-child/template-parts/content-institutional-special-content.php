@@ -167,8 +167,8 @@
 
                                                         <a
                                                         class="w-100 u-box-shadow-pattern d-block u-font-size-12 xxl:u-font-size-16 u-font-weight-bold u-font-family-nunito text-center text-decoration-none u-color-folk-bold-electric-blue hover:u-color-folk-golden u-bg-folk-golden hover:u-bg-folk-squid-ink py-2"
-                                                        href="<?php echo get_field( 'link' ) ?>">
-                                                            Comprar
+                                                        href="<?php echo get_field( 'link' ) ?>" target="_blank">
+                                                                            Baixar
                                                         </a>
                                                     </div>
                                                 </div>
