@@ -64,7 +64,17 @@
                                             </a>
                                         </div>
 
-                         
+                            <!-- <div class="col-lg-6">
+                                
+                                <a 
+                                class="h-100 d-block"
+                                href="#">
+                                    <img
+                                    class="img-fluid h-100 u-object-fit-cover"
+                                    src="<?php echo get_home_url( null, '/wp-content/uploads/2022/06/banner-irmazelia.png' ) ?>"
+                                    alt="">
+                                </a>
+                            </div> -->
                         </div>
                     </div>
 
@@ -153,4 +163,5 @@
                             </div>
                         </div>
                     </div>
-                                        </section>
+ 
+</section>
