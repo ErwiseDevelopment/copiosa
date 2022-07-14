@@ -25,7 +25,7 @@
 
                                 <!-- slide -->
                                 <?php 
-                                    $editorial_slug_current = 'institucional';
+                                    $editorial_slug_current = 'comunidades';
                                     $editorial_id_current = 27;
 
                                     $args = array(
@@ -34,7 +34,7 @@
                                         'order'          => 'DESC',
                                         'tax_query'      => array(
                                             array(
-                                                'taxonomy' => 'comunidades_categoria',
+                                                'taxonomy' => 'comunidades-categoria',
                                                 'field'    => 'slug',
                                                 'terms'    => array( $editorial_slug_current )
                                             )
@@ -43,7 +43,7 @@
 
                                     $communities = new WP_Query( $args );
 
-                                    if( $communities->have_posts() ) :
+                                    if( $communities->have_posts() ) :  
                                         while( $communities->have_posts() ) : $communities->the_post();
                                 ?>
                                             <div class="swiper-slide">
@@ -109,15 +109,12 @@
 
                                                         <p class="d-inline-block u-font-size-10 u-font-weight-semibold text-center text-uppercase u-color-folk-bold-electric-blue u-bg-folk-golden py-1 px-5">
                                                             <?php
-                                                                $terms = get_terms(
-                                                                    array(
-                                                                        'taxonomy'   => 'comunidades_categoria',
-                                                                        'hide_empty' => true,
-                                                                        'parent'     => $editorial_id_current
-                                                                    )
-                                                                );
-
-                                                                echo $terms[0]->name;
+                                                                $terms = get_the_terms(get_the_ID(), 'comunidades-categoria' );
+                                                                
+                                                                foreach( $terms as $term ) {
+                                                                    if( $term->slug == $editorial_slug_current )
+                                                                        echo $term->name; 
+                                                                }
                                                             ?>
                                                             <!-- Aspirantado -->
                                                         </p>
