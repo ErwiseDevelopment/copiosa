@@ -44,7 +44,7 @@ get_header(); ?>
 <!-- end video -->
 
 <!-- several -->
-<?php echo get_template_part( 'template-parts/content', 'banners-finais' ) ?>
+<?php echo get_template_part( 'template-parts/content', 'banner-finais' ) ?>
 <!-- end several -->
 
 <!-- institutional newsletter -->
