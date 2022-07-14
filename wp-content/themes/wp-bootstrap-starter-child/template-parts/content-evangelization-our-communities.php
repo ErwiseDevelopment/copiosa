@@ -17,8 +17,8 @@
 
                                 <!-- slide -->
                                 <?php
-                                    $editorial_slug_current = 'casas-de-formacao';
-                                    $editorial_id_current = 28;
+                                    $editorial_slug_current = 'casa-de-pastoral';
+                                    // $editorial_id_current = 28;
         
                                     $args = array(
                                         'posts_per_page' => -1,
@@ -26,7 +26,7 @@
                                         'order'          => 'DESC',
                                         'tax_query'      => array(
                                             array(
-                                                'taxonomy' => 'comunidades_categoria',
+                                                'taxonomy' => 'comunidades-categoria',
                                                 'field'    => 'slug',
                                                 'terms'    => array( $editorial_slug_current )
                                             )
@@ -103,15 +103,12 @@
                                                         <p class="d-inline-block u-font-size-10 u-font-weight-semibold text-center u-color-folk-bold-electric-blue u-bg-folk-golden py-1 px-5">
                                                             <!-- Casa de Pastoral -->
                                                             <?php
-                                                                $terms = get_terms(
-                                                                    array(
-                                                                        'taxonomy'   => 'comunidades_categoria',
-                                                                        'hide_empty' => true,
-                                                                        'parent'     => $editorial_id_current
-                                                                    )
-                                                                );
-
-                                                                echo $terms[0]->name;
+                                                                $terms = get_the_terms(get_the_ID(), 'comunidades-categoria' );
+                                                                
+                                                                foreach( $terms as $term ) {
+                                                                    if( $term->slug == $editorial_slug_current )
+                                                                        echo $term->name; 
+                                                                }
                                                             ?>
                                                         </p>
 
