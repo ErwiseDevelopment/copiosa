@@ -59,7 +59,7 @@ get_header(); ?>
                             'post_type'      => 'governo',
                             'tax_query'      => array(
                                 array(
-                                    'taxonomy' => 'comissoes-departamentos',
+                                    'taxonomy' => 'governo-categoria',
                                     'field'    => 'slug',
                                     'terms'    => array( $editorial_slug_current )
                                 )
