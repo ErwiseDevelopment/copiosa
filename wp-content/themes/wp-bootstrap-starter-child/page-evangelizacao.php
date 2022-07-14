@@ -47,9 +47,9 @@ get_header(); ?>
 <?php echo get_template_part( 'template-parts/content', 'banners-final' ) ?>
 <!-- end several -->
 
-<!-- institutional newsletter -->
-<?php echo get_template_part( 'template-parts/content', 'institutional-newsletter' ) ?>
-<!-- end institutional newsletter -->
+<!-- institutional newsletter 
+?php echo get_template_part( 'template-parts/content', 'institutional-newsletter' ) ?>
+end institutional newsletter -->
 
 <?php endwhile; ?>
 
