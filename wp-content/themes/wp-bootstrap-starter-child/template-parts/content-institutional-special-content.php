@@ -114,7 +114,7 @@
                                 <?php 
                                     $args = array(
                                         'posts_per_page' => 4,
-                                        'post_type'      => 'ebooks',
+                                        'post_type'      => 'ebook',
                                         'order'          => 'DESC'
                                     );
 
