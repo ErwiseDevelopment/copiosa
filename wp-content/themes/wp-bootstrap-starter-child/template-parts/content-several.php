@@ -60,7 +60,7 @@
                                                     </li>
                                                     <li class="l-several__social-media__item u-list-style-none mx-3">
                                                         <a
-                                                        class="u-icon__free u-icon__vermais u-font-size-0 before::u-font-size-44 u-font-weight-light text-center text-decoration-none u-color-folk-white"
+                                                        class="u-icon__free u-icon__plus u-font-size-0 before::u-font-size-44 u-font-weight-semibold text-center text-decoration-none u-color-folk-white"
                                                         href="<?php echo get_field( 'vermais_vermais','option' ) ?>"
                                                         target="_blank"
                                                         rel="noreferrer noopener">
