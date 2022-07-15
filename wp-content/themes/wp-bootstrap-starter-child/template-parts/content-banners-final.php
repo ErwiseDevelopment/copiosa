@@ -21,7 +21,7 @@
                                             
                                             <a 
                                             class="h-100 d-block"
-                                            href="<?php echo get_sub_field( 'link' ) ?>">
+                                            href="https://copiosa.erwisedev-hml.com.br/irma-zelia-uma-missionaria-da-redencao-do-senhor/ ?>">
                                                 <img
                                                 class="img-fluid h-100 u-object-fit-cover"
                                                 src="<?php echo get_sub_field( 'banner' ) ?>"
@@ -53,6 +53,18 @@
                                                         </a>
                                                     </li>
                                                 <?php endif; ?>
+                                                <?php if( get_sub_field( 'facebook' ) ) : ?>
+                                                    <li class="l-several__social-media__item u-list-style-none mx-3">
+                                                        <a
+                                                        class="u-icon__brands u-icon__facebook u-font-size-0 before::u-font-size-44 u-font-weight-light text-center text-decoration-none u-color-folk-white"
+                                                        href="<?php echo get_sub_field( 'facebook' ) ?>"
+                                                        target="_blank"
+                                                        rel="noreferrer noopener">
+                                                            Link do Facebook
+                                                        </a>
+                                                    </li>
+                                                <?php endif; ?>
+                                            
                                             </ul>
                                         </div>
                             <?php

@@ -97,6 +97,14 @@ $utility-name: 'u-icon';
         }
     }
 
+   
+    &__vermais {
+        &::before {
+            content: '\f055';
+        }
+    }
+
+
     &__whatsapp {
         &::before {
             content: '\f232';
