@@ -155,12 +155,15 @@ get_header(); ?>
 
                             <!-- loop -->
                             <?php 
+                                // $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+
                                 $args = array(
                                     'posts_per_page' => 6,
                                     'post_type'      => 'post',
                                     'category_name'  => $category_current,
                                     'order'          => 'DESC',
-                                    'post__not_in'   => array( $post_highlight_id )
+                                    'post__not_in'   => array( $post_highlight_id ),
+                                    // 'paged'          =>  $paged,
                                 );
 
                                 $posts_news = new WP_Query( $args );
@@ -168,7 +171,7 @@ get_header(); ?>
                                 if( $posts_news->have_posts() ) :
                                     while( $posts_news->have_posts() ) : $posts_news->the_post();
                             ?>
-                                        <div class="col-lg-6 my-3">
+                                        <div class="col-lg-6 js-posts-new my-3">
 
                                             <div class="card rounded-0">
 
@@ -249,20 +252,24 @@ get_header(); ?>
                                                         <!-- O Centro Âncora promoveu no dia 14 de
                                                         outubro, um workshop, intitulado “Teu 
                                                         Olhar” voltado para os religiosos (as) [...] -->
+<<<<<<< HEAD
+
+                                                        <?php echo(limit_words( get_the_content(), 1)); ?>
+=======
                                                         <?php
                                                         the_excerpt();
                                                          ?>
+>>>>>>> fc9e2db888590864ecf9467fe724df72b93f7e1e
                                                     </span>
 
                                                     <div class="row">
 
                                                         <div class="col-5 mt-3">
 
-                                                            <a
-                                                            class="w-100 u-box-shadow-pattern position-absolute u-font-size-12 u-font-weight-bold u-font-family-nunito text-center u-color-folk-white u-bg-folk-golden hover:u-bg-folk-squid-ink py-2"
-                                                            href="<?php the_permalink() ?>">
+                                                            <span
+                                                            class="w-100 u-box-shadow-pattern position-absolute u-font-size-12 u-font-weight-bold u-font-family-nunito text-center u-color-folk-white u-bg-folk-golden hover:u-bg-folk-squid-ink js-read-more py-2">
                                                                 Ler mais
-                                                            </a>
+                                                            </span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -356,7 +363,7 @@ get_header(); ?>
                     <div class="col-12 l-pagination d-flex justify-content-center my-5">
 
                         <div class="d-flex">
-                            <?php
+                            <!--
                                 echo paginate_links( array(
                                     'base'         => str_replace( 999999999, '%#%', esc_url( get_pagenum_link( 999999999 ) ) ),
                                     'total'        => $post_news->max_num_pages,
@@ -372,7 +379,7 @@ get_header(); ?>
                                     'add_args'     => false,
                                     'add_fragment' => '',
                                 ) );
-                            ?>
+                                -->
                         </div>
                     </div>
                 </div>
