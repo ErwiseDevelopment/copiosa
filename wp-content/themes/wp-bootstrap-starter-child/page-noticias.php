@@ -249,17 +249,7 @@ get_header(); ?>
                                                     </h4>
 
                                                     <span class="d-block u-font-size-14 xxl:u-font-size-16 u-font-weight-regular u-color-folk-aluminium">
-                                                        <!-- O Centro Âncora promoveu no dia 14 de
-                                                        outubro, um workshop, intitulado “Teu 
-                                                        Olhar” voltado para os religiosos (as) [...] -->
-<<<<<<< HEAD
-
-                                                        <?php echo(limit_words( get_the_content(), 1)); ?>
-=======
-                                                        <?php
-                                                        the_excerpt();
-                                                         ?>
->>>>>>> fc9e2db888590864ecf9467fe724df72b93f7e1e
+                                                    <?php the_excerpt(); ?>
                                                     </span>
 
                                                     <div class="row">
