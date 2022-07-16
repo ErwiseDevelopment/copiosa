@@ -255,8 +255,14 @@ get_header(); ?>
                                                         <!-- O Centro Âncora promoveu no dia 14 de
                                                         outubro, um workshop, intitulado “Teu 
                                                         Olhar” voltado para os religiosos (as) [...] -->
+<<<<<<< HEAD
 
                                                         <?php echo(limit_words( get_the_content(), 1)); ?>
+=======
+                                                        <?php
+                                                        the_excerpt();
+                                                         ?>
+>>>>>>> fc9e2db888590864ecf9467fe724df72b93f7e1e
                                                     </span>
 
                                                     <div class="row">
