@@ -94,6 +94,11 @@ function limit_words($string, $word_limit) {
     return implode(' ', $words);
 }
 
+function new_size_excerpt($length) {
+	return 40;
+}
+add_filter('excerpt_length', 'new_size_excerpt', 999);
+
 //Logo pagina login
 
 function logoadmin() {
