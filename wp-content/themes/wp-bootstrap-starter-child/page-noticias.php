@@ -242,10 +242,7 @@ get_header(); ?>
                                                     </p>
 
                                                     <h4 class="u-font-size-16 xxl:u-font-size-20 u-font-weight-bold u-color-folk-bold-electric-blue mb-4">
-                                                        <!-- Workshop reúne religiosos
-                                                        sobre os benefícios e os 
-                                                        males da vida online -->
-                                                        <?php the_title() ?>
+                                                                                                               <?php the_title() ?>
                                                     </h4>
 
                                                     <span class="d-block u-font-size-14 xxl:u-font-size-16 u-font-weight-regular u-color-folk-aluminium">
