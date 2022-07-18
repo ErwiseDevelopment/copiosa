@@ -1,4 +1,4 @@
-<section class="u-box-shadow-pattern py-3">
+<section class="position-relative u-box-shadow-pattern py-3">
 
     <div class="container">
 
@@ -53,7 +53,7 @@
                             </li>
 
                             <li class="u-list-style-none mx-3">
-                                <span class="u-icon__free u-icon__search u-font-size-0 before::u-font-size-22 u-font-weight-semibold u-cursor-pointer u-color-folk-golden">
+                                <span class="u-icon__free u-icon__search u-font-size-0 before::u-font-size-22 u-font-weight-semibold u-cursor-pointer u-color-folk-golden js-search-icon">
                                     Pesquisa
                                 </span>
                             </li>
@@ -100,4 +100,6 @@
             </div>
         </div>
     </div>
+
+    <?php echo get_template_part( 'template-parts/content', 'search-box' ) ?>
 </section>

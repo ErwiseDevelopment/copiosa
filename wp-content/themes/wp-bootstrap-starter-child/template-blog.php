@@ -73,7 +73,7 @@ get_header();
 
                                         the_post_thumbnail( 'post-thumbail',
                                             array(
-                                                'class' => 'img-fluid w-100 h-100 u-object-fit-cover',
+                                                'class' => 'l-template-blog__thumbnail img-fluid w-100 u-object-fit-cover',
                                                 'alt'   => $alt_title
                                             ));
                                     ?>
