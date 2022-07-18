@@ -200,33 +200,68 @@ get_header(); ?>
 									<div class="row">
 											
 										<!-- loop -->
-										<?php for( $i = 0; $i < 3; $i++ ) { ?>
-											<a 
-											class="col-12 u-border-b-1 last-child:u-border-b-1 border-light d-block text-decoration-none my-3 pb-3"
-											href="#">
+										<?php
+											$categories = array();
 
-												<div class="row">
-													
-													<div class="col-3 pr-0">
-														<img
-														class="img-fluid w-100 h-100 u-object-fit-cover"
-														src="<?php echo get_home_url( null, '/wp-content/uploads/2022/06/Image.png') ?>"
-														alt="">
-													</div>
+											foreach( get_the_category( get_the_ID() ) as $cat ) {
+												array_push($categories, $cat->slug);	
+											}
 
-													<div class="col-9">
-														
-														<p class="u-font-size-10 xxl:u-font-size-12 u-font-weight-bold u-color-folk-golden mb-1">
-															15 de março, 2022
-														</p>
+											$args = array(
+												'posts_per_page' => 3,
+												'post_type'      => 'post',
+												'category_name'  => $categories[0]->slug,
+												'order'          => 'DESC'
+											);
 
-														<h4 class="u-font-size-13 u-font-weight-bold u-color-folk-dark-grayish-navy">
-															Título da Notícia
-														</h4>
-													</div>
-												</div>
-											</a>
-										<?php } ?>
+											$other_news_posts = new WP_Query( $args );
+
+											if( $other_news_posts->have_posts() ) :
+												while( $other_news_posts->have_posts() ) : $other_news_posts->the_post();
+										?>
+													<a 
+													class="col-12 u-border-b-1 last-child:u-border-b-1 border-light d-block text-decoration-none my-3 pb-3"
+													href="<?php the_permalink() ?>">
+
+														<div class="row">
+															
+															<div class="col-3 pr-0">
+																<!-- <img
+																class="img-fluid w-100 h-100 u-object-fit-cover"
+																src="<php echo get_home_url( null, '/wp-content/uploads/2022/06/Image.png') ?>"
+																alt=""> -->
+
+																<?php
+																	$alt_title = get_the_title();
+
+																	the_post_thumbnail( 'post-thumbnail',
+																		array(
+																			'class' => 'img-fluid w-100 h-100 u-object-fit-cover',
+																			'alt'   => $alt_title
+																	));
+																?>
+															</div>
+
+															<div class="col-9">
+																
+																<p class="u-font-size-10 xxl:u-font-size-12 u-font-weight-bold u-color-folk-golden mb-1">
+																	<!-- 15 de março, 2022 -->
+																	<?php echo get_date_format( get_the_date( 'd/m/Y', get_the_ID() ) );?>
+																</p>
+
+																<h4 class="u-font-size-13 u-font-weight-bold u-color-folk-dark-grayish-navy">
+																	<!-- Título da Notícia -->
+																	<?php the_title() ?>
+																</h4>
+															</div>
+														</div>
+													</a>
+										<?php
+												endwhile;
+											endif;
+											
+											wp_reset_query();
+										?>
 										<!-- end loop -->
 									</div>
 								</div>
@@ -236,12 +271,14 @@ get_header(); ?>
 						<div class="row">
 
                             <div class="col-12 mt-3">
-                                <a href="#">
-                                    <img
-                                    class="img-fluid"
-                                    src="<?php echo get_home_url( null, 'wp-content/uploads/2022/06/banner-capela.png' ) ?>"
-                                    alt="">
-                                </a>
+								<?php if( get_field( 'banner_pagina_noticias', 'option' ) ) : ?>
+									<a href="<?php echo get_field( 'link_banner', 'option' ) ?>">
+										<img
+										class="img-fluid"
+										src="<?php echo get_field( 'banner_pagina_noticias', 'option' ) ?>"
+										alt="<?php the_title() ?>">
+									</a>
+								<?php endif; ?>
                             </div>
                         </div>
 					</div>
