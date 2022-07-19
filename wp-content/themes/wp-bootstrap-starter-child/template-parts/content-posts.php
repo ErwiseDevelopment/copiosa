@@ -115,7 +115,7 @@
                                                     <!-- O Centro Âncora promoveu no dia 14 de
                                                         outubro, um workshop, intitulado “Teu 
                                                         Olhar” voltado para os religiosos (as) [...] -->
-                                                    <?php
+                                                        <?php
                                                         the_excerpt();
                                                     ?>
                                                 </span>
