@@ -96,9 +96,13 @@ get_header(); ?>
                         $args = array(
                             'posts_per_page' => -1,
                             'post_type'      => 'eventos',
-                            'order'          => 'DESC',
+                            // 'order'          => 'DESC',
+                            'orderby'        => array(
+                                                    'date'        => 'DESC',
+                                                    'date_update' => 'DESC'
+                             ),
 							'post__not_in'   => array(
-                                $post->ID
+                                                    $post->ID
                             )
                         );
 
@@ -179,6 +183,18 @@ get_header(); ?>
                         wp_reset_query();
                     ?>
 				</div>
+
+                <div class="row justify-content-center">
+                            tt
+                    <div class="col-12">
+
+                        <a 
+                        class="w-100 rounded d-block u-font-size-12 u-font-weight-bold text-center text-decoration-none u-color-folk-white u-bg-folk-golden hover:u-bg-folk-medium-electric-blue py-2"
+                        href="<?php echo get_home_url( null, 'eventos' ) ?>">
+                            voltar a página de Eventos
+                        </a>
+                    </div>
+                </div>
 			</div>
 		</div>
 	</div>

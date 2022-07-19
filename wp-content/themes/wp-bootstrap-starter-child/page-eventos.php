@@ -262,7 +262,7 @@ get_header(); ?>
 
                                                         <a 
                                                         class="w-100 rounded d-block u-font-size-12 u-font-weight-bold text-center text-decoration-none u-color-folk-white u-bg-folk-golden hover:u-bg-folk-medium-electric-blue py-2"
-                                                        href="<?php echo get_field( 'ver_mais') ?>">
+                                                        href="<?php the_permalink() ?>">
                                                             Ver evento
                                                         </a>
                                                     </div>
