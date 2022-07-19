@@ -170,7 +170,7 @@ get_header();
                         <?php 
                             $args = array(
                                 'posts_per_page' => 3,
-                                'post_type'      => 'ebooks',
+                                'post_type'      => 'ebook',
                                 'order'          => 'DESC'
                             );
 
