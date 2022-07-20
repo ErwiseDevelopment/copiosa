@@ -31,11 +31,11 @@
                 </div>
 
                 <div class="l-video__buttons__item swiper-button-prev d-none d-lg-flex justify-content-center align-items-center mt-0 mx-1 js-swiper-button-prev-videos">
-                    <img class="img-fluid" src="http://copiosagit.test/wp-content/themes/wp-bootstrap-starter/../wp-bootstrap-starter-child/assets/images/icon-arrow-left.png" alt="Ícone Seta Esquerdo">
+                    <img class="img-fluid" src="<?php echo get_home_url( null, '/wp-content/themes/wp-bootstrap-starter/../wp-bootstrap-starter-child/assets/images/icon-arrow-left.png' ) ?>" alt="Ícone Seta Esquerdo">
                 </div>
 
                 <div class="l-video__buttons__item swiper-button-next d-none d-lg-flex justify-content-center align-items-center mt-0 mx-1 js-swiper-button-next-videos">
-                    <img class="img-fluid" src="http://copiosagit.test/wp-content/themes/wp-bootstrap-starter/../wp-bootstrap-starter-child/assets/images/icon-arrow-right.png" alt="Ícone Seta Direita">
+                    <img class="img-fluid" src="<?php echo get_home_url( null, '/wp-content/themes/wp-bootstrap-starter/../wp-bootstrap-starter-child/assets/images/icon-arrow-right.png' ) ?>" alt="Ícone Seta Direita">
                 </div>
                 <!-- end swiper -->
             </div>
