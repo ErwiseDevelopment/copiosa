@@ -196,57 +196,61 @@
 
                                 <div class="row justify-content-between mx-0">
 
-                                    <!-- loop -->
-                                    <?php
-                                    $all_categories = get_categories();
-                                    $categories_highlight = get_categories_highlight();
+                                                                            <!-- loop comentado todo esse bloco pois não estava agindo de acordo, deixar o campo fixo como esta atualmente - Raphael 
+                                                                            <?php
+                                                                            $all_categories = get_categories();
+                                                                            $categories_highlight = get_categories_highlight();
 
-                                    foreach ($all_categories as $category) :
-                                        foreach ($categories_highlight as $category_highlight) :
-                                            if ($category->name == $category_highlight) :
-                                                $category_link = get_category_link($category->term_id);
-                                    ?>
+                                                                            foreach ($all_categories as $category) :
+                                                                                foreach ($categories_highlight as $category_highlight) :
+                                                                                    if ($category->name == $category_highlight) :
+                                                                                        $category_link = get_category_link($category->term_id);
+                                                                            ?>
 
-                                                <a class="l-posts__item d-block u-font-weight-semibold text-center text-decoration-none u-color-folk-white my-2 p-3" href="<?php echo $category_link; ?>">
-                                                    <!-- <span class="l-posts__item__icon">Institucional</span> -->
-                                                    <span class="l-posts__item__icon"><?php echo $category->name; ?></span>
-                                                </a>
-                                    <?php
-                                            endif;
-                                        endforeach;
-                                    endforeach;
-                                    ?>
-                                    <!-- end loop -->
-
-                                    <!-- <a 
-                                    class="l-posts__item d-block u-font-weight-semibold text-center text-decoration-none u-color-folk-white my-2 p-3"
-                                    href="#">
-                                        <span class="l-posts__item__icon">Evangelização</span>
-                                    </a>
+                                                                                        <a class="l-posts__item d-block u-font-weight-semibold text-center text-decoration-none u-color-folk-white my-2 p-3" href="<?php echo $category_link; ?>">
+                                                                                        
+                                                                                            <span class="l-posts__item__icon"><?php echo $category->name; ?></span>
+                                                                                        </a>
+                                                                            <?php
+                                                                                    endif;
+                                                                                endforeach;
+                                                                            endforeach;
+                                                                            ?>
+                                                                            end loop -->
 
                                     <a 
                                     class="l-posts__item d-block u-font-weight-semibold text-center text-decoration-none u-color-folk-white my-2 p-3"
-                                    href="#">
+                                    href="https://copiosa.erwisedev-hml.com.br/noticias/?cat=evangeliza%C3%A7%C3%A3o">
+                                        <span class="l-posts__item__icon">Evangelização</span>
+                                    </a>
+                                    <a 
+                                    class="l-posts__item d-block u-font-weight-semibold text-center text-decoration-none u-color-folk-white my-2 p-3"
+                                    href="https://copiosa.erwisedev-hml.com.br/noticias/?cat=institucional">
+                                        <span class="l-posts__item__icon">Institucional</span>
+                                    </a>       
+                                    <a 
+                                    class="l-posts__item d-block u-font-weight-semibold text-center text-decoration-none u-color-folk-white my-2 p-3"
+                                    href="https://copiosa.erwisedev-hml.com.br/noticias/?cat=recupera%C3%A7%C3%A3o">
                                         <span class="l-posts__item__icon">Recuperação</span>
                                     </a>
 
                                     <a 
                                     class="l-posts__item d-block u-font-weight-semibold text-center text-decoration-none u-color-folk-white my-2 p-3"
-                                    href="#">
+                                    href="https://copiosa.erwisedev-hml.com.br/noticias/?cat=vocacional">
                                         <span class="l-posts__item__icon">Vocacional</span>
                                     </a>
 
                                     <a 
                                     class="l-posts__item d-block u-font-weight-semibold text-center text-decoration-none u-color-folk-white my-2 p-3"
-                                    href="#">
+                                    href="https://copiosa.erwisedev-hml.com.br/noticias/?cat=juventude">
                                         <span class="l-posts__item__icon">Juventude</span>
                                     </a>
 
                                     <a 
                                     class="l-posts__item d-block u-font-weight-semibold text-center text-decoration-none u-color-folk-white my-2 p-3"
-                                    href="#">
+                                    href="https://copiosa.erwisedev-hml.com.br/noticias">
                                         <span class="l-posts__item__icon">Notícias</span>
-                                    </a> -->
+                                    </a>
                                 </div>
                             </div>
                         </div>
