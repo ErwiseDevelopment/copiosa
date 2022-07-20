@@ -311,7 +311,7 @@ get_header(); ?>
                                                     <a 
                                                     class="u-font-size-13 xxl:u-font-size-16 u-font-weight-regular text-decoration-none u-color-folk-aluminium"
                                                     href="<?php echo get_home_url( null, '/noticias/?cat=' . strtolower( $category ) ); ?>">
-                                                        <!-- Institucional -->
+                                                        <!-- Institucional  -->
                                                         <?php echo $category; ?>
                                                     </a>
 
