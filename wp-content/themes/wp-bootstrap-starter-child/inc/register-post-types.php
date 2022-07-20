@@ -36,7 +36,7 @@ function erwise_create_post_type() {
 		'public' 		=> true,
 		'has_archive'	=> true,
 		'menu_icon'		=> 'dashicons-calendar-alt',
-		'supports' 		=> array( 'title', 'thumbnail' ) 
+		'supports' 		=> array( 'title', 'thumbnail', 'editor' ) 
 	) );
 
 	register_post_type( 'Galeria', array(

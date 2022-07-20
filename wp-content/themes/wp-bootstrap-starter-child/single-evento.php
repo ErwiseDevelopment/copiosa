@@ -48,15 +48,21 @@ get_header(); ?>
 
 				<div class="row">
 
-					<div class="col-md-6">
-
-						<p class="u-font-size-14 u-font-weight-bold u-color-folk-golden mb-0">
+                    <div class="col-12">
+                        <p class="u-font-size-14 u-font-weight-bold u-color-folk-golden mb-0">
 							Horário: <?php echo get_field( 'hora' ) ?>
 						</p>
 
-						<p class="u-font-size-14 u-font-weight-bold u-color-folk-golden">
+						<p class="u-font-size-14 u-font-weight-bold u-color-folk-golden mb-0">
 							Data: <?php echo get_field( 'data_evento' ) ?>
 						</p>
+
+                        <p class="u-font-size-14 u-font-weight-bold u-color-folk-golden">
+							Local: <?php echo get_field( 'local' ) ?>
+						</p>
+                    </div>
+
+					<div class="col-md-6">
 
 						<?php 
 							$alt_title = get_the_title();
@@ -73,6 +79,18 @@ get_header(); ?>
 						<span class="u-font-size-14 u-font-weight-regular u-color-folk-aluminium">
 							<?php the_content() ?>
 						</span>
+
+                        <div class="row">
+
+                            <div class="col-4 my-4">
+
+                                <a 
+                                class="w-100 rounded d-block u-font-size-12 u-font-weight-bold text-center text-decoration-none u-color-folk-white u-bg-folk-golden hover:u-bg-folk-medium-electric-blue py-2"
+                                href="<?php echo get_field( 'ver_mais' ) ?>">
+                                    Participar do evento
+                                </a>
+                            </div>
+                        </div>
 					</div>
 				</div>
 
@@ -95,7 +113,7 @@ get_header(); ?>
 					<?php 
                         $args = array(
                             'posts_per_page' => -1,
-                            'post_type'      => 'eventos',
+                            'post_type'      => 'evento',
                             // 'order'          => 'DESC',
                             'orderby'        => array(
                                                     'date'        => 'DESC',
@@ -185,8 +203,8 @@ get_header(); ?>
 				</div>
 
                 <div class="row justify-content-center">
-                            tt
-                    <div class="col-12">
+                            
+                    <div class="col-4 my-4">
 
                         <a 
                         class="w-100 rounded d-block u-font-size-12 u-font-weight-bold text-center text-decoration-none u-color-folk-white u-bg-folk-golden hover:u-bg-folk-medium-electric-blue py-2"
