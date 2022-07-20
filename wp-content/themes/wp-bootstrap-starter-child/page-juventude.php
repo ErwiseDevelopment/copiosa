@@ -20,7 +20,17 @@ get_header(); ?>
 <?php while ( have_posts() ) : the_post(); ?>
 
 <!-- banner -->
-<?php echo get_template_part( 'template-parts/content', 'banner' ) ?>
+<section>
+    <div class="container-fluid">
+
+        <div class="row">
+
+            <div class="col-12 px-0">
+                <?php echo do_shortcode( '[rev_slider alias="juventude"][/rev_slider]' ); ?> 
+            </div>
+        </div>
+    </div>
+</section>
 <!-- end banner -->
 
 <!-- congregation -->
