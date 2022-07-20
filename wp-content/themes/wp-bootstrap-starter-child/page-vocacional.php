@@ -27,9 +27,9 @@ get_header(); ?>
 <?php echo get_template_part( 'template-parts/content', 'vocational-our-communities' ) ?>
 <!-- end our communities -->
 
-<!-- institutional posts -->
+<!-- vocational posts -->
 <?php echo get_template_part( 'template-parts/content', 'vocational-posts' ) ?>
-<!-- end institutional posts -->
+<!-- end vocational posts -->
 
 <!-- institutional special content -->
 <?php echo get_template_part( 'template-parts/content', 'institutional-special-content' ) ?>

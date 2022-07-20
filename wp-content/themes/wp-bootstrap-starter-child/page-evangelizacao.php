@@ -27,9 +27,9 @@ get_header(); ?>
 <?php echo get_template_part( 'template-parts/content', 'evangelization-our-communities' ) ?>
 <!-- end our communities -->
 
-<!-- institutional posts -->
+<!-- evangelization posts -->
 <?php echo get_template_part( 'template-parts/content', 'evangelization-posts' ) ?>
-<!-- end institutional posts -->
+<!-- end evangelization posts -->
 
 <!-- institutional special content -->
 <?php echo get_template_part( 'template-parts/content', 'institutional-special-content' ) ?>

@@ -33,7 +33,7 @@
                                 <div class="col-md-6 col-lg-3 my-3 px-2">
 
                                     <a 
-                                    class="card rounded-0 text-decoration-none"
+                                    class="card h-100 rounded-0 text-decoration-none"
                                     href="<?php the_permalink() ?>">
 
                                         <div class="card-img">
@@ -53,71 +53,73 @@
                                             ?>
                                         </div>
 
-                                        <div class="card-body px-4">
+                                        <div class="card-body d-flex flex-column justify-content-between px-4">
+                                            
+                                            <div>
+                                                <p class="u-font-size-12 xxl:u-font-size-14 u-font-weight-bold u-color-folk-medium-electric-blue mb-0">
+                                                    <!-- Institucional -->
+                                                    <?php
+                                                        $cats = array();
+                                                        $categories_current = array();
+                                                        $count = 0;
 
-                                            <p class="u-font-size-12 xxl:u-font-size-14 u-font-weight-bold u-color-folk-medium-electric-blue mb-0">
-                                                <!-- Institucional -->
-                                                <?php
-                                                    $cats = array();
-                                                    $categories_current = array();
-                                                    $count = 0;
-
-                                                    foreach (get_the_category($post_id) as $c) {
-                                                        $cat = get_category($c);
-                                                        array_push($cats, $cat->name);
-                                                    }
-                                                    
-                                                    foreach( $cats as $cat ) {
-                                                        foreach( get_categories_highlight() as $editorial ) {
-                                                            if( $cat == $editorial )
-                                                                $editorial_current = $cat;
+                                                        foreach (get_the_category($post_id) as $c) {
+                                                            $cat = get_category($c);
+                                                            array_push($cats, $cat->name);
                                                         }
-                                                    }
+                                                        
+                                                        foreach( $cats as $cat ) {
+                                                            foreach( get_categories_highlight() as $editorial ) {
+                                                                if( $cat == $editorial )
+                                                                    $editorial_current = $cat;
+                                                            }
+                                                        }
 
-                                                    foreach( $cats as $cat ) {
-                                                        if( $editorial_current ) {
-                                                            if( $cat != $editorial_current ) {
+                                                        foreach( $cats as $cat ) {
+                                                            if( $editorial_current ) {
+                                                                if( $cat != $editorial_current ) {
+                                                                    array_push($categories_current, $cat);
+                                                                    $count++;
+        
+                                                                    if( $count == 1 )
+                                                                        break;
+                                                                }
+                                                            } else {
                                                                 array_push($categories_current, $cat);
                                                                 $count++;
-    
-                                                                if( $count == 1 )
+        
+                                                                if( $count == 3 )
                                                                     break;
                                                             }
-                                                        } else {
-                                                            array_push($categories_current, $cat);
-                                                            $count++;
-    
-                                                            if( $count == 3 )
-                                                                break;
                                                         }
-                                                    }
 
-                                                    if (sizeOf($categories_current) > 0) {
-                                                        $post_categories = implode(', ', $categories_current);
-                                                    } 
+                                                        if (sizeOf($categories_current) > 0) {
+                                                            $post_categories = implode(', ', $categories_current);
+                                                        } 
 
-                                                    echo $editorial_current ? $editorial_current . ', ' . $post_categories : $post_categories;
-                                                ?>
-                                            </p>
+                                                        echo $editorial_current ? $editorial_current . ', ' . $post_categories : $post_categories;
+                                                    ?>
+                                                </p>
 
-                                            <p class="u-font-size-12 xxl:u-font-size-14 u-font-weight-semibold u-color-folk-medium-electric-blue">
-                                                <!-- 10 de dezembro de 2021 -->
-                                                <?php echo get_date_format( get_the_date( 'd/m/Y', get_the_ID() ) );?>
-                                            </p>
+                                                <p class="u-font-size-12 xxl:u-font-size-14 u-font-weight-semibold u-color-folk-medium-electric-blue">
+                                                    <!-- 10 de dezembro de 2021 -->
+                                                    <?php echo get_date_format( get_the_date( 'd/m/Y', get_the_ID() ) );?>
+                                                </p>
 
-                                            <h4 class="u-font-size-16 xxl:u-font-size-20 u-font-weight-bold u-color-folk-bold-electric-blue mb-4">
-                                                <!-- Workshop reúne religiosos
-                                                sobre os benefícios e os 
-                                                males da vida online -->
-                                                <?php the_title() ?>
-                                            </h4>
+                                                <h4 class="u-font-size-16 xxl:u-font-size-20 u-font-weight-bold u-color-folk-bold-electric-blue mb-4">
+                                                    <!-- Workshop reúne religiosos
+                                                    sobre os benefícios e os 
+                                                    males da vida online -->
+                                                    <?php the_title() ?>
+                                                </h4>
 
-                                            <span class="d-block u-font-size-14 xxl:u-font-size-16 u-font-weight-regular u-color-folk-aluminium">
-                                                <!-- O Centro Âncora promoveu no dia 14 de
-                                                outubro, um workshop, intitulado “Teu 
-                                                Olhar” voltado para os religiosos (as) [...] -->
-                                                <?php the_excerpt(); ?>
-                                            </span>
+                                                <span class="d-block u-font-size-14 xxl:u-font-size-16 u-font-weight-regular u-color-folk-aluminium">
+                                                    <!-- O Centro Âncora promoveu no dia 14 de
+                                                    outubro, um workshop, intitulado “Teu 
+                                                    Olhar” voltado para os religiosos (as) [...] -->
+                                                    <?php the_excerpt(); ?>
+                                                </span>
+                                            </div>
 
                                             <div class="row">
 
