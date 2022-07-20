@@ -135,9 +135,16 @@ get_header(); ?>
                         $args = array(
                             'posts_per_page' => 24,
                             'post_type'      => 'ebook',
-                            'order'          => 'DESC'
+                            'order'          => 'DESC',
+                            'tax_query'      => array(
+                                array(
+                                    'taxonomy' => 'ebook-categoria',
+                                    'field'    => 'slug',
+                                    'terms'    => array( 'lar-adelaide' ),
+                                )
+                            )
                         );
-
+                       
                         $ebooks = new WP_Query( $args );
 
                         if( $ebooks->have_posts() ) :

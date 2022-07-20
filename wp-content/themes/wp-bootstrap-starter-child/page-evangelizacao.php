@@ -19,9 +19,17 @@ get_header(); ?>
 
 <?php while ( have_posts() ) : the_post(); ?>
 
-<!-- banner -->
-<?php echo get_template_part( 'template-parts/content', 'banner' ) ?>
-<!-- end banner -->
+<section>
+    <div class="container-fluid">
+
+        <div class="row">
+
+            <div class="col-12 px-0">
+                <?php echo do_shortcode( '[rev_slider alias="evangelizao"][/rev_slider]' ); ?> 
+            </div>
+        </div>
+    </div>
+</section>
 
 <!-- our communities -->
 <?php echo get_template_part( 'template-parts/content', 'evangelization-our-communities' ) ?>
