@@ -49,10 +49,10 @@
                             'post_type'   => 'page',
                             'post_parent' => 110,
                             'post__in' => array(
-                                '112',
-                                '114',
-                                '118',
-                                '523'),
+                                '112', //Historia
+                                '114', //Fundador
+                                '523', //Carisma
+                                '339'), //Cofundadores
                             'order'  => 'ASC',
                         );
 
