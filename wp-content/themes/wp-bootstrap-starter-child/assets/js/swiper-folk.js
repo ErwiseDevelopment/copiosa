@@ -26,6 +26,14 @@ const swiperSpecialContent = new Swiper( '.js-swiper-special-content', {
     },
 });
 
+//videos
+const swiperVideos = new Swiper( '.js-swiper-videos', {
+    navigation: {
+        prevEl: '.js-swiper-button-prev-videos',
+        nextEl: '.js-swiper-button-next-videos'
+    }
+})
+
 /* our communities */
 const swiperOurCommunitiesImage = new Swiper( '.js-swiper-our-communities-image', {
     navigation: {
