@@ -40,11 +40,23 @@ function add_thumbnail_to_JSON() {
 //     }
 // }
 
-function get_image_src( $object, $field_name, $request ) {
-    $feat_img_array = wp_get_attachment_image_src(
-        $object['featured_media'], // Image attachment ID
-    'full',  // Size.  Ex. "thumbnail", "large", "full", etc..
-        true // Whether the image should be treated as an icon.
-    );
-    return $feat_img_array[0];
-}
+// function get_image_src( $object, $field_name, $request ) {
+//     $feat_img_array = wp_get_attachment_image_src(
+//         $object['featured_media'], // Image attachment ID
+//     'full',  // Size.  Ex. "thumbnail", "large", "full", etc..
+//         true // Whether the image should be treated as an icon.
+//     );
+//     return $feat_img_array[0];
+// }
+
+function post_featured_image_json( $data, $post, $context ) {
+    $featured_image_id = $data->data['featured_media']; // get featured image id
+    $featured_image_url = wp_get_attachment_image_src( $featured_image_id, 'original' ); // get url of the original size
+
+    if( $featured_image_url ) {
+      $data->data['featured_image_src'] = $featured_image_url[0];
+    }
+  
+    return $data;
+  }
+add_filter( 'rest_prepare_post', 'post_featured_image_json', 10, 3 );
