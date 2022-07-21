@@ -1,18 +1,18 @@
 <?php
 
 //nao deu certo
-add_action( 'rest_api_init', 'add_thumbnail_to_JSON' );
-function add_thumbnail_to_JSON() {
-    register_rest_field( 
-        'post',
-        'featured_image_src',
-        array(
-            'get_callback'    => 'get_image_src',
-            'update_callback' => null,
-            'schema'          => null,
-        )
-    );
-}
+// add_action( 'rest_api_init', 'add_thumbnail_to_JSON' );
+// function add_thumbnail_to_JSON() {
+//     register_rest_field( 
+//         'post',
+//         'featured_image_src',
+//         array(
+//             'get_callback'    => 'get_image_src',
+//             'update_callback' => null,
+//             'schema'          => null,
+//         )
+//     );
+// }
 
 // function post_featured_image_json( $data, $post, $context ) {
 //     $featured_image_id = $data->data['featured_media']; // get featured image id
@@ -32,10 +32,19 @@ function add_thumbnail_to_JSON() {
 //     return get_the_post_thumbnail_url(null, 'post-thumb-small');
 // }
 
-function deepIncludeFields( $item, $key, $postTypes ) {
-    if ( isset( $item->post_type ) && in_array( $item->post_type, $postTypes ) ) {
-        $item->acf = get_fields( $item->ID );
-        $item->image = get_the_post_thumbnail_url($item->ID);
-        $item->categories = wp_get_post_categories($item->ID, array( 'fields' => 'names' ));
-    }
+// function deepIncludeFields( $item, $key, $postTypes ) {
+//     if ( isset( $item->post_type ) && in_array( $item->post_type, $postTypes ) ) {
+//         $item->acf = get_fields( $item->ID );
+//         $item->image = get_the_post_thumbnail_url($item->ID);
+//         $item->categories = wp_get_post_categories($item->ID, array( 'fields' => 'names' ));
+//     }
+// }
+
+function get_image_src( $object, $field_name, $request ) {
+    $feat_img_array = wp_get_attachment_image_src(
+        $object['featured_media'], // Image attachment ID
+    'full',  // Size.  Ex. "thumbnail", "large", "full", etc..
+        true // Whether the image should be treated as an icon.
+    );
+    return $feat_img_array[0];
 }
