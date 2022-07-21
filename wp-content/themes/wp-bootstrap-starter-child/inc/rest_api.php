@@ -27,8 +27,15 @@ function add_thumbnail_to_JSON() {
 
 // add_filter( 'rest_prepare_post', 'post_featured_image_json', 10, 3 );
 
-//testando
-function get_featured_image_api_field($post_id)
-{
-    return get_the_post_thumbnail_url(null, 'post-thumb-small');
+// function get_featured_image_api_field($post_id)
+// {
+//     return get_the_post_thumbnail_url(null, 'post-thumb-small');
+// }
+
+function deepIncludeFields( $item, $key, $postTypes ) {
+    if ( isset( $item->post_type ) && in_array( $item->post_type, $postTypes ) ) {
+        $item->acf = get_fields( $item->ID );
+        $item->image = get_the_post_thumbnail_url($item->ID);
+        $item->categories = wp_get_post_categories($item->ID, array( 'fields' => 'names' ));
+    }
 }
