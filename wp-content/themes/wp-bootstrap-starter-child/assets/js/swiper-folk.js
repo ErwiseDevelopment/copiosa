@@ -42,6 +42,22 @@ const swiperOurCommunitiesImage = new Swiper( '.js-swiper-our-communities-image'
     }
 });
 
+//gallery
+const swiperGallery = new Swiper( '.js-swiper-gallery', {
+    slidesPerView: 4,
+   
+    grid: {
+        rows: 2,
+    },
+
+    spaceBetween: 30,
+    
+    // navigation: {
+    //     prevEl: '.js-swiper-button-prev-gallery',
+    //     nextEl: '.js-swiper-button-next-gallery'
+    // }
+});
+
 const swiperOurCommunities = new Swiper( '.js-swiper-our-communities', {
     navigation: {
         prevEl: '.js-swiper-button-prev-our-communities',

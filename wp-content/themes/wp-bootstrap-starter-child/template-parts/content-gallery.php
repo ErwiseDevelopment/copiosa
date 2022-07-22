@@ -13,25 +13,33 @@
 
             <div class="col-12 mt-3">
 
-                <div class="row">
+                <!-- swiper -->
+                <div class="swiper-container js-swiper-gallery">
 
-                    <?php 
-                        $gallery = get_field( 'galeria', 'option' );
+                    <div class="swiper-wrapper">
 
-                        if( $gallery ) :
-                            foreach( $gallery as $photo ) :
-                    ?>
-                                <div class="col-md-6 col-lg-3 my-2 px-2">
-                                    <img
-                                    class="img-fluid w-100 h-100 u-object-fit-cover"
-                                    src="<?php echo $photo['url'] ?>"
-                                    alt="<?php echo $photo['title']; ?>">
-                                </div>
-                    <?php
-                            endforeach;
-                        endif;
-                    ?>
+                        <?php 
+                            $gallery = get_field( 'galeria', 'option' );
+
+                            if( $gallery ) :
+                                foreach( $gallery as $photo ) :
+                        ?>
+                                    <div class="swiper-slide">
+                                        <img
+                                        class="img-fluid w-100 h-100 u-object-fit-cover"
+                                        src="<?php echo $photo['url'] ?>"
+                                        alt="<?php echo $photo['title']; ?>">
+                                    </div>
+                        <?php
+                                endforeach;
+                            endif;
+                        ?>
+                    </div>
                 </div>
+                <!-- end swiper -->
+            </div>
+
+            <div class="col-12">
 
                 <div class="row justify-content-center">
 
