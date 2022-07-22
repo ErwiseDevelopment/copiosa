@@ -31,6 +31,7 @@
                         );
 
                         $gallery = new WP_Query( $args );
+                        $count = 0;
 
                         if( $gallery->have_posts() ) :
                             while( $gallery->have_posts() ) : $gallery->the_post();
@@ -39,6 +40,7 @@
 
                                 if( $photos ) :
                                     foreach( $photos as $photo ) :     
+                                        $count++;
                     ?>
                                         <div class="col-md-6 col-lg-3 my-2 px-2">
                                             <img
@@ -47,6 +49,8 @@
                                             alt="<?php echo $photo['title']; ?>">
                                         </div>
                     <?php
+                                        if( $count == 8 )
+                                            break;
                                     endforeach;
                                 endif;
                             endwhile;
