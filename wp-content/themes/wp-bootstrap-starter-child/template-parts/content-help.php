@@ -48,7 +48,7 @@
 
                         <p class="l-help__number u-font-weight-black text-center u-color-folk-golden mb-0">
                             <!-- 3000 -->
-                            <?php echo get_field( 'numero_atendidas', 'option' ) ?>
+                            <?php echo get_sub_field( 'numero_atendidas', 'option' ) ?>
                         </p>
 
                         <p class="u-font-size-15 xxl:u-font-size-18 u-font-weight-regular u-font-family-lato text-center u-color-folk-white">

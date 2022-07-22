@@ -53,11 +53,13 @@
                             <?php echo get_field( 'endereco', 'option' ) ?></p>
 
                             <p class="u-icon__free u-icon__phone-alt::right position-relative u-font-size-12 u-font-weight-regular before::u-font-weight-semibold u-font-family-nunito u-color-folk-light-aluminium mb-2 before::u-pr-2">
-                                +55 042 3226 1144
-                            </p>
+                                <?php echo get_field('numer-telefone_1', 'option')?></p>
+                            <p class="u-icon__free u-icon__phone-alt::right position-relative u-font-size-12 u-font-weight-regular before::u-font-weight-semibold u-font-family-nunito u-color-folk-light-aluminium mb-2 before::u-pr-2">
+                                <?php echo get_field('numer-telefone_2', 'option')?></p>
+                            
 
                             <p class="u-font-size-12 u-font-weight-regular before::u-font-weight-semibold u-font-family-nunito u-color-folk-light-aluminium mb-2">
-                                +55 042 9 9985 9504
+                            <?php echo get_field('telefone_3', 'option')?>
                             </p>
 
                             <p class="u-icon__free u-icon__envelope::right position-relative u-font-size-12 u-font-weight-regular before::u-font-weight-semibold u-font-family-nunito u-color-folk-light-aluminium mb-2 before::u-pr-2">

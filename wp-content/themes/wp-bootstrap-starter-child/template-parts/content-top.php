@@ -80,7 +80,7 @@
 
                                 <p class="u-line-height-100 ml-2 mb-0">
                                     <span class="u-font-size-12 u-font-weight-regular u-font-family-lato u-color-folk-aluminium">Email</span> <br>
-                                    <span class="u-font-size-14 u-font-weight-semibold u-font-family-lato u-color-folk-medium-electric-blue">atendimento@copiosaredencao.org.br</span>
+                                    <span class="u-font-size-14 u-font-weight-semibold u-font-family-lato u-color-folk-medium-electric-blue"><?php echo get_field('e-mail_head', 'option')?></span>
                                 </p>
                             </li>
 
@@ -91,7 +91,7 @@
 
                                 <p class="u-line-height-100 ml-2 mb-0">
                                     <span class="u-font-size-12 u-font-weight-regular u-font-family-lato u-color-folk-aluminium">Telefone</span> <br>
-                                    <span class="u-font-size-14 u-font-weight-semibold u-font-family-lato u-color-folk-medium-electric-blue">042 3226-1144</span>
+                                    <span class="u-font-size-14 u-font-weight-semibold u-font-family-lato u-color-folk-medium-electric-blue"><?php echo get_field('telefone_head', 'option')?></span>
                                 </p>
                             </li>
                         </ul>
