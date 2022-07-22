@@ -14,8 +14,8 @@
 
 get_header(); ?>
 
-<section id="primary" class="content-area">
-<div id="main" class="site-main" role="main">
+<div id="primary">
+<main id="main">
 
 <?php while ( have_posts() ) : the_post(); ?>
 
@@ -109,7 +109,7 @@ timezone_offset_get
                                             no distrito de Uvaia, em Ponta Grossa, a celebração 
                                             dos Votos Temporários das Irmãs Amanda, Irmã Bruna, 
                                             Irmã Criciele, Irmã Gabriele, [...] -->
-                                            <?php the_excerpt()?>
+                                            <?php the_excerpt() ?>
                                         </span>
 
                                         <p
@@ -150,48 +150,75 @@ timezone_offset_get
 
                     <div class="row">
 
-                        <!-- loop -->
-                        <?php for( $i = 0; $i < 3; $i++ ) { ?>
-                            <div class="col-md-4 my-3">
+                           <!-- loop -->
+                        <?php 
+                            $args = array(
+                                'posts_per_page' => 3,
+                                'post_type'      => 'ebook',
+                                'order'          => 'DESC'
+                            );
 
-                                <div class="row">
+                            $ebooks = new WP_Query( $args );
 
-                                    <div class="col-4">
-                                        <img
-                                        class="img-fluid"
-                                        src="<?php echo get_home_url( null, '/wp-content/uploads/2022/06/mockup.png' ) ?>"
-                                        alt="">
-                                    </div>
+                            if( $ebooks->have_posts() ) :
+                                while( $ebooks->have_posts() ) : $ebooks->the_post();
+                        ?>
+                                    <div class="col-md-4 my-3">
 
-                                    <div class="col-8 pl-0">
-                                        
-                                        <p class="u-font-size-12 xxl:u-font-size-15 u-font-weight-semibold u-color-folk-golden mb-0">
-                                            E-book
-                                        </p>
+                                        <div class="row">
 
-                                        <h6 class="u-font-size-18 xxl:u-font-size-19 u-font-weight-semibold u-color-folk-bold-electric-blue mb-2">
-                                            Oração pessoal
-                                            Guia para iniciantes
-                                        </h6>
-                                    </div>
+                                            <div class="col-4">
+                                                <!-- <img
+                                                class="img-fluid"
+                                                src="<php echo get_home_url( null, '/wp-content/uploads/2022/06/mockup.png' ) ?>"
+                                                alt=""> -->
 
-                                    <div class="col-12 mt-3">
+                                                <?php 
+                                                    $alt_title = get_the_title();
 
-                                        <div class="row justify-content-center">
+                                                    the_post_thumbnail( 'post-thumbnail',
+                                                        array(
+                                                            'class' => 'img-fluid',
+                                                            'alt'   => $alt_title
+                                                    ));
+                                                ?>
+                                            </div>
 
-                                            <div class="col-7 offset-2">
+                                            <div class="col-8 pl-0">
+                                                
+                                                <p class="u-font-size-12 xxl:u-font-size-15 u-font-weight-semibold u-color-folk-golden mb-0">
+                                                    E-book
+                                                </p>
 
-                                                <a
-                                                class="w-100 u-box-shadow-pattern d-block u-font-size-12 xxl:u-font-size-16 u-font-weight-bold u-font-family-nunito text-center text-decoration-none u-color-folk-bold-electric-blue hover:u-color-folk-golden u-bg-folk-golden hover:u-bg-folk-squid-ink py-2"
-                                                href="#">
-                                                    Baixar
-                                                </a>
+                                                <h6 class="u-font-size-18 xxl:u-font-size-19 u-font-weight-semibold u-color-folk-bold-electric-blue mb-2">
+                                                    <!-- Oração pessoal
+                                                    Guia para iniciantes -->
+                                                    <?php the_title() ?>
+                                                </h6>
+                                            </div>
+
+                                            <div class="col-12 mt-3">
+
+                                                <div class="row justify-content-center">
+
+                                                    <div class="col-7 offset-2">
+
+                                                        <a
+                                                        class="w-100 u-box-shadow-pattern d-block u-font-size-12 xxl:u-font-size-16 u-font-weight-bold u-font-family-nunito text-center text-decoration-none u-color-folk-bold-electric-blue hover:u-color-folk-golden u-bg-folk-golden hover:u-bg-folk-squid-ink py-2"
+                                                        href="<?php echo get_field( 'link' ) ?>">
+                                                            Baixar
+                                                        </a>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                        <?php } ?>
+                        <?php 
+                                endwhile;
+                            endif;
+                            
+                            wp_reset_query();
+                        ?>
                         <!--- end loop -->
                     </div>
                 </div>
@@ -202,7 +229,7 @@ timezone_offset_get
 
                         <a
                         class="w-100 u-box-shadow-pattern d-block u-font-size-15 u-font-weight-bold u-font-family-nunito text-center text-decoration-none u-color-folk-white u-bg-folk-medium-electric-blue hover:u-bg-folk-squid-ink py-2"
-                        href="#">
+                        href="<?php echo get_home_url( null, 'nossos-materiais' ) ?>">
                             Ver mais
                         </a>
                     </div>
@@ -214,10 +241,9 @@ timezone_offset_get
 <!-- end books -->
 
 <?php endwhile; ?>
-
-</div><!-- #main -->
-</section><!-- #primary -->
+</main><!-- #main -->
+</div><!-- #primary -->
 
 <?php
-
 get_footer();
+?>
