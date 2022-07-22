@@ -14,6 +14,15 @@ function add_thumbnail_to_JSON() {
     );
 }
 
+function get_image_src( $object, $field_name, $request ) {
+    $feat_img_array = wp_get_attachment_image_src(
+        $object['featured_media'], // Image attachment ID
+        'full',  // Size.  Ex. "thumbnail", "large", "full", etc..
+        true // Whether the image should be treated as an icon.
+    );
+    return $feat_img_array[0];
+}
+
 // function post_featured_image_json( $data, $post, $context ) {
 //     $featured_image_id = $data->data['featured_media']; // get featured image id
 //     $featured_image_url = wp_get_attachment_image_src( $featured_image_id, 'original' ); // get url of the original size
@@ -61,21 +70,21 @@ function add_thumbnail_to_JSON() {
 //   }
 // add_filter( 'rest_prepare_post', 'post_featured_image_json', 10, 3 );
 
-add_action('rest_api_init', 'register_rest_images' );
-function register_rest_images(){
-    register_rest_field( array('post'),
-        'fimg_url',
-        array(
-            'get_callback'    => 'get_rest_featured_image',
-            'update_callback' => null,
-            'schema'          => null,
-        )
-    );
-}
-function get_rest_featured_image( $object, $field_name, $request ) {
-    if( $object['featured_media'] ){
-        $img = wp_get_attachment_image_src( $object['featured_media'], 'app-thumb' );
-        return $img[0];
-    }
-    return false;
-}
+// add_action('rest_api_init', 'register_rest_images' );
+// function register_rest_images(){
+//     register_rest_field( array('post'),
+//         'fimg_url',
+//         array(
+//             'get_callback'    => 'get_rest_featured_image',
+//             'update_callback' => null,
+//             'schema'          => null,
+//         )
+//     );
+// }
+// function get_rest_featured_image( $object, $field_name, $request ) {
+//     if( $object['featured_media'] ){
+//         $img = wp_get_attachment_image_src( $object['featured_media'], 'app-thumb' );
+//         return $img[0];
+//     }
+//     return false;
+// }
