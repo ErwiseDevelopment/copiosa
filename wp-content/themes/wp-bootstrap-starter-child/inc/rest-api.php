@@ -38,3 +38,22 @@ function add_post_excerpt_rest_api( $data ) {
 }
 
 add_filter('rest_prepare_post', 'add_post_excerpt_rest_api', 10, 3);
+
+function add_categories_rest_api( $data ) {
+    if (!empty($data->data['categories'])) {
+        $cats = array();
+    
+        foreach($data->data['categories'] as $category_id) {
+            $category = get_category($category_id);
+            array_push($cats, $category->name);
+        
+            $data->data['child_category'] = $cats;
+            
+        }
+    }
+
+    return $data;
+}
+
+add_filter('rest_prepare_post', 'add_categories_rest_api', 10, 3);
+
