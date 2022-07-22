@@ -28,7 +28,7 @@ get_header();
             <div class="col-12 my-5">
 
                 <h1 class="l-banner-full__title u-font-weight-bold text-center u-color-folk-white mb-4">
-                 <?php the_title() ?>
+                    <?php the_title() ?>
                 </h1>
 
                 <div class="rounded u-bg-folk-golden mx-auto" style="width:320px;height:9px"></div>
@@ -61,22 +61,6 @@ get_header();
                         ?>
 
                         <div class="l-template-menu__content mt-4">
-                            <!-- <h3>
-                                Conheça a história da Copiosa Redenção
-                            </h3>
-
-                            <p>
-                                Aelltes port lacus quis enim var sed efficitur turpis gilla sed sit amet finibus eros. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the ndustry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries. Lorem Ipsum is simply dummy text of the new design printng and type setting Ipsum Take a look at our round up of the best shows coming soon to your telly box has been the is industrys. 
-
-                                <br><br>
-
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has industr standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of.
-
-                                <br><br>
-
-                                Aelltes port lacus quis enim var sed efficitur turpis gilla sed sit amet finibus eros. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the ndustry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries. 
-                            </p> -->
-
                             <?php the_content() ?>
                         </div>
                     </div>
