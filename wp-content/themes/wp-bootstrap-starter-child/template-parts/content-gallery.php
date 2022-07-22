@@ -13,33 +13,48 @@
 
             <div class="col-12 mt-3">
 
-                <!-- swiper -->
-                <div class="swiper-container js-swiper-gallery">
+                <div class="row">
 
-                    <div class="swiper-wrapper">
+                    <?php 
+                        $editorial_slug_current = get_the_title();
 
-                        <?php 
-                            $gallery = get_field( 'galeria', 'option' );
+                        $args = array(
+                            'posts_per_page' => 1,
+                            'post_type'      => 'Galeria',
+                            'tax_query'      => array(
+                                array(
+                                    'taxonomy' => 'galeria-categoria',
+                                    'field'    => 'slug',
+                                    'terms'    => array( $editorial_slug_current )
+                                )
+                            )
+                        );
 
-                            if( $gallery ) :
-                                foreach( $gallery as $photo ) :
-                        ?>
-                                    <div class="swiper-slide">
-                                        <img
-                                        class="img-fluid w-100 h-100 u-object-fit-cover"
-                                        src="<?php echo $photo['url'] ?>"
-                                        alt="<?php echo $photo['title']; ?>">
-                                    </div>
-                        <?php
-                                endforeach;
-                            endif;
-                        ?>
-                    </div>
+                        $gallery = new WP_Query( $args );
+
+                        if( $gallery->have_posts() ) :
+                            while( $gallery->have_posts() ) : $gallery->the_post();
+
+                                $photos = get_field( 'galeria' );
+
+                                if( $photos ) :
+                                    foreach( $photos as $photo ) :     
+                    ?>
+                                        <div class="col-md-6 col-lg-3 my-2 px-2">
+                                            <img
+                                            class="img-fluid w-100 h-100 u-object-fit-cover"
+                                            src="<?php echo $photo['url'] ?>"
+                                            alt="<?php echo $photo['title']; ?>">
+                                        </div>
+                    <?php
+                                    endforeach;
+                                endif;
+                            endwhile;
+                        endif;
+
+                        wp_reset_query();
+                    ?>
                 </div>
-                <!-- end swiper -->
-            </div>
-
-            <div class="col-12">
 
                 <div class="row justify-content-center">
 
