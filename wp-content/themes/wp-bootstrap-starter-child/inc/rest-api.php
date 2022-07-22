@@ -30,3 +30,11 @@ function add_post_date_rest_api( $data, $post ) {
 }
 
 add_filter('rest_prepare_post', 'add_post_date_rest_api', 10, 3);
+
+function add_post_excerpt_rest_api( $data ) {
+    $data->data['post_excerpt'] = limit_words(get_the_excerpt(), 20);
+
+    return $data;
+}
+
+add_filter('rest_prepare_post', 'add_post_excerpt_rest_api', 10, 3);
