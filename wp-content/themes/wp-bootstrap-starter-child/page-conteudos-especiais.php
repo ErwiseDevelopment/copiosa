@@ -218,11 +218,6 @@ timezone_offset_get
 </div><!-- #main -->
 </section><!-- #primary -->
 
-<img
-class="img-fluid"
-data-src="<?php echo get_template_directory_uri()?>/../wp-bootstrap-starter-child/assets/images/banner-illustration.png"
-alt="Single Temas">
-
 <?php
 
 get_footer();
