@@ -80,68 +80,71 @@
 
                         <ul class="pl-0 pl-lg-3">
                             
-                            <!-- loop -->
-                            <?php
-                                $count = 0;
-                                if( have_rows( 'itens_diferenca', 'option' ) ) :
-                                    while( have_rows( 'itens_diferenca', 'option' ) ) : the_row();
-                                        $count++;
-                            ?>
-                                        <li class="d-flex u-list-style-none my-2">
-                                            <div class="l-help__item__topic d-flex justify-content-center align-items-center u-font-weight-bold u-color-folk-white u-bg-folk-golden px-3">
-                                                <!-- 01. -->
-                                                <?php echo '0' . $count . '.'; ?>
-                                            </div>
+                            <li class="u-list-style-none my-2">
 
-                                            <div class="w-100 u-bg-folk-white:op-1 py-2 px-3">
-                                                <p class="u-font-size-14 xxl:u-font-size-18 u-font-weight-regular u-font-family-lato u-color-folk-white mb-0">
-                                                    <!-- Junte-se a nós -->
-                                                    <?php echo get_sub_field( 'texto' ) ?>
-                                                </p>
+                                <a
+                                class="w-100 d-flex text-decoration-none"
+                                href="<?php echo get_field( '01seja_um_benfeitor', 'option' ) ?>">
 
-                                                <p class="l-help__item__title u-font-weight-bold u-color-folk-white mb-0">
-                                                    <!-- Seja um benfeitor -->
-                                                    <?php echo get_sub_field( 'texto_destaque' ) ?>
-                                                </p>
-                                            </div>
-                                        </li>
-                            <?php
-                                    endwhile;
-                                endif;
-                            ?>
-                            <!-- end loop -->
+                                    <div class="l-help__item__topic d-flex justify-content-center align-items-center u-font-weight-bold u-color-folk-white u-bg-folk-golden px-3">
+                                        01.
+                                    </div>
 
-                            <!-- <li class="d-flex u-list-style-none my-2">
-                                <div class="l-help__item__topic d-flex justify-content-center align-items-center u-font-weight-bold u-color-folk-white u-bg-folk-golden px-3">
-                                    02.
-                                </div>
+                                    <div class="w-100 u-bg-folk-white:op-1 py-2 px-3">
+                                        <p class="u-font-size-14 xxl:u-font-size-18 u-font-weight-regular u-font-family-lato u-color-folk-white mb-0">
+                                            Junte-se a nós
+                                        </p>
 
-                                <div class="w-100 u-bg-folk-white:op-1 py-2 px-3">
-                                    <p class="u-font-size-14 xxl:u-font-size-18 u-font-weight-regular u-font-family-lato u-color-folk-white mb-0">
-                                        Faça sua contribuição
-                                    </p>
-
-                                    <p class="l-help__item__title u-font-weight-bold u-color-folk-white mb-0">
-                                        Doe aqui
-                                    </p>
-                                </div>
+                                        <p class="l-help__item__title u-font-weight-bold u-color-folk-white mb-0">
+                                            Seja um benfeitor
+                                        </p>
+                                    </div>
+                                </a>
                             </li>
 
-                            <li class="d-flex u-list-style-none my-2">
-                                <div class="l-help__item__topic d-flex justify-content-center align-items-center u-font-weight-bold u-color-folk-white u-bg-folk-golden px-3">
-                                    03.
-                                </div>
+                            <li class="u-list-style-none my-2">
 
-                                <div class="w-100 u-bg-folk-white:op-1 py-2 px-3">
-                                    <p class="u-font-size-14 xxl:u-font-size-18 u-font-weight-regular u-font-family-lato u-color-folk-white mb-0">
-                                        Faça parte
-                                    </p>
+                                <a
+                                class="w-100 d-flex text-decoration-none"
+                                href="<?php echo get_field( '02_doe_aqui', 'option' ) ?>">
 
-                                    <p class="l-help__item__title u-font-weight-bold u-color-folk-white mb-0">
-                                        Seja um vocacionado
-                                    </p>
-                                </div>
-                            </li> -->
+                                    <div class="l-help__item__topic d-flex justify-content-center align-items-center u-font-weight-bold u-color-folk-white u-bg-folk-golden px-3">
+                                        02.
+                                    </div>
+
+                                    <div class="w-100 u-bg-folk-white:op-1 py-2 px-3">
+                                        <p class="u-font-size-14 xxl:u-font-size-18 u-font-weight-regular u-font-family-lato u-color-folk-white mb-0">
+                                            Faça sua contribuição
+                                        </p>
+
+                                        <p class="l-help__item__title u-font-weight-bold u-color-folk-white mb-0">
+                                            Doe aqui
+                                        </p>
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li class="u-list-style-none my-2">
+
+                                <a
+                                class="w-100 d-flex text-decoration-none"
+                                href="<?php echo get_field( '03_seja_vocacionado', 'option' ) ?>">
+
+                                    <div class="l-help__item__topic d-flex justify-content-center align-items-center u-font-weight-bold u-color-folk-white u-bg-folk-golden px-3">
+                                        03.
+                                    </div>
+
+                                    <div class="w-100 u-bg-folk-white:op-1 py-2 px-3">
+                                        <p class="u-font-size-14 xxl:u-font-size-18 u-font-weight-regular u-font-family-lato u-color-folk-white mb-0">
+                                            Faça parte
+                                        </p>
+
+                                        <p class="l-help__item__title u-font-weight-bold u-color-folk-white mb-0">
+                                            Seja um vocacionado
+                                        </p>
+                                    </div>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>
