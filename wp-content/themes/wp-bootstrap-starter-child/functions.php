@@ -1,5 +1,6 @@
 <?php
-
+//API
+require get_template_directory() . '/../wp-bootstrap-starter-child/inc/rest-api.php';
 //files
 require get_template_directory() . '/../wp-bootstrap-starter-child/inc/single-files.php';
 
