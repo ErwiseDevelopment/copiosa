@@ -39,8 +39,6 @@ get_header(); ?>
 </section>
 <!-- end banner -->
 
-timezone_offset_get
-
 <!-- posts -->
 <section class="py-5">
 
