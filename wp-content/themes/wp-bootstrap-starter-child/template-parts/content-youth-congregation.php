@@ -153,7 +153,7 @@ Logo no início, no capítulo I, nosso fundador Padre Wilton diz: “O mandato d
                                     <a
                                     class="w-100 u-box-shadow-pattern d-block u-font-size-14 xxl:u-font-size-18 u-font-weight-bold u-font-family-nunito text-center text-decoration-none u-color-folk-white u-bg-folk-squid-ink hover:u-bg-folk-golden py-3"
                                     href="<?php the_permalink() ?>">
-                                        Confira o grupo perto de você!
+                                        Confira um evento perto de você!
                                     </a>
                                 </div>
                             </div>
