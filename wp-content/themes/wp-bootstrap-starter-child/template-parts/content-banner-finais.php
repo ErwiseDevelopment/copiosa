@@ -28,10 +28,11 @@
                                             <ul class="l-several__social-media d-flex justify-content-center align-items-center mb-0 pl-0">
                                                 
                                                 
-                                                    <li class="l-several__social-media__item u-list-style-none mx-3">
+                                                   
+                                            <li class="l-several__social-media__item u-list-style-none mx-3">
                                                         <a
                                                         class="u-icon__brands u-icon__instagram u-font-size-0 before::u-font-size-44 u-font-weight-light text-center text-decoration-none u-color-folk-white"
-                                                        href="<?php echo get_field( 'instagram', 'option' ) ?>"
+                                                        href="<?php echo get_field( 'instagram_instagram', 'option' ) ?>"
                                                         target="_blank"
                                                         rel="noreferrer noopener">
                                                             Link do Instagram
@@ -51,20 +52,29 @@
                                                     </li>
                                                     <li class="l-several__social-media__item u-list-style-none mx-3">
                                                         <a
-                                                        class="u-icon__brands u-icon__facebook u-font-size-0 before::u-font-size-44 u-font-weight-light text-center text-decoration-none u-color-folk-white"
-                                                        href="<?php echo get_field( 'facebook_facebook','option' ) ?>"
+                                                        class="u-icon__brands u-icon__youtube u-font-size-0 before::u-font-size-44 u-font-weight-light text-center text-decoration-none u-color-folk-white"
+                                                        href="<?php echo get_field( 'Youtube_Youtube','option' ) ?>"
                                                         target="_blank"
                                                         rel="noreferrer noopener">
                                                             Link do Youtube
                                                         </a>
                                                     </li>
-                                            </ul>
+                                                    <li class="l-several__social-media__item u-list-style-none mx-3">
+                                                        <a
+                                                        class="u-icon__free u-icon__plus u-font-size-0 before::u-font-size-44 u-font-weight-semibold text-center text-decoration-none u-color-folk-white"
+                                                        href="<?php echo get_field( 'vermais_vermais','option' ) ?>"
+                                                        target="_blank"
+                                                        rel="noreferrer noopener">
+                                                            Link ver mais
+                                                        </a>
+                                                    </li>
+                                                </ul>
                                         </div>
                                         <div class="l-several__col col-lg-6 mb-3 mb-lg-0">
                                             
                                             <a 
                                             class="h-100 d-block"
-                                            href="#">
+                                            href="<?php echo get_field('vermais_vermais_link', 'option')?>">
                                                 <img
                                                 class="img-fluid h-100 u-object-fit-cover"
                                                 src="<?php echo get_field( 'imagem_destaque_direito', 'option' ) ?>"

@@ -25,7 +25,7 @@
                         <p class="l-congregation__description u-font-weight-bold u-color-folk-white">
                             O carisma da Copiosa Redenção foi colocado 
                             por Deus no coração do fundador Pe. Wilton 
-                            Moraes Lopes, CsSR,  para ser luzna vida de 
+                            Moraes Lopes, CSsR,  para ser luzna vida de 
                             pessoas que se encontram nas drogas e em 
                             profundo processo de destruição.
                         </p>

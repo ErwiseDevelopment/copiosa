@@ -31,7 +31,7 @@
                                                     <li class="l-several__social-media__item u-list-style-none mx-3">
                                                         <a
                                                         class="u-icon__brands u-icon__instagram u-font-size-0 before::u-font-size-44 u-font-weight-light text-center text-decoration-none u-color-folk-white"
-                                                        href="<?php echo get_field( 'instagram', 'option' ) ?>"
+                                                        href="<?php echo get_field( 'instagram_instagram', 'option' ) ?>"
                                                         target="_blank"
                                                         rel="noreferrer noopener">
                                                             Link do Instagram
@@ -73,7 +73,7 @@
                                             
                                             <a 
                                             class="h-100 d-block"
-                                            href="#">
+                                            href="<?php echo get_field('vermais_vermais_link', 'option')?>">
                                                 <img
                                                 class="img-fluid h-100 u-object-fit-cover"
                                                 src="<?php echo get_field( 'imagem_destaque_direito', 'option' ) ?>"
