@@ -15,6 +15,23 @@ get_header(); ?>
 <?php while ( have_posts() ) : the_post(); ?>
 
 <!-- banner -->
+<?php
+	$categories_post = array();
+
+	$categories_pattern = [
+		'Notícias',
+		'Blog'
+	];
+
+	$single_post_categories = get_the_category( $post->ID );
+	
+	foreach( $single_post_categories as $category ) {
+		foreach( $categories_pattern as $category_pattern ) {
+			if( $category->name == $category_pattern )
+				array_push( $categories_post, $category->name );
+		}
+	}
+?>
 <section class="u-bg-folk-extrabold-electric-blue py-5">
 
     <div class="container">
@@ -24,7 +41,9 @@ get_header(); ?>
             <div class="col-12 my-5">
 
                 <h1 class="l-banner-full__title u-font-weight-bold text-center u-color-folk-white mb-4">
-                    Últimas Notícias
+					<?php 
+						echo $categories_post[0] ? $categories_post[0] : 'Últimas Notícias';
+					?>
                 </h1>
 
                 <div class="rounded u-bg-folk-golden mx-auto" style="width:320px;height:9px"></div>
