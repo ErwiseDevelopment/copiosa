@@ -22,14 +22,14 @@ function erwise_create_post_type() {
 		'menu_icon' 	=> 'dashicons-admin-home',
 		'supports' 		=> array( 'title', 'thumbnail', 'author' )
 	) );
-
-    	register_post_type( 'Governo', array(
-		'labels' 		=> array( 'name' => 'Governo/Departamentos', 'singular_name' => 'Governo', 'all_items' => 'Todos' ),
-		'public' 		=> true,
-		'has_archive'	=> true,
-		'menu_icon'		=> 'dashicons-groups',
-		'supports' 		=> array( 'title', 'thumbnail' ) 
-	) );
+    // Não esta em uso pelo cliente 25-07-22
+    // 	register_post_type( 'Governo', array(
+	// 	'labels' 		=> array( 'name' => 'Governo/Departamentos', 'singular_name' => 'Governo', 'all_items' => 'Todos' ),
+	// 	'public' 		=> true,
+	// 	'has_archive'	=> true,
+	// 	'menu_icon'		=> 'dashicons-groups',
+	// 	'supports' 		=> array( 'title', 'thumbnail' ) 
+	// ) );
 	
 		register_post_type( 'Evento', array(
 		'labels' 		=> array( 'name' => 'Eventos', 'singular_name' => 'Eventos', 'all_items' => 'Todos Eventos' ),
@@ -65,7 +65,7 @@ function erwise_create_taxonomy() {
     register_taxonomy( 'ebook-categoria', 'ebook', array( 'labels' => array( 'name' => 'Tipo E-book', 'singular_name' => 'Tipo E-book' ), 'hierarchical' => true, 'show_admin_column' => true ) );
 	// register_taxonomy( 'comunidades-categoria', 'comunidades', array( 'labels' => array( 'name' => 'Tipo Comunidade', 'singular_name' => 'Tipo Comunidade' ), 'hierarchical' => true, 'show_admin_column' => true ) );
     register_taxonomy( 'comunidades-categoria', 'comunidades', array( 'labels' => array( 'name' => 'Tipo Comunidade', 'singular_name' => 'Tipo Comunidade' ), 'hierarchical' => true, 'show_admin_column' => true ) );
-    register_taxonomy( 'governo-categoria', 'governo', array( 'labels' => array( 'name' => 'Funções', 'singular_name' => 'Função' ), 'hierarchical' => true, 'show_admin_column' => true ) );
+    //register_taxonomy( 'governo-categoria', 'governo', array( 'labels' => array( 'name' => 'Funções', 'singular_name' => 'Função' ), 'hierarchical' => true, 'show_admin_column' => true ) );
 	register_taxonomy( 'galeria-categoria', 'galeria', array( 'labels' => array( 'name' => 'Categorias', 'singular_name' => 'Categoria' ), 'hierarchical' => true, 'show_admin_column' => true ) );
 	register_taxonomy( 'depoimentos_categoria', 'depoimentos', array( 'labels' => array( 'name' => 'Categorias', 'singular_name' => 'Categoria' ), 'hierarchical' => true, 'show_admin_column' => true ) );
 
