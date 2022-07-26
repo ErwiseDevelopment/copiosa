@@ -36,11 +36,6 @@
                                         while( $posts_testimonials->have_posts() ) : $posts_testimonials->the_post();
                                 ?>
                                             <div class="swiper-slide">
-                                                <!-- <img
-                                                class="img-fluid w-100 h-100 u-object-fit-cover"
-                                                src="<php echo get_home_url( null, '/wp-content/uploads/2022/06/20170409_171943-600x400-1.png' ) ?>"
-                                                alt=""> -->
-
                                                 <?php
                                                     $alt_title = get_the_title();
 
@@ -92,12 +87,11 @@
                                         if( $posts_testimonials->have_posts() ) :
                                             while( $posts_testimonials->have_posts() ) : $posts_testimonials->the_post();
                                     ?>
-                                                <div class="swiper-slide">
+                                                <div class="swiper-slide js-testimonial">
 
                                                     <div>
 
                                                         <p class="d-inline-block u-font-size-10 u-font-weight-semibold text-center text-uppercase u-color-folk-bold-electric-blue u-bg-folk-golden py-1 px-5">
-                                                            <!-- Comunidade Terapêutica Pe. wilton -->
                                                             <?php
                                                                 $categories_current = get_the_terms( get_the_ID(), 'depoimentos_categoria' );
                                                                 echo $categories_current[0]->name;
@@ -105,19 +99,15 @@
                                                         </p>
 
                                                         <h3 class="l-our-communities__title u-font-weight-bold u-color-folk-bold-electric-blue mb-4">
-                                                            <!-- João Paulo Vieira Deschk -->
                                                             <?php the_title() ?>
                                                         </h3>
 
                                                         <span class="d-block u-font-size-14 xxl:u-font-size-17 u-font-weight-regular u-color-folk-aluminium mt-4">
-                                                            <!-- Com. Terapêutica Pe. Wilton – Ponta Grossa/PR – 9 anos de sobriedade. <br><br>
+                                                            <?php echo limit_words( get_the_content(), 40); ?>
+                                                        </span>
 
-                                                            O autoconhecimento que a experiência na comunidade terapêutica me 
-                                                            trouxe, foi, e ainda é, fundamental para conseguir seguir a jornada de 
-                                                            dependente químico no pós tratamento. […] pois a misericórdia de Deus é 
-                                                            infinita, e que apesar de nossas falhas e imperfeições, sempre está 
-                                                            presente em nossas vidas mostrando um caminho de vitórias e bênçãos[…]. -->
-                                                            <?php echo limit_words( get_the_content(), 65); ?>
+                                                        <span class="d-none js-testimonial-content">
+                                                            <?php the_content() ?>
                                                         </span>
                                                         
                                                         <div class="row">
@@ -147,3 +137,36 @@
         </div>
     </div>
 </section>
+
+<!-- modal testimonial -->
+<div class="l-modal-testimonial js-modal-testimonial">
+
+    <div class="l-modal-testimonial__overlay js-modal-testimonial-close"></div>
+
+    <div class="container">
+
+        <div class="row justify-content-center">
+
+            <div class="col-8 mb-3">
+
+                <div class="row justify-content-end">
+                        
+                    <div class="col-lg-3">
+                        <button class="w-100 border-0 rounded d-block u-font-size-14 u-font-weight-medium text-center u-color-folk-white u-bg-folk-medium-electric-blue hover:u-bg-folk-golden py-2 js-modal-testimonial-close">
+                            Fechar
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-8">
+                
+                <div class="shadow rounded d-flex justify-content-center align-items-center u-bg-folk-white p-4 p-lg-5">
+                    <span class="d-block u-font-size-13 md:u-font-size-15 xxl:u-font-size-18 u-font-weight-regular text-center u-color-folk-aluminium js-modal-content">
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end modal testimonial -->
