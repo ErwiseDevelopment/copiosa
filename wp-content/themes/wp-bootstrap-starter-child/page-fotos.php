@@ -55,7 +55,7 @@ get_header(); ?>
                             $editorial_slug_current = $_GET[ 'cat' ];
 
                             $args = array(
-                                'posts_per_page' => 1,
+                                'posts_per_page' => -1,
                                 'post_type'      => 'Galeria',
                                 'tax_query'      => array(
                                     array(
@@ -67,7 +67,7 @@ get_header(); ?>
                             );
                         } else {
                             $args = array(
-                                'posts_per_page' => 1,
+                                'posts_per_page' => -1,
                                 'post_type'      => 'Galeria',
                             );
                         }
