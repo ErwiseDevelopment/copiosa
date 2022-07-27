@@ -114,7 +114,7 @@ get_header(); ?>
         <div class="row">
 
             <div class="col-1 d-none d-lg-block">
-                <div class="l-our-communities__buttons__item swiper-button-prev d-flex justify-content-center align-items-center mt-0 mx-1 js-swiper-button-prev-photos">
+                <div class="l-our-communities__buttons__item swiper-button-prev d-flex justify-content-center align-items-center mt-0 mx-1 js-swiper-button-prev-photos" style="overflow:visible;position:absolute">
                     <img class="img-fluid" src="https://copiosa.erwisedev-hml.com.br/wp-content/themes/wp-bootstrap-starter/../wp-bootstrap-starter-child/assets/images/icon-arrow-left.png" alt="Ícone Seta Esquerda">
                 </div>
             </div>
@@ -147,7 +147,7 @@ get_header(); ?>
             </div>
 
             <div class="col-1 d-none d-lg-block">
-                <div class="l-our-communities__buttons__item swiper-button-next d-flex justify-content-center align-items-center mt-0 mx-1 js-swiper-button-next-photos">
+                <div class="l-our-communities__buttons__item swiper-button-next d-flex justify-content-center align-items-center mt-0 mx-1 js-swiper-button-next-photos" style="overflow:visible;position:absolute">
                     <img class="img-fluid" src="https://copiosa.erwisedev-hml.com.br/wp-content/themes/wp-bootstrap-starter/../wp-bootstrap-starter-child/assets/images/icon-arrow-right.png" alt="Ícone Seta Direita">
                 </div>
             </div>
