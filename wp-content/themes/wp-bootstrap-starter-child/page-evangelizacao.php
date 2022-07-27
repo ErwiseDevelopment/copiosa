@@ -40,7 +40,7 @@ get_header(); ?>
 <!-- end evangelization posts -->
 
 <!-- institutional special content -->
-<?php echo get_template_part( 'template-parts/content', 'institutional-special-content' ) ?>
+<?php echo get_template_part( 'template-parts/content', 'evangelization-special-content' ) ?>
 <!-- end institutional special content -->
 
 <!-- gallery -->
