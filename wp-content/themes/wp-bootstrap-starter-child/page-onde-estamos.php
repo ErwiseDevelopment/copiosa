@@ -148,7 +148,20 @@ get_header(); ?>
                                                         <div>
 
                                                             <p class="d-inline-block u-font-size-10 u-font-weight-semibold text-center u-color-folk-bold-electric-blue u-bg-folk-golden py-1 px-3">
-                                                                Comunidade Terapêutica
+                                                                <!-- Comunidade Terapêutica -->
+                                                                <?php
+                                                                    $post_categories = get_the_terms(get_the_ID(), 'comunidades-categoria' );
+                                                                    $post_categories_current = array();
+
+                                                                    foreach( $post_categories as $post_category ) {
+                                                                        foreach( $terms as $term ) {
+                                                                            if( $post_category->name == $term->name )
+                                                                                array_push( $post_categories_current, $post_category->name );
+                                                                        }
+                                                                    }
+
+                                                                    echo $post_categories_current[0];
+                                                                ?>
                                                             </p>
 
                                                             <h3 class="l-our-communities__title u-line-height-100 u-font-weight-bold u-color-folk-bold-electric-blue">
