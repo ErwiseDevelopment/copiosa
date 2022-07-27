@@ -40,11 +40,11 @@ function erwise_create_post_type() {
 	) );
 
 	register_post_type( 'Galeria', array(
-		'labels' 		=> array( 'name' => 'Galeria', 'singular_name' => 'Galerias', 'all_items' => 'Categorias' ),
+		'labels' 		=> array( 'name' => 'Galerias', 'singular_name' => 'Galeria', 'all_items' => 'Todas Galerias' ),
 		'public' 		=> true,
 		'has_archive'	=> true,
 		'menu_icon'		=> 'dashicons-images-alt2',
-		'supports' 		=> array( 'title' ) 
+		'supports' 		=> array( 'title', 'thumbnail' ) 
 	) );
 
 	register_post_type( 'depoimentos', array(
@@ -66,7 +66,7 @@ function erwise_create_taxonomy() {
 	// register_taxonomy( 'comunidades-categoria', 'comunidades', array( 'labels' => array( 'name' => 'Tipo Comunidade', 'singular_name' => 'Tipo Comunidade' ), 'hierarchical' => true, 'show_admin_column' => true ) );
     register_taxonomy( 'comunidades-categoria', 'comunidades', array( 'labels' => array( 'name' => 'Tipo Comunidade', 'singular_name' => 'Tipo Comunidade' ), 'hierarchical' => true, 'show_admin_column' => true ) );
     //register_taxonomy( 'governo-categoria', 'governo', array( 'labels' => array( 'name' => 'Funções', 'singular_name' => 'Função' ), 'hierarchical' => true, 'show_admin_column' => true ) );
-	register_taxonomy( 'galeria-categoria', 'galeria', array( 'labels' => array( 'name' => 'Categorias', 'singular_name' => 'Categoria' ), 'hierarchical' => true, 'show_admin_column' => true ) );
+	register_taxonomy( 'galeria-categoria', 'galeria', array( 'labels' => array( 'name' => 'Tipo Categoria', 'singular_name' => 'Categoria' ), 'hierarchical' => true, 'show_admin_column' => true ) );
 	register_taxonomy( 'depoimentos_categoria', 'depoimentos', array( 'labels' => array( 'name' => 'Categorias', 'singular_name' => 'Categoria' ), 'hierarchical' => true, 'show_admin_column' => true ) );
 
     }
