@@ -120,7 +120,7 @@ get_header(); ?>
                                 if( $communities->have_posts() ) :
                                     while( $communities->have_posts() ) : $communities->the_post();
                             ?>
-                                        <div class="col-12 my-3 my-lg-2">
+                                        <div class="col-12 my-3 my-lg-5">
 
                                             <div class="row">
 
