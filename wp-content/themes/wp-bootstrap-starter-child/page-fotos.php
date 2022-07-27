@@ -51,10 +51,26 @@ get_header(); ?>
                 <div class="row">
 
                     <?php 
-                        $args = array(
-                            'posts_per_page' => -1,
-                            'post_type'      => 'Galeria',
-                        );
+                        if( isset( $_GET[ 'cat' ] ) ) {
+                            $editorial_slug_current = $_GET[ 'cat' ];
+
+                            $args = array(
+                                'posts_per_page' => 1,
+                                'post_type'      => 'Galeria',
+                                'tax_query'      => array(
+                                    array(
+                                        'taxonomy' => 'galeria-categoria',
+                                        'field'    => 'slug',
+                                        'terms'    => array( $editorial_slug_current )
+                                    )
+                                )
+                            );
+                        } else {
+                            $args = array(
+                                'posts_per_page' => 1,
+                                'post_type'      => 'Galeria',
+                            );
+                        }
 
                         $gallery = new WP_Query( $args );
                         $count = -1;

@@ -16,7 +16,7 @@
                 <div class="row">
 
                     <?php 
-                        $editorial_slug_current = get_the_title();
+                        $editorial_slug_current = strtolower(get_the_title());
 
                         $args = array(
                             'posts_per_page' => 1,
@@ -66,7 +66,7 @@
 
                         <a 
                         class="w-100 u-box-shadow-pattern d-flex justify-content-center align-items-center u-font-size-18 u-font-weight-bold u-font-family-nunito text-center text-decoration-none u-color-folk-squid-ink hover:u-color-folk-white u-bg-folk-golden hover:u-bg-folk-squid-ink py-2" 
-                        href="<?php echo get_home_url( null, 'fotos' ) ?>">
+                        href="<?php echo get_home_url( null, 'fotos/?cat=' . $editorial_slug_current ) ?>">
                             <span class="u-font-size-22 pr-2">+</span>Fotos
                         </a>
                     </div>
