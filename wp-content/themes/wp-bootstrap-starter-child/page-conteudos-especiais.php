@@ -112,7 +112,7 @@ get_header(); ?>
 
                                         <p
                                         class="l-template-blog__read-more u-font-weight-medium text-center text-decoration-none u-color-folk-white u-bg-folk-golden hover:u-bg-folk-squid-ink mb-0 py-3 px-5"
-                                        href="#">
+                                        href="<?php the_permalink() ?>">
                                             Ler mais
                                         </p>
                                     </div>

@@ -21,7 +21,7 @@
                         $args = array(
                             'posts_per_page' => 4,
                             'post_type'      => 'post',
-                            'category_name'  => 'recuperacao',
+                            'category_name'  => 'recuperacao+noticias',
                             'order'          => 'DESC'
                         );
 
@@ -153,7 +153,7 @@
 
                                 <a
                                 class="w-100 u-box-shadow-pattern d-flex justify-content-center align-items-center u-font-size-18 u-font-weight-bold u-font-family-nunito text-center text-decoration-none u-color-folk-squid-ink hover:u-color-folk-white u-bg-folk-golden hover:u-bg-folk-squid-ink py-3"
-                                href="#">
+                                href="<?php echo get_home_url( null, 'noticias/?cat=recuperacao' ) ?>">
                                     <span class="u-font-size-22 pr-2">+</span>Notícias
                                 </a>
                             </div>

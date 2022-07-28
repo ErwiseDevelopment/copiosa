@@ -16,7 +16,7 @@ get_header();
 <div id="primary">
 <main id="main">
 
-<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+<?php while ( have_posts() ) : the_post(); ?>
 
 <!-- banner -->
 <section class="u-bg-folk-extrabold-electric-blue py-5">
@@ -45,61 +45,115 @@ get_header();
     
         <div class="row justify-content-center">
 
+               
+
             <!-- loop -->
-            <?php 
-                $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+                    <?php 
+                     // $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+                           
+                if( isset( $_GET['cat'] ) ) {
+                    foreach( get_categories() as $category) {
+                        if( $_GET['cat'] == $category->slug )
+                            $category_current = $category->slug; 
+                    }
+                 } //else {
+                //     $category_current = 'blog'+$category;
+                // }
+                    $args = array(
+                        'posts_per_page' => 6,
+                        'post_type'      => 'post',
+                        'category_name'  => $category_current,
+                        'order'          => 'DESC',
+                        //'post__not_in'   => array( $post_highlight_id ),
+                        // 'paged'          =>  $paged,
+                    );
+                    $posts_news = new WP_Query( $args );   
+               
+                    if( $posts_news->have_posts() ) :
+                        while( $posts_news->have_posts() ) : $posts_news->the_post();
+       
+                                ?>
+                            <a
+                            class="col-12 d-block text-decoration-none my-4"
+                            href="<?php the_permalink() ?>">
 
-                $args = array(
-                    'posts_per_page' => 6,
-                    'post_type'      => 'post',
-                    'category_name'  => 'blog',
-                    'order'          => 'DESC',
-                    'paged' =>  $paged,
-                );
-                
-                $posts_blog = new WP_Query( $args );
+                        <div class="row">
 
-                if( $posts_blog->have_posts() ) :
-                    while( $posts_blog->have_posts() ) : $posts_blog->the_post();
-            ?>
-                        <div class="col-12 d-block my-4">
+                                            <div class="col-md-5 pr-md-0">
+                                                    <!-- <img
+                                                    class="l-posts__thumbnail img-fluid w-100 u-object-fit-cover"
+                                                    src="<php echo get_home_url( null, '/wp-content/uploads/2022/06/posts-image.png' ) ?>"
+                                                    alt="Post image"> -->
 
-                            <div class="row">
+                                                    <?php
+                                                        $alt_title = get_the_title();
 
-                                <div class="col-md-5 pr-md-0">
-                                  
-                                    <?php
-                                        $alt_title = get_the_title();
-
-                                        the_post_thumbnail( 'post-thumbail',
-                                            array(
-                                                'class' => 'l-template-blog__thumbnail img-fluid w-100 u-object-fit-cover',
-                                                'alt'   => $alt_title
-                                            ));
-                                    ?>
-                                </div>
-
-                                <div class="col-md-7 pl-md-0">
+                                                        the_post_thumbnail( 'post-thumbnail',
+                                                            array(
+                                                                'class' => 'img-fluid w-100 h-100 u-object-fit-cover',
+                                                                'alt'   => $alt_title
+                                                            ));
+                                                    ?>
+                                           </div>
+                                        
+                            <div class="col-md-7 pl-md-0">
                                     
-                                    <div class="l-template-blog__box py-4 px-3 px-md-5">
+                                <div class="l-template-blog__box py-4 px-3 px-md-5">
 
                                         <p class="u-font-size-12 xxl:u-font-size-15 u-font-weight-bold text-uppercase u-color-folk-golden mb-0">
-                                            <?php echo get_date_format( get_the_date( 'd/m/Y', get_the_ID() ) );?>
+                                        <?php echo get_date_format( get_the_date( 'd/m/Y', get_the_ID() ) );?>
                                         </p>
 
                                         <p class="u-font-size-12 xxl:u-font-size-15 u-font-weight-bold text-uppercase u-color-folk-bold-electric-blue">
-                                            <?php
-                                                $category_current = get_the_category( get_the_ID() ); 
-                                                echo $category_current[0]->name;
-                                            ?>
+                                        <?php
+                                                            $cats = array();
+                                                            $categories_current = array();
+                                                            $count = 0;
+
+                                                            foreach (get_the_category($post_id) as $c) {
+                                                                $cat = get_category($c);
+                                                                array_push($cats, $cat->name);
+                                                            }
+                                                            
+                                                            foreach( $cats as $cat ) {
+                                                                foreach( get_categories_highlight() as $editorial ) {
+                                                                    if( $cat == $editorial )
+                                                                        $editorial_current = $cat;
+                                                                }
+                                                            }
+
+                                                            foreach( $cats as $cat ) {
+                                                                if( $editorial_current ) {
+                                                                    if( $cat != $editorial_current ) {
+                                                                        array_push($categories_current, $cat);
+                                                                        $count++;
+            
+                                                                        if( $count == 1 )
+                                                                            break;
+                                                                    }
+                                                                } else {
+                                                                    array_push($categories_current, $cat);
+                                                                    $count++;
+            
+                                                                    if( $count == 3 )
+                                                                        break;
+                                                                }
+                                                            }
+
+                                                            if (sizeOf($categories_current) > 0) {
+                                                                $post_categories = implode(', ', $categories_current);
+                                                            } 
+
+                                                            echo $editorial_current ? $editorial_current . ', ' . $post_categories : $post_categories;
+                                        ?>
                                         </p>
 
                                         <h4 class="l-template-blog__title u-font-weight-bold u-color-folk-dark-grayish-navy">
-                                            <?php limit_words( get_the_title(), 10); ?>
+                                        <?php the_title() ?>
                                         </h4>
 
                                         <span class="d-block u-font-size-14 xxl:u-font-size-18 u-font-weight-regular u-color-folk-aluminium pb-3">
-                                            <?php echo limit_words( get_the_content(), 25); ?>
+                                        <?php the_excerpt(); ?>
                                         </span>
 
                                         <a 
@@ -107,11 +161,11 @@ get_header();
                                         href="<?php the_permalink() ?>">
                                             Ler mais
                                         </a>
-                                    </div>
                                 </div>
                             </div>
                         </div>
-            <?php 
+                        
+                        <?php
                     endwhile;
                 endif;
 
@@ -119,13 +173,13 @@ get_header();
             ?>
             <!-- end loop -->
         </div>
-
+    </div>
         <div class="row">
 
             <div class="col-12 l-pagination d-flex justify-content-center mt-5">
 
                 <div class="d-flex">
-                    <?php
+                    <!-- <?php
                         echo paginate_links( array(
                             'base'         => str_replace( 999999999, '%#%', esc_url( get_pagenum_link( 999999999 ) ) ),
                             'total'        => $posts_blog->max_num_pages,
@@ -141,7 +195,7 @@ get_header();
                             'add_args'     => false,
                             'add_fragment' => '',
                         ) );
-                    ?>
+                    ?> -->
                 </div>
             </div>
         </div>
@@ -254,9 +308,10 @@ get_header();
         </div>
     </div>
 </section>
-<!-- end books -->
+end books
 
-<?php endwhile; endif; ?>
+<?php endwhile; ?>
+
 </main><!-- #main -->
 </div><!-- #primary -->
 
