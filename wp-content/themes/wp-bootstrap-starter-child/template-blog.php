@@ -57,7 +57,7 @@ get_header();
                             $category_current = $category->slug; 
                     }
                  } else {
-                    $category_current = 'blog'+$category;
+                    $category_current = 'blog';
                  }
                     $args = array(
                         'posts_per_page' => 6,
