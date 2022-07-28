@@ -56,9 +56,9 @@ get_header();
                         if( $_GET['cat'] == $category->slug )
                             $category_current = $category->slug; 
                     }
-                 } //else {
-                //     $category_current = 'blog'+$category;
-                // }
+                 } else {
+                    $category_current = 'blog'+$category;
+                 }
                     $args = array(
                         'posts_per_page' => 6,
                         'post_type'      => 'post',
