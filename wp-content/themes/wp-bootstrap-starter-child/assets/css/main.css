@@ -1548,6 +1548,8 @@ button.swiper-pagination-bullet {
   content: '\f231'; }
 .u-icon__search::before {
   content: '\f002'; }
+.u-icon__spotify::before {
+  content: '\f1bc'; }
 .u-icon__twitter::before {
   content: '\f099'; }
 .u-icon__youtube::before {

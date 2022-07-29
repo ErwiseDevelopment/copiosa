@@ -53,6 +53,16 @@
                             </li>
 
                             <li class="u-list-style-none mx-3">
+                                <a
+                                class="u-icon__brands u-icon__spotify u-font-size-0 before::u-font-size-22 text-decoration-none u-color-folk-medium-electric-blue"
+                                href="<?php echo get_field( 'spotify', 'option' ) ?>"
+                                target="_blank"
+                                rel="noreferrer noopener">
+                                    Link do Spotify
+                                </a>
+                            </li>
+
+                            <li class="u-list-style-none mx-3">
                                 <span class="u-icon__free u-icon__search u-font-size-0 before::u-font-size-22 u-font-weight-semibold u-cursor-pointer u-color-folk-golden js-search-icon">
                                     Pesquisa
                                 </span>

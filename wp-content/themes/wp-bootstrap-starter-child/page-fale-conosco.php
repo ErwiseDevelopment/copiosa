@@ -96,6 +96,18 @@ get_header(); ?>
                             </a>
                         </li>
                     <?php endif; ?>
+
+                    <?php if( get_field( 'spotify', 'option' ) ) : ?>
+                        <li class="px:u-w-40 px:u-h-40 u-list-style-none mx-2">
+                            <a 
+                            class="u-icon__brands u-icon__spotify w-100 h-100 d-flex justify-content-center align-items-center u-font-size-0 before::u-font-size-15 text-decoration-none u-color-folk-white u-bg-folk-instagram" 
+                            href="<?php echo get_field( 'spotify', 'option' ) ?>" 
+                            target="_blank" 
+                            rel="noreferrer noopener">
+                                Link do Spotify
+                            </a>
+                        </li>
+                    <?php endif; ?>
                 </ul>
             </div>
 

@@ -85,6 +85,12 @@ $utility-name: 'u-icon';
         }
     }
 
+    &__spotify {
+        &::before {
+            content: '\f1bc';
+        }
+    }
+
     &__twitter {
         &::before {
             content: '\f099';

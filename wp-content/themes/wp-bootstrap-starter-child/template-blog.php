@@ -47,7 +47,7 @@ get_header();
 
             <!-- loop -->
             <?php 
-                // $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+                $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 
                 $post_categories = array();
 
@@ -146,7 +146,7 @@ get_header();
             <div class="col-12 l-pagination d-flex justify-content-center mt-5">
 
                 <div class="d-flex">
-                    <!--
+                    <?php
                         echo paginate_links( array(
                             'base'         => str_replace( 999999999, '%#%', esc_url( get_pagenum_link( 999999999 ) ) ),
                             'total'        => $posts_blog->max_num_pages,
@@ -162,7 +162,7 @@ get_header();
                             'add_args'     => false,
                             'add_fragment' => '',
                         ) );
-                    -->
+                    ?>
                 </div>
             </div>
         </div>
