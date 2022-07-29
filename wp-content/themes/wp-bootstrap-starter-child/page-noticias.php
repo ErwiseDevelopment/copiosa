@@ -215,10 +215,8 @@ get_header(); ?>
                                                     <p class="u-font-size-12 xxl:u-font-size-14 u-font-weight-bold u-color-folk-medium-electric-blue">
                                                         <!-- Institucional -->
                                                         <?php
-                                                            if( sizeOf( $post_categories ) > 0 )
-                                                                $post_categories = implode( ', ', $post_categories );
-
-                                                            echo $post_categories;
+                                                            foreach( $post_categories as $post_category ) 
+                                                                echo $post_category . ' ';
                                                         ?>
                                                     </p>
 
