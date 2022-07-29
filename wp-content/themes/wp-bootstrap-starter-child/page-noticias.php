@@ -157,6 +157,19 @@ get_header(); ?>
                             <?php 
                                 // $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 
+                                $post_categories = array();
+
+                                if( isset( $_GET['cat'] ) ) {
+                                    foreach( get_categories() as $category) {
+                                        if( $_GET['cat'] == $category->slug ) {
+                                            $category_current = $category->slug . '+noticias';
+                                            array_push( $post_categories, $category->name, 'Notícias');
+                                        }
+                                    }
+                                } else {
+                                    $category_current = 'noticias';
+                                }
+
                                 $args = array(
                                     'posts_per_page' => 6,
                                     'post_type'      => 'post',
@@ -202,54 +215,19 @@ get_header(); ?>
                                                     <p class="u-font-size-12 xxl:u-font-size-14 u-font-weight-bold u-color-folk-medium-electric-blue">
                                                         <!-- Institucional -->
                                                         <?php
-                                                            $cats = array();
-                                                            $categories_current = array();
-                                                            $count = 0;
+                                                            if( sizeOf( $post_categories ) > 0 )
+                                                                $post_categories = implode( ', ', $post_categories );
 
-                                                            foreach (get_the_category($post_id) as $c) {
-                                                                $cat = get_category($c);
-                                                                array_push($cats, $cat->name);
-                                                            }
-                                                            
-                                                            foreach( $cats as $cat ) {
-                                                                foreach( get_categories_highlight() as $editorial ) {
-                                                                    if( $cat == $editorial )
-                                                                        $editorial_current = $cat;
-                                                                }
-                                                            }
-
-                                                            foreach( $cats as $cat ) {
-                                                                if( $editorial_current ) {
-                                                                    if( $cat != $editorial_current ) {
-                                                                        array_push($categories_current, $cat);
-                                                                        $count++;
-            
-                                                                        if( $count == 1 )
-                                                                            break;
-                                                                    }
-                                                                } else {
-                                                                    array_push($categories_current, $cat);
-                                                                    $count++;
-            
-                                                                    if( $count == 3 )
-                                                                        break;
-                                                                }
-                                                            }
-
-                                                            if (sizeOf($categories_current) > 0) {
-                                                                $post_categories = implode(', ', $categories_current);
-                                                            } 
-
-                                                            echo $editorial_current ? $editorial_current . ', ' . $post_categories : $post_categories;
+                                                            echo $post_categories;
                                                         ?>
                                                     </p>
 
                                                     <h4 class="u-font-size-16 xxl:u-font-size-20 u-font-weight-bold u-color-folk-bold-electric-blue mb-4">
-                                                                                                               <?php the_title() ?>
+                                                        <?php the_title() ?>
                                                     </h4>
 
                                                     <span class="d-block u-font-size-14 xxl:u-font-size-16 u-font-weight-regular u-color-folk-aluminium">
-                                                    <?php the_excerpt(); ?>
+                                                        <?php the_excerpt(); ?>
                                                     </span>
 
                                                     <div class="row">

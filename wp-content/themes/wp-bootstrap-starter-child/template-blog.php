@@ -55,16 +55,12 @@ get_header();
                     foreach( get_categories() as $category) {
                         if( $_GET['cat'] == $category->slug ) {
                             $category_current = $category->slug . '+blog';
-                            array_push( $post_categories, $category->name, 'blog');
+                            array_push( $post_categories, $category->name, 'Blog');
                         }
                     }
                 } else {
                     $category_current = 'blog';
                 }
-
-                echo "<pre>";
-                var_dump($post_categories);
-                echo "</pre>";
                 
                 $args = array(
                     'posts_per_page' => 6,
