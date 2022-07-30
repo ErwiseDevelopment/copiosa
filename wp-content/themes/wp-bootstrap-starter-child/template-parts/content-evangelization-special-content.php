@@ -58,9 +58,46 @@
                                             <p class="u-font-size-14 xxl:u-font-size-18 u-font-weight-regular u-font-family-myriad-pro text-center u-color-folk-squid-ink mb-2">
                                                 <!-- Evangelização -->
                                                 <?php
-                                                    $categories = get_the_category( get_the_ID() );
-                                                    echo get_category_editorials( $categories );
-                                                ?>
+                                                            $cats = array();
+                                                            $categories_current = array();
+                                                            $count = 0;
+
+                                                            foreach (get_the_category($post_id) as $c) {
+                                                                $cat = get_category($c);
+                                                                array_push($cats, $cat->name);
+                                                            }
+                                                            
+                                                            foreach( $cats as $cat ) {
+                                                                foreach( get_categories_highlight() as $editorial ) {
+                                                                    if( $cat == $editorial )
+                                                                        $editorial_current = $cat;
+                                                                }
+                                                            }
+
+                                                            foreach( $cats as $cat ) {
+                                                                if( $editorial_current ) {
+                                                                    if( $cat != $editorial_current ) {
+                                                                        array_push($categories_current, $cat);
+                                                                        $count++;
+            
+                                                                        if( $count == 1 )
+                                                                            break;
+                                                                    }
+                                                                } else {
+                                                                    array_push($categories_current, $cat);
+                                                                    $count++;
+            
+                                                                    if( $count == 3 )
+                                                                        break;
+                                                                }
+                                                            }
+
+                                                            if (sizeOf($categories_current) > 0) {
+                                                                $post_categories = implode(', ', $categories_current);
+                                                            } 
+
+                                                            echo $editorial_current ? $editorial_current . ', ' . $post_categories : $post_categories;
+                                        ?>
                                             </p>
 
                                             <h4 class="l-special-content__title u-font-weight-bold text-center u-color-folk-medium-electric-blue">
@@ -208,7 +245,7 @@
 
                         <a
                         class="w-100 u-box-shadow-pattern d-flex justify-content-center align-items-center u-font-size-18 u-font-weight-bold u-font-family-nunito text-center text-decoration-none u-color-folk-squid-ink hover:u-color-folk-white u-bg-folk-golden hover:u-bg-folk-squid-ink py-3"
-                        href="<?php echo get_home_url( null, 'conteudos-especiais/?cat=evangelizacao' ) ?>">
+                        href="<?php echo get_home_url( null, 'blog/?cat=evangelizacao' ) ?>">
                             <span class="u-font-size-22 pr-2">+</span>Conteúdos
                         </a>
                     </div>

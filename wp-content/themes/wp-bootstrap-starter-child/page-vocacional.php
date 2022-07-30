@@ -42,7 +42,7 @@ get_header(); ?>
 <!-- end vocational posts -->
 
 <!-- institutional special content -->
-<?php echo get_template_part( 'template-parts/content', 'institutional-special-content' ) ?>
+<?php echo get_template_part( 'template-parts/content', 'vocacional-special-content' ) ?>
 <!-- end institutional special content -->
 
 <!-- our vocation -->

@@ -35,7 +35,7 @@
                     <a href="#">
                         <img
                         class="img-fluid w-100"
-                        src="../wp-content/uploads/2022/06/logotipo_oficial_horizontal-1.png"
+                        src="<?php echo get_field('logo_do_rodape','option')?>"
                         alt="">
                     </a>
                 </div>

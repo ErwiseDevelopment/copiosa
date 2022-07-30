@@ -42,7 +42,7 @@ get_header(); ?>
 <!-- end institutional posts -->
 
 <!-- institutional special content -->
-<?php echo get_template_part( 'template-parts/content', 'institutional-special-content' ) ?>
+<?php echo get_template_part( 'template-parts/content', 'recovery-special-content' ) ?>
 <!-- end institutional special content -->
 
 <!-- recovery phase -->
