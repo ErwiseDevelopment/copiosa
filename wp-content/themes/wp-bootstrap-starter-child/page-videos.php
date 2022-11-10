@@ -19,7 +19,7 @@ get_header();
 <div id="primary">
 <main id="main">
 
-<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+<?php while ( have_posts() ) : the_post(); ?>
 
 <!-- banner -->
 <section class="u-bg-folk-extrabold-electric-blue py-5">
@@ -76,8 +76,8 @@ get_header();
                         ?>
                             <div style="padding:56.25% 0 0 0;position:relative;">
                                 <iframe src="https://player.vimeo.com/video/<?php echo get_field('video_id')?>" 
-                                frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen="true" 
-                                style="position:absolute;top:0;left:0;width:100%;height:100%;" title="">
+                                frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen="" 
+                                style="position:absolute;top:0;left:0;width:100%;height:100%;" title="123123">
                                 </iframe>
                             </div>
 
@@ -96,7 +96,7 @@ get_header();
 </section>
 <!-- end content -->
 
-<?php endwhile; endif; ?>
+<?php endwhile; ?>
 </main><!-- #main -->
 </div><!-- #primary -->
 
