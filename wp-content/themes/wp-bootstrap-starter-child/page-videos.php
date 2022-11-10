@@ -67,7 +67,9 @@ get_header();
                         <?php $args = array(
                                         'posts_per_page' => -1,
                                         'post_type'      => 'video',
-                                        'order'          => 'DESC',);
+                                        'order'          => 'DESC',
+                                        'post_status' => 'publish');
+
                             $videos = new WP_Query( $args );
 
                             if( $videos->have_posts() ) :
