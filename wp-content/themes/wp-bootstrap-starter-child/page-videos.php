@@ -61,7 +61,29 @@ get_header();
                         ?>
 
                         <div class="l-template-menu__content mt-4">
-                            <?php the_content() ?>
+                        <?php $args = array(
+                                        'posts_per_page' => -1,
+                                        'post_type'      => 'video',
+                                        'order'          => 'DESC',);
+                            $videos = new WP_Query( $args );
+
+                            if( $videos->have_posts() ) :
+                                while( $videos->have_posts() ) : $videos->the_post();
+
+                        ?>
+                            <div style="padding:56.25% 0 0 0;position:relative;">
+                                <iframe src="https://player.vimeo.com/video/<?php echo get_field('video_id')?>" 
+                                frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen="true" 
+                                style="position:absolute;top:0;left:0;width:100%;height:100%;" title="">
+                                </iframe>
+                            </div>
+
+                            <?php 
+                                    endwhile;
+                                endif;
+                                
+                                wp_reset_query();
+                            ?>
                         </div>
                     </div>
                 </div>

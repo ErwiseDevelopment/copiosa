@@ -56,7 +56,7 @@ if (get_field('modulo_ebook', 'option')== '1'):
 		'supports' 		=> array( 'title', 'editor', 'thumbnail' ) 
 	) );
 	
-	register_post_type( 'videos', array(
+	register_post_type( 'video', array(
 		'labels' 		=> array( 'name' => 'Podcast', 'singular_name' => 'Podcast', 'all_items' => 'Podcast' ),
 		'public' 		=> true,
 		'has_archive'	=> true,
