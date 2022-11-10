@@ -74,7 +74,7 @@ get_header();
                                 while( $videos->have_posts() ) : $videos->the_post();
 
                         ?>
-                            <div style="padding:56.25% 0 0 0;position:relative;">
+                            <div style="padding:56.25% 0 0 0;position:relative;" class="mb-5">
                                 <iframe src="https://player.vimeo.com/video/<?php echo get_field('video_id')?>" 
                                 frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen="" 
                                 style="position:absolute;top:0;left:0;width:100%;height:100%;" title="123123">
