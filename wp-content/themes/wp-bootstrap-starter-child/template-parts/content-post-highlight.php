@@ -1,3 +1,4 @@
+<?php if( get_field('secao_noticias','option') == 'sessao-noticia-destaque'):?>
 <section class="py-5">
 
     <div class="container">
@@ -95,3 +96,4 @@
         </div>
     </div>
 </section>
+<?php endif; ?>

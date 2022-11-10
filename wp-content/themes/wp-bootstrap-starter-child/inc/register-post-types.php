@@ -4,7 +4,7 @@
 function erwise_create_post_type() { 
 
 
-	
+if (get_field('modulo_ebook', 'option')== '1'):
 	register_post_type( 'ebook', array(
 		'labels' 		=> array( 'name' => 'E-book', 'singular_name' => 'E-book', 'all_items' => 'Todos os E-books' ),
 		'public' 		=> true,
@@ -13,6 +13,7 @@ function erwise_create_post_type() {
 		'menu-position' => 10,
 		'supports' 		=> array( 'title', 'editor', 'excerpt', 'thumbnail', 'revisions', 'author' )
 	) );
+	endif;
 
 
 	register_post_type( 'Comunidades', array(
@@ -53,6 +54,14 @@ function erwise_create_post_type() {
 		'has_archive'	=> true,
 		'menu_icon'		=> 'dashicons-format-quote',
 		'supports' 		=> array( 'title', 'editor', 'thumbnail' ) 
+	) );
+	
+	register_post_type( 'videos', array(
+		'labels' 		=> array( 'name' => 'Podcast', 'singular_name' => 'Podcast', 'all_items' => 'Podcast' ),
+		'public' 		=> true,
+		'has_archive'	=> true,
+		'menu_icon'		=> 'dashicons-format-quote',
+		'supports' 		=> array( 'title' ) 
 	) );
 }
 add_action( 'init', 'erwise_create_post_type' );

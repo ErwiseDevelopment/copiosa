@@ -41,10 +41,10 @@ get_header(); ?>
 <?php echo get_template_part( 'template-parts/content', 'post-highlight' ) ?>
 <!-- end post highlight -->
 
-<!-- posts -->
-<?php echo get_template_part( 'template-parts/content', 'posts' ) ?>
-<!-- end posts -->
+<?php
 
+ echo get_template_part( 'template-parts/content', 'posts' ) ;
+?>
 <!-- special content -->
 <?php echo get_template_part( 'template-parts/content', 'special-content' ) ?>
 <!-- end special content -->

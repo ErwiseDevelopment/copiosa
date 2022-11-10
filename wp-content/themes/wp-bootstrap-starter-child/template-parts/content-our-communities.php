@@ -103,7 +103,7 @@
                                         if( $communities->have_posts() ) :
                                             while( $communities->have_posts() ) : $communities->the_post();
                                     ?>
-                                                <div class="swiper-slide">
+                                                <div class="swiper-slide flex-column justify-content-start align-items-start">
 
                                                     <div>
 
@@ -116,12 +116,9 @@
                                                                         echo $term->name; 
                                                                 }
                                                             ?>
-                                                            <!-- Aspirantado -->
                                                         </p>
 
                                                         <h3 class="l-our-communities__title u-font-weight-bold u-color-folk-bold-electric-blue mb-4">
-                                                            <!-- Comunidade
-                                                            Irmã Maria Motta -->
                                                             <?php the_title() ?>
                                                         </h3>
 
@@ -132,16 +129,24 @@
 
                                                             <p class="u-line-height-100 ml-2 mb-0">
                                                                 <span class="u-font-size-12 u-font-weight-regular u-font-family-lato u-color-folk-aluminium">Telefone</span> <br>
-                                                                <!-- <span class="u-font-size-14 u-font-weight-semibold u-font-family-lato u-color-folk-medium-electric-blue">042 3226-1144</span> -->
                                                                 <span class="u-font-size-14 u-font-weight-semibold u-font-family-lato u-color-folk-medium-electric-blue"><?php echo get_field( 'telefone' ) ?></span>
                                                             </p>
                                                         </div>
 
                                                         <span class="d-block u-font-size-14 xxl:u-font-size-17 u-font-weight-regular u-color-folk-aluminium mt-4">
-                                                            <!-- R. Emilio de Menezes, 1515 – Vl. Estrela <br>
-                                                            Cep – 84040-030 – Ponta Grossa/PR -->
                                                             <?php echo get_field( 'endereco' ) ?>
                                                         </span>
+
+                                                        <div class="row">
+
+                                                            <div class="col-8 mt-3">
+                                                                <a 
+                                                                class="w-100 u-box-shadow-pattern d-block u-font-size-10 u-font-weight-bold u-font-family-nunito text-center text-decoration-none text-uppercase text-center u-color-folk-squid-ink hover:u-color-folk-white u-bg-folk-golden hover:u-bg-folk-squid-ink py-2"
+                                                                href="<?php echo get_field( 'mais_informacoes' ) ?>">
+                                                                    Mais informações
+                                                                </a>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                     <?php 

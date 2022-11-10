@@ -13,11 +13,13 @@
  */
 
 get_header(); ?>
-
 <section id="primary" class="content-area">
 <div id="main" class="site-main" role="main">
 
 <?php while ( have_posts() ) : the_post(); ?>
+<?php if (get_field('senha_salva', 'option')== 'ativado' && (get_field('modulo_ebook','option') == '1')):;?>
+
+<?php if (get_field('secao_ebook','option') == 'tipo1'):; ?>
 
 <!-- banner -->
 <section class="u-bg-folk-extrabold-electric-blue py-5">
@@ -38,7 +40,7 @@ get_header(); ?>
     </div>
 </section>
 <!-- end banner -->
-
+<?php  else : ?>
 <section class="my-5 pt-4">
 
     <div class="container">
@@ -132,6 +134,7 @@ get_header(); ?>
                 <div class="row">
 
                     <?php 
+                        $verifica_ativo =
                         $args = array(
                             'posts_per_page' => 24,
                             'post_type'      => 'ebook',
@@ -139,7 +142,7 @@ get_header(); ?>
                         );
 
                         $ebooks = new WP_Query( $args );
-
+                  
                         if( $ebooks->have_posts() ) :
                             while( $ebooks->have_posts() ) : $ebooks->the_post();
                     ?>
@@ -200,10 +203,13 @@ get_header(); ?>
             </div>
         </div>
     </div>
+    
+<?php endif;?>
+<?php else: echo get_template_part(  '404' ) ?>
+
 </section>
 
-<?php endwhile; ?>
-
+<?php endif; endwhile; ?>
 </div><!-- #main -->
 </section><!-- #primary -->
 

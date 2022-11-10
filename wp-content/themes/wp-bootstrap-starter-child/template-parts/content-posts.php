@@ -1,3 +1,4 @@
+<?php if( get_field('secao_noticias','option') == 'sessao-noticia'):?>
 <section class="l-posts">
 
     <div class="container">
@@ -260,3 +261,4 @@
         </div>
     </div>
 </section>
+<?php endif;?>

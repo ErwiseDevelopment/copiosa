@@ -62,7 +62,7 @@ get_header();
                     $args = array(
                         'posts_per_page' => 6,
                         'post_type'      => 'post',
-                        'category_name'  => $category_current,
+                        'category_name'  => $category_current,'blog'.,
                         'order'          => 'DESC',
                         //'post__not_in'   => array( $post_highlight_id ),
                         // 'paged'          =>  $paged,

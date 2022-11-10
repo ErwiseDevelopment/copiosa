@@ -254,7 +254,7 @@ get_header(); ?>
                     <div class="col-md-4 col-lg-3 order-1 order-md-2 mt-3">
 
                         <div>
-                            <form class="js-search-form" method="GET" action="/">
+                            <form class="js-search-form" method="GET" action="/?s=">
 
                                 <div class="row">
 

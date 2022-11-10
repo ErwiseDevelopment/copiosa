@@ -62,46 +62,46 @@
                                                 <p class="u-font-size-12 xxl:u-font-size-14 u-font-weight-bold u-color-folk-medium-electric-blue mb-0">
                                                     <!-- Institucional -->
                                                     <?php
-                                                        $cats = array();
-                                                        $categories_current = array();
-                                                        $count = 0;
+                                                            $cats = array();
+                                                            $categories_current = array();
+                                                            $count = 0;
 
-                                                        foreach (get_the_category($post_id) as $c) {
-                                                            $cat = get_category($c);
-                                                            array_push($cats, $cat->name);
-                                                        }
-                                                        
-                                                        foreach( $cats as $cat ) {
-                                                            foreach( get_categories_highlight() as $editorial ) {
-                                                                if( $cat == $editorial )
-                                                                    $editorial_current = $cat;
+                                                            foreach (get_the_category($post_id) as $c) {
+                                                                $cat = get_category($c);
+                                                                array_push($cats, $cat->name);
                                                             }
-                                                        }
+                                                            
+                                                            foreach( $cats as $cat ) {
+                                                                foreach( get_categories_highlight() as $editorial ) {
+                                                                    if( $cat == $editorial )
+                                                                        $editorial_current = $cat;
+                                                                }
+                                                            }
 
-                                                        foreach( $cats as $cat ) {
-                                                            if( $editorial_current ) {
-                                                                if( $cat != $editorial_current ) {
+                                                            foreach( $cats as $cat ) {
+                                                                if( $editorial_current ) {
+                                                                    if( $cat != $editorial_current ) {
+                                                                        array_push($categories_current, $cat);
+                                                                        $count++;
+            
+                                                                        if( $count == 1 )
+                                                                            break;
+                                                                    }
+                                                                } else {
                                                                     array_push($categories_current, $cat);
                                                                     $count++;
-        
-                                                                    if( $count == 1 )
+            
+                                                                    if( $count == 3 )
                                                                         break;
                                                                 }
-                                                            } else {
-                                                                array_push($categories_current, $cat);
-                                                                $count++;
-        
-                                                                if( $count == 3 )
-                                                                    break;
                                                             }
-                                                        }
 
-                                                        if (sizeOf($categories_current) > 0) {
-                                                            $post_categories = implode(', ', $categories_current);
-                                                        } 
+                                                            if (sizeOf($categories_current) > 0) {
+                                                                $post_categories = implode(', ', $categories_current);
+                                                            } 
 
-                                                        echo $editorial_current ? $editorial_current . ', ' . $post_categories : $post_categories;
-                                                    ?>
+                                                            echo $editorial_current ? $editorial_current . ', ' . $post_categories : $post_categories;
+                                        ?>
                                                 </p>
 
                                                 <p class="u-font-size-12 xxl:u-font-size-14 u-font-weight-semibold u-color-folk-medium-electric-blue">
